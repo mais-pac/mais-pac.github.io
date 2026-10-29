@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="MAIS PAC Members portal — private access for club members.">
+  <meta name="theme-color" content="#ffffff">
+  <title>Members · MAIS Physics & Astronomy Club</title>
+  <link rel="icon" type="image/png" href="assets/club-logo.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .members-card{border:1px solid var(--line);border-radius:10px;padding:24px 22px;background:#fcfcfd;max-width:520px}
+    .members-card h3{margin:0 0 6px;font-size:18px;letter-spacing:-.2px}
+    .members-card p.muted{color:var(--muted);font-size:14px;line-height:1.6;margin:0 0 16px}
+    .form-row{margin:12px 0}
+    .form-row label{display:block;font-size:13px;font-weight:600;margin-bottom:6px;color:#41484e}
+    .form-row input{width:100%;padding:11px 12px;border:1px solid #d8dde0;border-radius:8px;font-size:15px;background:#fff;color:var(--ink)}
+    .form-row input:focus{outline:2px solid var(--link);outline-offset:2px;border-color:var(--link)}
+    .btn{appearance:none;border:0;border-radius:8px;padding:11px 16px;font-size:14px;font-weight:600;cursor:pointer}
+    .btn-primary{background:var(--link);color:#fff;width:100%}
+    .btn-primary:hover{opacity:.92}
+    .btn-primary:disabled{opacity:.55;cursor:not-allowed}
+    .btn-ghost{background:#fff;border:1px solid var(--line);color:var(--ink)}
+    .status{margin-top:14px;font-size:13px;line-height:1.5;padding:10px 12px;border-radius:8px;display:none}
+    .status.show{display:block}
+    .status.ok{background:#e6f4ea;color:#1e4620;border:1px solid #c3e6c9}
+    .status.err{background:#fdecea;color:#611a15;border:1px solid #f5c2be}
+    .status.info{background:#e8f0fe;color:#1a365d;border:1px solid #c2d6f7}
+    .private-box{border:1px solid var(--line);border-radius:10px;padding:20px;background:#fff;margin-top:18px}
+    .private-box h3{margin:0 0 8px}
+    .pill{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;background:#eef6fb;color:var(--link);padding:4px 8px;border-radius:999px;font-weight:700}
+    .member-list{margin:12px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+    .member-list li{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px;display:flex;justify-content:space-between;gap:12px}
+    .member-list span.muted{color:var(--muted);font-size:12px}
+    .setup-help{margin-top:18px;padding:14px;border:1px dashed #cbd5dc;border-radius:10px;background:#f8f9fa;font-size:13px;line-height:1.6;color:#41484e}
+    .setup-help code{background:#eef1f2;padding:2px 6px;border-radius:6px;font-size:12px;word-break:break-all}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:10px 0 18px}
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.0/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="./" aria-label="MAIS Physics and Astronomy Club home">MAIS <span>Physics & Astronomy Club</span></a>
+      <nav aria-label="Main navigation">
+        <a href="./">Home</a>
+        <a href="./#about">About</a>
+        <a href="./#explore">Explore</a>
+        <a href="./#resources">Resources</a>
+        <a class="active" href="members.html" aria-current="page">Members</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <aside class="profile" aria-label="Club information">
+      <img class="club-logo" src="assets/club-logo.png" alt="MAIS Physics and Astronomy Club logo" width="403" height="487">
+      <h1>MAIS Physics &<br>Astronomy Club</h1>
+      <p class="school">Mongol Aspiration<br>International School</p>
+      <p class="location"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg> Ulaanbaatar, Mongolia</p>
+      <div class="profile-details">
+        <h2>Private portal</h2>
+        <p>Only signed-in members can see this.</p>
+        <p>Public site stays public.</p>
+        <a href="https://gzfristpisxqxtesalkc.supabase.co" target="_blank" rel="noopener">Supabase project ↗</a>
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <div class="intro-label">MAIS PAC · MEMBERS</div>
+      <h2 class="page-title">Members portal</h2>
+      <p class="lead">Sign in with your MAIS PAC account to see private content.</p>
+
+      <!-- CONFIG NOTICE -->
+      <div id="configNotice" class="status info show" style="margin-bottom:18px">
+        <strong>Setup needed:</strong> Paste your Supabase <code>anon</code> key into <code>assets/supabase-config.js</code> (see instructions below). The page will work immediately after that — no password in the code.
+      </div>
+
+      <!-- LOGGED OUT -->
+      <div id="authCard" class="members-card">
+        <h3>Sign in</h3>
+        <p class="muted">Use the email and password you created in Supabase → Authentication → Users. No password is stored in GitHub.</p>
+        <form id="loginForm" autocomplete="on">
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="username" placeholder="you@example.com">
+          </div>
+          <div class="form-row">
+            <label for="password">Password</label>
+            <input id="password" name="password" type="password" required autocomplete="current-password" placeholder="••••••••">
+          </div>
+          <div class="form-row">
+            <button id="loginBtn" type="submit" class="btn btn-primary">Sign in</button>
+          </div>
+        </form>
+        <div id="authStatus" class="status" role="status" aria-live="polite"></div>
+        <p class="muted" style="margin-top:14px">Forgot password? Reset it in Supabase Dashboard → Authentication → Users → … → Reset password.</p>
+      </div>
+
+      <!-- LOGGED IN -->
+      <div id="privateArea" style="display:none">
+        <div class="topbar">
+          <div>
+            <span class="pill">Signed in</span>
+            <span id="userEmail" style="margin-left:8px;font-size:14px;color:var(--ink);font-weight:600"></span>
+          </div>
+          <button id="logoutBtn" class="btn btn-ghost">Sign out</button>
+        </div>
+
+        <div class="private-box">
+          <h3>Private content</h3>
+          <p class="muted" style="margin:0 0 10px">This content is loaded from Supabase and only visible when signed in. It’s protected by Row Level Security — not by a hidden password in the page.</p>
+          <ul id="membersList" class="member-list" aria-live="polite"></ul>
+          <div id="dataStatus" class="status" role="status" aria-live="polite"></div>
+        </div>
+
+        <div class="setup-help">
+          <strong>Next:</strong> Create the <code>members</code> table in Supabase (SQL file provided: <code>supabase-setup.sql</code>). Add rows there — they will appear here automatically for signed-in users only.
+        </div>
+      </div>
+
+      <section aria-labelledby="how-title" style="margin-top:32px">
+        <h2 id="how-title">How this stays secure on GitHub Pages</h2>
+        <p><strong>GitHub Pages is static:</strong> everything in the repo is public. So we never put a password or a <code>service_role</code> key in the code. Instead:</p>
+        <ol style="font-size:15px;line-height:1.7;color:var(--ink)">
+          <li>Browser uses only the <code>anon</code> (publishable) key — safe to be public.</li>
+          <li>Supabase checks your email + password on its server and returns a session token.</li>
+          <li>Row Level Security (RLS) in Supabase allows <code>SELECT</code> only when <code>auth.role() = 'authenticated'</code>.</li>
+        </ol>
+        <p style="font-size:14px;color:var(--muted)">If someone copies the HTML, they still can’t read private rows without signing in.</p>
+      </section>
+
+      <div class="setup-help">
+        <strong>Where to find your anon key:</strong> Supabase Dashboard (your project <code>mais-pac-members</code>) → Project Settings (gear icon) → <strong>API</strong> → <strong>Project API keys</strong> → copy <code>anon</code> <code>public</code> key. Paste it into <code>assets/supabase-config.js</code>. Never paste the <code>service_role</code> key anywhere in the repo.<br><br>
+        <strong>Vercel option (also free):</strong> You can keep the same repo. Import it in <a href="https://vercel.com/new" target="_blank" rel="noopener">vercel.com/new</a> → Framework: <em>Other</em> → deploy. The same <code>members.html</code> works. Benefit: you can later add Vercel Environment Variables (<code>SUPABASE_URL</code> + <code>SUPABASE_ANON_KEY</code>) and server-side checks if you want to protect downloadable files too. For now, no Vercel config is required — static hosting is enough because RLS does the protection.
+      </div>
+    </main>
+  </div>
+
+  <footer><span>MAIS Physics & Astronomy Club</span><span>Mongol Aspiration International School</span></footer>
+
+  <script src="assets/supabase-config.js"></script>
+  <script>
+    (function(){
+      const cfg = window.MAIS_PAC_SUPABASE || {};
+      const SUPABASE_URL = cfg.url || "https://gzfristpisxqxtesalkc.supabase.co";
+      const SUPABASE_ANON_KEY = cfg.anonKey || "";
+
+      const configNotice = document.getElementById('configNotice');
+      const authCard = document.getElementById('authCard');
+      const privateArea = document.getElementById('privateArea');
+      const authStatus = document.getElementById('authStatus');
+      const dataStatus = document.getElementById('dataStatus');
+      const userEmailEl = document.getElementById('userEmail');
+      const membersList = document.getElementById('membersList');
+      const loginForm = document.getElementById('loginForm');
+      const loginBtn = document.getElementById('loginBtn');
+      const logoutBtn = document.getElementById('logoutBtn');
+
+      function setStatus(el, msg, kind){
+        el.textContent = msg;
+        el.className = 'status show ' + (kind || 'info');
+        if(!msg) el.className = 'status';
+      }
+
+      // If anon key missing, show setup notice and disable login
+      let supabase = null;
+      if(!SUPABASE_ANON_KEY || SUPABASE_ANON_KEY.includes('PASTE_YOUR') || SUPABASE_ANON_KEY.length < 20){
+        setStatus(authStatus, 'Not configured yet: add your anon key to assets/supabase-config.js (see bottom of page).', 'info');
+        loginBtn.disabled = true;
+        configNotice.style.display = 'block';
+      } else {
+        configNotice.style.display = 'none';
+        supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+      }
+
+      function showLoggedOut(msg){
+        authCard.style.display = 'block';
+        privateArea.style.display = 'none';
+        if(msg) setStatus(authStatus, msg, 'info');
+      }
+      function showLoggedIn(user){
+        authCard.style.display = 'none';
+        privateArea.style.display = 'block';
+        userEmailEl.textContent = user.email || user.id;
+        loadMembers();
+      }
+
+      async function loadMembers(){
+        if(!supabase) return;
+        membersList.innerHTML = '';
+        setStatus(dataStatus, 'Loading private data…', 'info');
+        const { data, error } = await supabase.from('members').select('*').order('created_at', { ascending: true });
+        if(error){
+          // Common when table not created yet
+          let msg = error.message;
+          if(msg.includes('does not exist') || msg.includes('relation') || msg.includes('schema cache')){
+            msg = 'Table “members” not found yet. Run supabase-setup.sql in Supabase → SQL Editor, then reload. (' + error.message + ')';
+          }
+          if(error.code === '42501' || msg.includes('permission') || msg.includes('RLS') || msg.includes('policy')){
+            msg = 'RLS blocked access. Check supabase-setup.sql policies and that you are signed in. (' + error.message + ')';
+          }
+          setStatus(dataStatus, msg, 'err');
+          return;
+        }
+        if(!data || data.length === 0){
+          setStatus(dataStatus, 'Signed in! No rows yet — add some in Supabase → Table Editor → members.', 'ok');
+          return;
+        }
+        setStatus(dataStatus, '', '');
+        data.forEach(row=>{
+          const li = document.createElement('li');
+          const left = document.createElement('div');
+          left.textContent = row.name || row.title || row.email || ('ID ' + row.id);
+          if(row.role || row.note){
+            const small = document.createElement('span');
+            small.className = 'muted';
+            small.textContent = row.role || row.note;
+            left.appendChild(document.createElement('br'));
+            left.appendChild(small);
+          }
+          const right = document.createElement('span');
+          right.className = 'muted';
+          right.textContent = row.created_at ? new Date(row.created_at).toLocaleDateString() : '';
+          li.appendChild(left);
+          li.appendChild(right);
+          membersList.appendChild(li);
+        });
+        setStatus(dataStatus, 'Loaded ' + data.length + ' row(s) from Supabase (RLS-protected).', 'ok');
+      }
+
+      if(supabase){
+        // Check session on load
+        supabase.auth.getSession().then(({data})=>{
+          if(data.session && data.session.user){
+            showLoggedIn(data.session.user);
+          } else {
+            showLoggedOut();
+          }
+        });
+        supabase.auth.onAuthStateChange((event, session)=>{
+          if(session && session.user) showLoggedIn(session.user);
+          else showLoggedOut(event === 'SIGNED_OUT' ? 'Signed out.' : '');
+        });
+
+        loginForm.addEventListener('submit', async (e)=>{
+          e.preventDefault();
+          const email = document.getElementById('email').value.trim();
+          const password = document.getElementById('password').value;
+          if(!email || !password) return;
+          loginBtn.disabled = true;
+          loginBtn.textContent = 'Signing in…';
+          setStatus(authStatus, 'Signing in…', 'info');
+          const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+          if(error){
+            setStatus(authStatus, error.message, 'err');
+            loginBtn.disabled = false;
+            loginBtn.textContent = 'Sign in';
+          } else if(data.user){
+            setStatus(authStatus, '', '');
+            // onAuthStateChange will switch view
+            loginBtn.disabled = false;
+            loginBtn.textContent = 'Sign in';
+          }
+        });
+
+        logoutBtn.addEventListener('click', async ()=>{
+          await supabase.auth.signOut();
+        });
+      } else {
+        // keep login disabled until configured
+        loginForm.addEventListener('submit', (e)=> e.preventDefault());
+      }
+    })();
+  </script>
+</body>
+</html>
