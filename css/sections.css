@@ -846,3 +846,12 @@ section[id] { scroll-margin-top: calc(var(--hud-h) + 12px); }
   color: #fff;
 }
 .about__texture small { color: var(--dim); font-size: .58rem; letter-spacing: .12em; text-transform: uppercase; margin-top: 3px; }
+
+/* ================= wide screens ================= */
+@media (min-width: 1500px) {
+  .hero__inner { width: min(1460px, 100% - 80px); }
+  .hero__copy { max-width: 46ch; gap: 26px; }
+  .hero__lead { font-size: 1.16rem; max-width: 44ch; }
+  .mascot { width: clamp(350px, 24vw, 470px); }
+  .section__title { font-size: 2.6rem; }
+}
