@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A2: Light, Telescopes and Stars — MAIS Physics &amp; Astronomy Club handout on inverse-square flux, astronomical magnitudes, blackbody radiation, and stellar lifetimes.">
+  <meta name="theme-color" content="#ffffff">
+  <title>A2: Light, Telescopes &amp; Stars · MAIS PAC Handouts</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#sheet">Skip to handout</a>
+
+  <div class="handout-bar">
+    <div class="handout-bar__inner">
+      <a href="../#handouts">← MAIS Physics &amp; Astronomy Club</a>
+      <div class="handout-bar__links">
+        <strong>Handout A2</strong>
+        <a href="A2-solutions.html">Solutions</a>
+        <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheet-page" id="sheet">
+    <div class="running-head">
+      <span>MAIS Physics &amp; Astronomy Club Handouts</span>
+      <span>A2: Light, Telescopes &amp; Stars</span>
+    </div>
+
+    <header class="sheet-title-block">
+      <h1>Astronomy A2: Light, Telescopes, and Stars</h1>
+      <p class="sheet-subtitle">MAIS Physics &amp; Astronomy Club (PAC)</p>
+    </header>
+
+    <div class="sheet-intro">
+      <p>Unlike laboratory physicists, astronomers cannot touch a star, put it on a scale, or insert a thermometer into its photosphere. Virtually everything we know about stars—their temperatures, radii, compositions, and lifetimes—comes from decoding the starlight collected by telescopes.</p>
+    </div>
+
+    <h2>1. Luminosity, Flux, Magnitudes, and Telescopes</h2>
+    <p>A star of intrinsic power (luminosity) <i>L</i> radiates isotropically across a sphere of area 4π<i>d</i><sup>2</sup> at distance <i>d</i>, delivering energy per unit area per unit time (flux) <i>F</i> = <i>L</i>/(4π<i>d</i><sup>2</sup>). Historically, Hipparchus ranked visible stars into six brightness classes; Pogson formalized this logarithmic scale so that a difference of 5 apparent magnitudes corresponds to a flux ratio of exactly 100:</p>
+    <div class="eq">
+      <div class="eq__expr"><i>m</i><sub>1</sub> − <i>m</i><sub>2</sub> = −2.5 log<sub>10</sub> (<span class="frac"><span><i>F</i><sub>1</sub></span><span><i>F</i><sub>2</sub></span></span>).</div>
+      <span class="eq__num">(1)</span>
+    </div>
+    <p>A circular telescope objective of aperture diameter <i>D</i> has two primary jobs: collecting light over area π(<i>D</i>/2)<sup>2</sup> ∝ <i>D</i><sup>2</sup>, and resolving fine angular detail down to the wave-optics Rayleigh diffraction limit θ<sub>min</sub> = 1.22 λ/<i>D</i> (in radians).</p>
+
+    <div class="problem">
+      <p><span class="prob-head">[1] Problem 1 (Why aperture rules).</span> Compare a 200 mm (8-inch) club reflector telescope with a dark-adapted human eye of pupil diameter <i>d<sub>e</sub></i> = 7.0 mm at visible wavelength λ = 550 nm.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> How many times more light does the telescope collect than a single eye? If the unaided eye can see stars down to apparent magnitude <i>m</i> = 6.0 under a dark sky, how faint a star (in magnitudes) can the telescope reach?</li>
+        <li><span class="part-label">(b)</span> Compute the theoretical diffraction limit θ<sub>min</sub> of the 200 mm telescope in arcseconds. Why do ground-based telescopes rarely achieve much sharper raw images than ~1″ without adaptive optics?</li>
+      </ul>
+    </div>
+
+    <h2>2. Thermal Radiation and Stellar Radii</h2>
+    <p>To a good approximation, a star’s photosphere radiates like an ideal thermal blackbody at effective surface temperature <i>T</i>. Two fundamental laws tie color and power directly to temperature:</p>
+    <div class="eq">
+      <div class="eq__expr">λ<sub>max</sub> <i>T</i> = <i>b</i> ≈ 2.90 × 10<sup>−3</sup> m·K,&emsp;&emsp; <i>L</i> = 4π<i>R</i><sup>2</sup> σ<i>T</i><sup>4</sup>,</div>
+      <span class="eq__num">(2)</span>
+    </div>
+    <p>where Wien’s displacement law gives the peak wavelength λ<sub>max</sub> and the Stefan–Boltzmann law (σ = 5.67 × 10<sup>−8</sup> W·m<sup>−2</sup>·K<sup>−4</sup>) gives total radiated luminosity from surface area 4π<i>R</i><sup>2</sup>.</p>
+
+    <div class="remark">
+      <p><span class="remark-head">Remark.</span> Avoid plugging in σ whenever you can! Dividing <i>L</i> = 4π<i>R</i><sup>2</sup>σ<i>T</i><sup>4</sup> by the solar values gives <span class="frac"><span><i>L</i></span><span><i>L</i><sub>⊙</sub></span></span> = (<span class="frac"><span><i>R</i></span><span><i>R</i><sub>⊙</sub></span></span>)<sup>2</sup> (<span class="frac"><span><i>T</i></span><span><i>T</i><sub>⊙</sub></span></span>)<sup>4</sup>, which eliminates 4π and σ in a single line.</p>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 2 (Measuring a red supergiant without resolving it).</span> Betelgeuse in Orion has luminosity <i>L</i> ≈ 1.0 × 10<sup>5</sup> <i>L</i><sub>⊙</sub>, and its continuous spectrum peaks in the near-infrared at λ<sub>max</sub> ≈ 830 nm (take <i>T</i><sub>⊙</sub> = 5,780 K and 1 AU ≈ 215 <i>R</i><sub>⊙</sub>).</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Find the effective surface temperature <i>T</i> of Betelgeuse.</li>
+        <li><span class="part-label">(b)</span> Estimate Betelgeuse’s radius in units of <i>R</i><sub>⊙</sub> and in AU. Which planets’ orbits would lie inside Betelgeuse if it replaced the Sun?</li>
+      </ul>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 3 (Planetary equilibrium temperatures).</span> A rapidly rotating spherical planet of radius <i>R<sub>p</sub></i> orbits a star of radius <i>R</i><sub>★</sub> and temperature <i>T</i><sub>★</sub> at distance <i>a</i>. A fraction <i>A</i> (the Bond albedo) of incident starlight is reflected back to space, while the remaining fraction (1 − <i>A</i>) is absorbed over cross-sectional disk area π<i>R<sub>p</sub></i><sup>2</sup> and re-radiated thermally over full spherical area 4π<i>R<sub>p</sub></i><sup>2</sup>.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Show that the planet’s radiative equilibrium temperature is <i>T</i><sub>eq</sub> = <i>T</i><sub>★</sub> (1 − <i>A</i>)<sup>1/4</sup> √(<span class="frac"><span><i>R</i><sub>★</sub></span><span>2<i>a</i></span></span>), independent of <i>R<sub>p</sub></i>.</li>
+        <li><span class="part-label">(b)</span> Evaluate <i>T</i><sub>eq</sub> (in K and °C) for Earth (<i>A</i> = 0.30, <i>T</i><sub>⊙</sub> = 5,780 K, <i>R</i><sub>⊙</sub> = 6.96 × 10<sup>8</sup> m, <i>a</i> = 1.50 × 10<sup>11</sup> m), and explain why Earth’s actual global mean surface temperature is +15 °C (288 K).</li>
+      </ul>
+    </div>
+
+    <h2>3. Nuclear Fuel and Stellar Lifetimes</h2>
+    <p>During its main-sequence life, a star fuses hydrogen into helium in its core, converting roughly ε ≈ 0.007 (0.7%) of the fused rest mass into radiant energy via Δ<i>E</i> = ε Δ<i>mc</i><sup>2</sup>.</p>
+
+    <div class="problem">
+      <p><span class="prob-head">[3] Problem 4 (Live fast, die young).</span> Assume a star can fuse the innermost 10% of its total mass <i>M</i> before exhausting core hydrogen.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Using <i>M</i><sub>⊙</sub> = 1.99 × 10<sup>30</sup> kg and <i>L</i><sub>⊙</sub> = 3.83 × 10<sup>26</sup> W, estimate the Sun’s main-sequence lifetime τ<sub>⊙</sub> in billions of years (Gyr).</li>
+        <li><span class="part-label">(b)</span> Observations of main-sequence stars show the empirical mass–luminosity scaling <i>L</i> ∝ <i>M</i><sup>3.5</sup>. Derive how main-sequence lifetime τ<sub>MS</sub> scales with mass <i>M</i>, and estimate τ<sub>MS</sub> for a bright blue 10 <i>M</i><sub>⊙</sub> star and for a dim 0.20 <i>M</i><sub>⊙</sub> red dwarf.</li>
+      </ul>
+    </div>
+
+    <nav class="sheet-nav" aria-label="Handout navigation">
+      <a href="A1.html">← Previous: A1 The Night Sky &amp; Celestial Motion</a>
+      <a href="A2-solutions.html">View A2 Solutions →</a>
+      <a href="A3.html">Next: A3 Relativity &amp; Black Holes →</a>
+    </nav>
+  </main>
+</body>
+</html>

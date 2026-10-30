@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Worked solutions for Handout P1: Physical Reasoning and Estimation — MAIS Physics &amp; Astronomy Club.">
+  <meta name="theme-color" content="#ffffff">
+  <title>P1 Solutions · MAIS PAC Handouts</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#sheet">Skip to solutions</a>
+
+  <div class="handout-bar">
+    <div class="handout-bar__inner">
+      <a href="../#handouts">← MAIS Physics &amp; Astronomy Club</a>
+      <div class="handout-bar__links">
+        <a href="P1.html">Handout P1</a>
+        <strong>Solutions</strong>
+        <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheet-page" id="sheet">
+    <div class="running-head">
+      <span>MAIS Physics &amp; Astronomy Club Handouts</span>
+      <span>P1 Solutions: Physical Reasoning &amp; Estimation</span>
+    </div>
+
+    <header class="sheet-title-block">
+      <h1>Physics P1: Solutions</h1>
+      <p class="sheet-subtitle">Physical Reasoning and Estimation · MAIS PAC</p>
+    </header>
+
+    <div class="solution">
+      <p><span class="sol-head">Problem 1.</span></p>
+      <p><strong>(a)</strong> Write <i>v</i> = <i>C</i> λ<sup><i>a</i></sup> <i>g<sup>b</sup></i> ρ<sup><i>c</i></sup>. Since [<i>v</i>] = [<i>L</i>][<i>T</i>]<sup>−1</sup>, [λ] = [<i>L</i>], [<i>g</i>] = [<i>L</i>][<i>T</i>]<sup>−2</sup>, and [ρ] = [<i>M</i>][<i>L</i>]<sup>−3</sup>, matching exponents of [<i>M</i>] immediately gives <i>c</i> = 0: ρ is the <em>only</em> parameter carrying mass, so nothing can cancel it! (Physically, doubling water’s density doubles both the gravitational restoring weight and the inertia of each fluid parcel, so the two cancel.) Matching [<i>T</i>] gives −2<i>b</i> = −1 ⇒ <i>b</i> = 1/2, and matching [<i>L</i>] gives <i>a</i> + <i>b</i> = 1 ⇒ <i>a</i> = 1/2. Thus</p>
+      <div class="eq">
+        <div class="eq__expr"><i>v</i> = <i>C</i> √(<i>g</i>λ)</div>
+        <span class="eq__num">(1)</span>
+      </div>
+      <p>(exact fluid theory gives <i>C</i> = 1/√(2π) ≈ 0.40, so longer ocean swells outrun shorter chop).</p>
+      <p><strong>(b)</strong> When <i>h</i> ≪ λ and <i>v</i> is independent of λ, the same reasoning with <i>h</i> replacing λ gives <i>v</i> = <i>C'</i> √(<i>gh</i>) (in fact <i>C'</i> = 1 exactly for linear shallow-water waves). For <i>h</i> = 4.0 × 10<sup>3</sup> m,</p>
+      <div class="eq">
+        <div class="eq__expr"><i>v</i> ≈ √((9.8 m/s<sup>2</sup>)(4000 m)) ≈ 198 m/s ≈ 710 km/h,</div>
+        <span class="eq__num">(2)</span>
+      </div>
+      <p>comparable to a commercial jetliner.</p>
+    </div>
+
+    <div class="solution">
+      <p><span class="sol-head">Problem 2.</span></p>
+      <p><strong>(a)</strong> Test each limit in turn:</p>
+      <ul class="subparts">
+        <li><span class="part-label">1.</span> <em>Flat wedge</em> (θ → 0): the block sits at rest on a flat horizontal surface, so we must have <i>A</i> → 0. Candidate (i) gives <i>mg</i>/(<i>M</i> + <i>m</i>) ≠ 0, eliminating <strong>(i)</strong>.</li>
+        <li><span class="part-label">2.</span> <em>Vertical wall</em> (θ → π/2): the block drops straight down beside a vertical cliff without pressing horizontally against the wedge, so again <i>A</i> → 0. Candidate (iv) diverges (tan θ → ∞), eliminating <strong>(iv)</strong>.</li>
+        <li><span class="part-label">3.</span> <em>Immovable wedge</em> (<i>M</i> → ∞): an infinitely massive wedge cannot accelerate, so <i>A</i> → 0. Candidate (ii) approaches <i>g</i> sin θ cos θ ≠ 0 as <i>M</i> → ∞, eliminating <strong>(ii)</strong>.</li>
+        <li><span class="part-label">4.</span> <em>Heavy wedge on a gentle slope</em> (<i>M</i> ≫ <i>m</i> and small θ, with <i>M</i>θ<sup>2</sup> ≪ <i>m</i>): the block presses on the nearly flat wedge with normal force <i>N</i> ≈ <i>mg</i>, exerting a tiny horizontal force <i>N</i> sin θ ≈ <i>mg</i>θ on a massive wedge of mass <i>M</i>, so Newton’s second law requires <i>A</i> ≈ (<i>m</i>/<i>M</i>)<i>g</i>θ. Candidate (iii) gives <i>mg</i>θ/<i>M</i> as expected, whereas candidate (v) gives <i>mg</i>θ/<i>m</i> = <i>g</i>θ (independent of <i>M</i>!), eliminating <strong>(v)</strong>. Only <strong>(iii)</strong> survives!</li>
+      </ul>
+      <p><strong>(b)</strong> Let the slope descend to the right and let the wedge recoil to the left with acceleration <i>A</i>. If <i>N</i> is the normal force between block and wedge, horizontal motion of the wedge gives <i>MA</i> = <i>N</i> sin θ. Because the block remains in contact with the wedge, its acceleration component along the outward normal (sin θ, cos θ) must equal that of the wedge, namely −<i>A</i> sin θ. Newton’s second law for the block along the normal gives</p>
+      <div class="eq">
+        <div class="eq__expr"><i>N</i> − <i>mg</i> cos θ = −<i>mA</i> sin θ &ensp;⇒&ensp; <span class="frac"><span><i>MA</i></span><span>sin θ</span></span> = <i>mg</i> cos θ − <i>mA</i> sin θ,</div>
+        <span class="eq__num">(3)</span>
+      </div>
+      <p>which rearranges directly to <i>A</i> = <span class="frac"><span><i>mg</i> sin θ cos θ</span><span><i>M</i> + <i>m</i> sin<sup>2</sup> θ</span></span>, confirming <strong>(iii)</strong>.</p>
+    </div>
+
+    <div class="solution">
+      <p><span class="sol-head">Problem 3.</span></p>
+      <p><strong>(a)</strong> Because the atmospheric scale height (≈ 8.5 km) is roughly 0.13% of <i>R</i><sub>⊕</sub>, gravitational acceleration <i>g</i> is essentially uniform across nearly the entire mass of the air, and the spherical shell has surface area 4π<i>R</i><sub>⊕</sub><sup>2</sup>. Hydrostatic balance requires sea-level pressure to support the weight per unit area of the air column overhead: <i>P</i><sub>0</sub> = <i>M</i><sub>atm</sub><i>g</i> / (4π<i>R</i><sub>⊕</sub><sup>2</sup>). Hence</p>
+      <div class="eq">
+        <div class="eq__expr"><i>M</i><sub>atm</sub> ≈ <span class="frac"><span>4π <i>R</i><sub>⊕</sub><sup>2</sup> <i>P</i><sub>0</sub></span><span><i>g</i></span></span> = <span class="frac"><span>4π (6.37 × 10<sup>6</sup> m)<sup>2</sup> (1.01 × 10<sup>5</sup> Pa)</span><span>9.8 m/s<sup>2</sup></span></span> ≈ 5.3 × 10<sup>18</sup> kg.</div>
+        <span class="eq__num">(4)</span>
+      </div>
+      <p>(Accounting for continental elevation lowers the true global value slightly to 5.15 × 10<sup>18</sup> kg.)</p>
+      <p><strong>(b)</strong> Local pressure measures the weight per unit area of the air <em>above</em> that altitude. Since <i>P</i><sub>UB</sub> / <i>P</i><sub>0</sub> ≈ 8.6 × 10<sup>4</sup> / 1.01 × 10<sup>5</sup> ≈ 0.85, roughly 85% of a sea-level air column lies above 1350 m, and about <strong>15%</strong> lies below Ulaanbaatar’s altitude.</p>
+    </div>
+
+    <div class="solution">
+      <p><span class="sol-head">Problem 4.</span></p>
+      <p><strong>(a)</strong> We have [<i>G</i>] = [<i>L</i>]<sup>3</sup>[<i>M</i>]<sup>−1</sup>[<i>T</i>]<sup>−2</sup>, [ρ<sub>0</sub>] = [<i>M</i>][<i>L</i>]<sup>−3</sup>, and [<i>R</i><sub>0</sub>] = [<i>L</i>]. Notice that [<i>G</i>ρ<sub>0</sub>] = [<i>T</i>]<sup>−2</sup> already cancels both mass and length! Any factor of <i>R</i><sub>0</sub> would introduce unmatched length dimensions, so</p>
+      <div class="eq">
+        <div class="eq__expr"><i>t</i><sub>ff</sub> = <i>C</i> <span class="frac"><span>1</span><span>√(<i>G</i>ρ<sub>0</sub>)</span></span>.</div>
+        <span class="eq__num">(5)</span>
+      </div>
+      <p>Physically, if we double <i>R</i><sub>0</sub> at fixed ρ<sub>0</sub>, each shell has twice as far to fall, <em>but</em> the enclosed mass <i>M</i> = <span class="frac"><span>4</span><span>3</span></span>π<i>R</i><sub>0</sub><sup>3</sup>ρ<sub>0</sub> increases eightfold so surface gravity <i>GM</i>/<i>R</i><sub>0</sub><sup>2</sup> ∝ ρ<sub>0</sub><i>R</i><sub>0</sub> also doubles; from <i>R</i><sub>0</sub> = <span class="frac"><span>1</span><span>2</span></span><i>gt</i><sup>2</sup>, the two factors of 2 cancel! (Exact integration gives <i>C</i> = √(3π/32) ≈ 0.543.)</p>
+      <p><strong>(b)</strong> The Sun’s mean density is ρ̄<sub>⊙</sub> = <i>M</i><sub>⊙</sub> / (<span class="frac"><span>4</span><span>3</span></span>π<i>R</i><sub>⊙</sub><sup>3</sup>) ≈ 1.41 × 10<sup>3</sup> kg/m<sup>3</sup>. Taking <i>C</i> ≈ 1 gives 1/√(<i>G</i>ρ̄<sub>⊙</sub>) ≈ 3.26 × 10<sup>3</sup> s ≈ 54 minutes (or <strong>29 minutes</strong> with the exact prefactor √(3π/32)). The real Sun does not collapse in half an hour because nuclear fusion in its 1.5 × 10<sup>7</sup> K core maintains high thermal gas pressure that balances inward gravity at every radius (<em>hydrostatic equilibrium</em>).</p>
+    </div>
+
+    <nav class="sheet-nav" aria-label="Handout navigation">
+      <a href="P1.html">← Back to P1 Handout</a>
+      <a href="../#handouts">All handouts</a>
+      <a href="P2.html">Next: P2 Motion, Forces &amp; Conservation →</a>
+    </nav>
+  </main>
+</body>
+</html>

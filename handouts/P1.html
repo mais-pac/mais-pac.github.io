@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="P1: Physical Reasoning and Estimation — MAIS Physics &amp; Astronomy Club handout on units, dimensional analysis, limiting cases, and Fermi estimation.">
+  <meta name="theme-color" content="#ffffff">
+  <title>P1: Physical Reasoning &amp; Estimation · MAIS PAC Handouts</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#sheet">Skip to handout</a>
+
+  <div class="handout-bar">
+    <div class="handout-bar__inner">
+      <a href="../#handouts">← MAIS Physics &amp; Astronomy Club</a>
+      <div class="handout-bar__links">
+        <strong>Handout P1</strong>
+        <a href="P1-solutions.html">Solutions</a>
+        <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheet-page" id="sheet">
+    <div class="running-head">
+      <span>MAIS Physics &amp; Astronomy Club Handouts</span>
+      <span>P1: Physical Reasoning &amp; Estimation</span>
+    </div>
+
+    <header class="sheet-title-block">
+      <h1>Physics P1: Physical Reasoning and Estimation</h1>
+      <p class="sheet-subtitle">MAIS Physics &amp; Astronomy Club (PAC)</p>
+    </header>
+
+    <div class="sheet-intro">
+      <p>Before solving differential equations or memorizing long formulas, physicists ask simpler questions: <em>Do the units match? What happens in extreme cases? Roughly how big should the answer be?</em> These three habits catch algebraic mistakes immediately and often reveal the form of a physical law before doing a single integral. Problems are marked from <strong>[1]</strong> (warm-up) to <strong>[3]</strong> (challenge).</p>
+    </div>
+
+    <h2>1. Units and Dimensional Analysis</h2>
+    <p>Every physical quantity in mechanics can be built from three base dimensions: length [<i>L</i>], mass [<i>M</i>], and time [<i>T</i>]. Two quantities may be added, subtracted, or equated only if their dimensions match, and the argument of any transcendental function (such as sin <i>x</i>, <i>e<sup>x</sup></i>, or ln <i>x</i>) must be dimensionless.</p>
+
+    <div class="thm">
+      <p><span class="thm-head">Example 1.</span> A simple pendulum consists of a small bob of mass <i>m</i> hanging on a light string of length <i>ℓ</i> in a uniform gravitational field <i>g</i>. How does the period <i>P</i> of small oscillations depend on <i>m</i>, <i>ℓ</i>, and <i>g</i>?</p>
+      <p><span class="thm-head">Solution.</span> Write <i>P</i> = <i>C m<sup>a</sup> ℓ<sup>b</sup> g<sup>c</sup></i>, where <i>C</i> is a dimensionless constant. Comparing dimensions gives</p>
+      <div class="eq">
+        <div class="eq__expr">[<i>T</i>] = [<i>M</i>]<sup><i>a</i></sup> [<i>L</i>]<sup><i>b</i></sup> ([<i>L</i>][<i>T</i>]<sup>−2</sup>)<sup><i>c</i></sup> = [<i>M</i>]<sup><i>a</i></sup> [<i>L</i>]<sup><i>b</i>+<i>c</i></sup> [<i>T</i>]<sup>−2<i>c</i></sup>.</div>
+        <span class="eq__num">(1)</span>
+      </div>
+      <p>Matching exponents of [<i>M</i>], [<i>T</i>], and [<i>L</i>] yields <i>a</i> = 0, −2<i>c</i> = 1 ⇒ <i>c</i> = −1/2, and <i>b</i> + <i>c</i> = 0 ⇒ <i>b</i> = 1/2. Therefore</p>
+      <div class="eq">
+        <div class="eq__expr"><i>P</i> = <i>C</i> √(<span class="frac"><span><i>ℓ</i></span><span><i>g</i></span></span>).</div>
+        <span class="eq__num">(2)</span>
+      </div>
+      <p>Newton’s laws are only needed to fix the numerical prefactor <i>C</i> = 2π. Even without solving the equation of motion, dimensional analysis already tells us that doubling the mass has no effect, while quadrupling the length doubles the period.</p>
+    </div>
+
+    <div class="remark">
+      <p><span class="remark-head">Remark.</span> Why did we restrict to <em>small</em> oscillations? If the release angle θ<sub>0</sub> is large, θ<sub>0</sub> is itself a dimensionless parameter, so <i>C</i> becomes a function <i>f</i>(θ<sub>0</sub>) = 2π(1 + θ<sub>0</sub><sup>2</sup>/16 + ···). Always check whether hidden dimensionless ratios exist!</p>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[1] Problem 1.</span> Ocean ripples and waves carry energy across water of density ρ under gravitational acceleration <i>g</i>.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> For waves of wavelength λ on very deep water (depth <i>h</i> ≫ λ), the wave speed <i>v</i> can depend only on λ, <i>g</i>, and ρ. Use dimensional analysis to find how <i>v</i> scales with λ, <i>g</i>, and ρ.</li>
+        <li><span class="part-label">(b)</span> For tsunami waves in an ocean whose depth <i>h</i> is much smaller than the wavelength (<i>h</i> ≪ λ), experiments show that <i>v</i> is independent of λ. Find how <i>v</i> depends on <i>h</i> and <i>g</i>, and estimate the speed (in km/h) of a tsunami over a 4.0 km deep ocean basin.</li>
+      </ul>
+    </div>
+
+    <h2>2. Limiting Cases and Symmetry</h2>
+    <p>Whenever you derive an algebraic expression, test it against cases where you already know what must happen physically: setting an angle to 0 or 90°, letting one mass become much heavier than another (<i>M</i> ≫ <i>m</i>), or swapping two identical labels.</p>
+
+    <div class="thm">
+      <p><span class="thm-head">Example 2.</span> Two blocks of masses <i>m</i><sub>1</sub> and <i>m</i><sub>2</sub> hang on opposite sides of a massless, frictionless pulley (an Atwood machine). Suppose a student writes down <i>a</i> = <span class="frac"><span><i>m</i><sub>1</sub> + <i>m</i><sub>2</sub></span><span><i>m</i><sub>1</sub> − <i>m</i><sub>2</sub></span></span> <i>g</i> for the downward acceleration of <i>m</i><sub>1</sub>. How do we see immediately that this is wrong?</p>
+      <p><span class="thm-head">Solution.</span> If <i>m</i><sub>1</sub> = <i>m</i><sub>2</sub>, the system is balanced and must have <i>a</i> = 0, whereas the student’s formula diverges to infinity! The correct result,</p>
+      <div class="eq">
+        <div class="eq__expr"><i>a</i> = <span class="frac"><span><i>m</i><sub>1</sub> − <i>m</i><sub>2</sub></span><span><i>m</i><sub>1</sub> + <i>m</i><sub>2</sub></span></span> <i>g</i>,</div>
+        <span class="eq__num">(3)</span>
+      </div>
+      <p>vanishes when <i>m</i><sub>1</sub> = <i>m</i><sub>2</sub>, approaches +<i>g</i> (free fall) when <i>m</i><sub>1</sub> ≫ <i>m</i><sub>2</sub>, and changes sign when <i>m</i><sub>1</sub> and <i>m</i><sub>2</sub> are interchanged.</p>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 2.</span> A small block of mass <i>m</i> is placed on a frictionless wedge of mass <i>M</i> and inclination angle θ, which itself rests on a frictionless horizontal table. Five candidates are proposed for the magnitude <i>A</i> of the wedge’s horizontal acceleration:</p>
+      <p style="text-align:center;">
+        (i) <span class="frac"><span><i>mg</i> cos θ</span><span><i>M</i> + <i>m</i></span></span>,&emsp;
+        (ii) <span class="frac"><span><i>Mg</i> sin θ cos θ</span><span><i>M</i> + <i>m</i> sin<sup>2</sup> θ</span></span>,&emsp;
+        (iii) <span class="frac"><span><i>mg</i> sin θ cos θ</span><span><i>M</i> + <i>m</i> sin<sup>2</sup> θ</span></span>,&emsp;
+        (iv) <span class="frac"><span><i>mg</i> tan θ</span><span><i>M</i> + <i>m</i></span></span>,&emsp;
+        (v) <span class="frac"><span><i>mg</i> sin θ cos θ</span><span><i>m</i> + <i>M</i> sin<sup>2</sup> θ</span></span>.
+      </p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> By examining limiting cases such as θ → 0, θ → π/2, <i>M</i> → ∞, and <i>M</i> ≫ <i>m</i> at small θ (without solving Newton’s equations from scratch), eliminate four of the five expressions and identify the only physically consistent candidate.</li>
+        <li><span class="part-label">(b)</span> Verify the surviving formula directly by writing down Newton’s second law for the block and the wedge.</li>
+      </ul>
+    </div>
+
+    <h2>3. Order-of-Magnitude Estimation</h2>
+    <p>An order-of-magnitude (or Fermi) estimate breaks an unfamiliar quantity into pieces you know within a factor of 2 or 3. Overestimates and underestimates tend to partially cancel when multiplied together, frequently landing remarkably close to the exact value.</p>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 3.</span> Sea-level atmospheric pressure is <i>P</i><sub>0</sub> ≈ 1.01 × 10<sup>5</sup> Pa, Earth’s radius is <i>R</i><sub>⊕</sub> ≈ 6.37 × 10<sup>6</sup> m, and <i>g</i> ≈ 9.8 m/s<sup>2</sup>.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Explaining why the atmosphere’s thickness (≈ 10 km) being small compared to <i>R</i><sub>⊕</sub> simplifies the calculation, estimate the total mass <i>M</i><sub>atm</sub> of Earth’s atmosphere.</li>
+        <li><span class="part-label">(b)</span> Ulaanbaatar sits at an elevation of roughly 1350 m above sea level, where typical atmospheric pressure is about 8.6 × 10<sup>4</sup> Pa. Approximately what fraction of Earth’s atmosphere by mass lies <em>below</em> the altitude of Ulaanbaatar?</li>
+      </ul>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[3] Problem 4 (Collapsing clouds and stars).</span> Suppose all internal pressure inside a spherical cloud or star of uniform initial density ρ<sub>0</sub> suddenly vanished, so that it collapsed inward solely under its own gravity (with Newton’s constant <i>G</i> = 6.67 × 10<sup>−11</sup> N·m<sup>2</sup>/kg<sup>2</sup>).</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Using dimensional analysis, find how the collapse time <i>t</i><sub>ff</sub> depends on <i>G</i>, ρ<sub>0</sub>, and the initial radius <i>R</i><sub>0</sub>. Explain physically why <i>R</i><sub>0</sub> drops out when ρ<sub>0</sub> is held fixed.</li>
+        <li><span class="part-label">(b)</span> Estimate <i>t</i><sub>ff</sub> in minutes for the Sun (mass <i>M</i><sub>⊙</sub> = 1.99 × 10<sup>30</sup> kg, radius <i>R</i><sub>⊙</sub> = 6.96 × 10<sup>8</sup> m). Why has the real Sun shone steadily for 4.6 billion years instead of collapsing on this timescale?</li>
+      </ul>
+    </div>
+
+    <nav class="sheet-nav" aria-label="Handout navigation">
+      <a href="../#handouts">← All handouts</a>
+      <a href="P1-solutions.html">View P1 Solutions →</a>
+      <a href="P2.html">Next: P2 Motion, Forces &amp; Conservation →</a>
+    </nav>
+  </main>
+</body>
+</html>

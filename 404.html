@@ -4,82 +4,34 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#06071a">
-  <title>Lost in space · MAIS Physics &amp; Astronomy Club</title>
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <style>
-    :root { color-scheme: dark; }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 32px;
-      background:
-        radial-gradient(60% 50% at 50% 20%, #16205c 0%, transparent 60%),
-        radial-gradient(30% 30% at 80% 80%, rgba(255, 106, 31, .12), transparent 70%),
-        #05061a;
-      color: #eef3ff;
-      font-family: "Space Grotesk", system-ui, sans-serif;
-    }
-    .card { display: grid; justify-items: center; gap: 18px; max-width: 560px; }
-    img.mascot {
-      width: 132px;
-      height: auto;
-      image-rendering: pixelated;
-      animation: float 5s ease-in-out infinite;
-      filter: drop-shadow(0 24px 36px rgba(0, 0, 0, .6)) drop-shadow(0 0 40px rgba(255, 194, 26, .28));
-    }
-    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
-    p.kicker {
-      margin: 0;
-      font-family: "Courier New", monospace;
-      font-size: 12px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: #8fe3ff;
-    }
-    h1 {
-      margin: 0;
-      font-family: "Courier New", monospace;
-      font-size: clamp(2rem, 8vw, 3.5rem);
-      color: #ffc21a;
-      letter-spacing: .04em;
-      text-shadow: 5px 5px 0 #6b4300;
-    }
-    p.text { margin: 0; color: #a9b6dc; line-height: 1.7; }
-    a.btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 15px 24px;
-      font-family: "Courier New", monospace;
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #241a00;
-      background: #ffc21a;
-      border: 3px solid #ffe89a;
-      box-shadow: 0 5px 0 #7a4c00;
-      transition: transform .12s ease, box-shadow .12s ease;
-    }
-    a.btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 #7a4c00; }
-    a.btn:active { transform: translateY(4px); box-shadow: 0 1px 0 #7a4c00; }
-    a.btn:focus-visible { outline: 3px solid #35c6ff; outline-offset: 4px; }
-    small { display: block; margin-top: 6px; color: #6f7ca7; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
-    @media (prefers-reduced-motion: reduce) { img.mascot { animation: none; } }
-  </style>
+  <meta name="theme-color" content="#ffffff">
+  <title>Page not found · MAIS Physics &amp; Astronomy Club</title>
+  <link rel="icon" type="image/png" href="/assets/club-logo.png">
+  <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-  <main class="card">
-    <img class="mascot" src="assets/img/mascot.png" alt="PIX, the club mascot, floating in space" width="44" height="52">
-    <p class="kicker">Error 404 · signal lost</p>
-    <h1>LOST IN SPACE</h1>
-    <p class="text">This page drifted beyond the observable universe. The stars are still where you left them, though.</p>
-    <a class="btn" href="./">Return to mission control</a>
-    <small>MAIS Physics &amp; Astronomy Club</small>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="/" aria-label="MAIS Physics and Astronomy Club home">MAIS <span>Physics &amp; Astronomy Club</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#handouts">Handouts</a>
+        <a href="/#resources">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="not-found">
+    <div class="intro-label">404</div>
+    <h1>Page not found.</h1>
+    <p>The page or handout you were looking for could not be found. It may have moved, or the address may contain a typo.</p>
+    <p><a href="/">← Return to MAIS Physics &amp; Astronomy Club</a></p>
   </main>
+
+  <footer class="site-footer">
+    <span>MAIS Physics &amp; Astronomy Club (PAC)</span>
+    <span>Mongol Aspiration International School · Ulaanbaatar, Mongolia</span>
+  </footer>
 </body>
 </html>
