@@ -1,0 +1,712 @@
+:root {
+  color-scheme: light;
+  --ink: #30363b;
+  --ink-strong: #1e2327;
+  --muted: #6e767d;
+  --link: #28749a;
+  --link-hover: #1b5573;
+  --line: #e9ecee;
+  --line-strong: #cfd6dc;
+  --surface: #f8f9fa;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --serif: "Latin Modern Roman", "Computer Modern Serif", "STIX Two Text", Cambria, "Times New Roman", Georgia, serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 28px;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -80px;
+  background: #ffffff;
+  color: var(--ink-strong);
+  border: 1px solid var(--line-strong);
+  padding: 8px 12px;
+  font-size: 14px;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* ============================================================
+   Site Header
+   ============================================================ */
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: #ffffff;
+}
+
+.header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 22px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wordmark {
+  color: var(--ink-strong);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.wordmark:hover {
+  color: var(--ink-strong);
+  text-decoration: none;
+}
+
+.wordmark span {
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-left: 9px;
+  color: var(--muted);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 26px;
+  font-size: 14px;
+}
+
+.site-nav a {
+  color: var(--muted);
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--link);
+}
+
+/* ============================================================
+   Homepage Two-Column Layout (Kevin Zhou / Academic Style)
+   ============================================================ */
+.page-layout {
+  max-width: 1040px;
+  margin: 64px auto 72px;
+  padding: 0 32px;
+  display: grid;
+  grid-template-columns: 245px minmax(0, 1fr);
+  gap: 70px;
+  align-items: start;
+}
+
+.profile {
+  text-align: center;
+}
+
+.club-logo {
+  display: block;
+  width: 185px;
+  height: auto;
+  margin: 0 auto 24px;
+  border-radius: 3px;
+}
+
+.profile h1 {
+  font-size: 23px;
+  line-height: 1.3;
+  font-weight: 650;
+  letter-spacing: -0.4px;
+  color: var(--ink-strong);
+  margin: 0 0 12px;
+}
+
+.school {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+  color: #5b636a;
+}
+
+.location {
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin: 0;
+}
+
+.profile-details {
+  border-top: 1px solid var(--line);
+  margin-top: 26px;
+  padding-top: 18px;
+  font-size: 13px;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.profile-details h2 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  color: #41484e;
+}
+
+.profile-details p {
+  margin: 4px 0;
+  color: var(--muted);
+}
+
+/* ============================================================
+   Main Column Typography & Sections
+   ============================================================ */
+.intro-label {
+  font-size: 10.5px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 10px;
+}
+
+.page-title {
+  font-size: 33px;
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: -0.8px;
+  color: var(--ink-strong);
+  margin: 0 0 10px;
+}
+
+.lead {
+  font-size: 17px;
+  color: var(--muted);
+  margin: 0 0 32px;
+}
+
+main section {
+  margin-top: 38px;
+}
+
+main section h2 {
+  font-size: 21px;
+  line-height: 1.4;
+  letter-spacing: -0.3px;
+  font-weight: 600;
+  color: var(--ink-strong);
+  margin: 0 0 14px;
+}
+
+main p {
+  margin: 0 0 16px;
+}
+
+.topic {
+  margin: 20px 0;
+}
+
+.topic h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink-strong);
+  margin: 0 0 4px;
+}
+
+.topic p {
+  margin: 0;
+}
+
+/* ============================================================
+   Handout Curriculum List (knzhou.github.io/teaching/ style)
+   ============================================================ */
+.handout-group {
+  margin-top: 22px;
+}
+
+.handout-group h3 {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 8px;
+}
+
+.handout-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+
+.handout-row {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.handout-code {
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+.handout-info strong {
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+.handout-info small {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 1px;
+}
+
+.handout-links {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 14px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Resource Links & Footer
+   ============================================================ */
+.resource-links {
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+}
+
+.resource-links > a {
+  display: block;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 15px;
+}
+
+.resource-links span {
+  font-size: 13px;
+  margin-left: 4px;
+}
+
+.resource-links small {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 1px;
+}
+
+.closing {
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 34px;
+}
+
+.site-footer {
+  max-width: 976px;
+  margin: 0 auto;
+  padding: 22px 0 34px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* ============================================================
+   LaTeX / Kevin Zhou–Styled Handout Sheet Pages (handouts/*.html)
+   ============================================================ */
+.handout-bar {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  font-family: var(--sans);
+  font-size: 13.5px;
+}
+
+.handout-bar__inner {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 11px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.handout-bar__links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.print-btn {
+  appearance: none;
+  background: #ffffff;
+  border: 1px solid var(--line-strong);
+  border-radius: 3px;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.print-btn:hover {
+  border-color: var(--link);
+  color: var(--link);
+}
+
+.sheet-page {
+  max-width: 780px;
+  margin: 40px auto 64px;
+  padding: 0 28px;
+  font-family: var(--serif);
+  font-size: 17.5px;
+  line-height: 1.65;
+  color: #16181a;
+}
+
+.running-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 13.5px;
+  font-style: italic;
+  color: #3b4045;
+  padding-bottom: 6px;
+  border-bottom: 0.8px solid #2b2f33;
+  margin-bottom: 34px;
+}
+
+.sheet-title-block {
+  text-align: center;
+  margin: 0 0 28px;
+}
+
+.sheet-title-block h1 {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.28;
+  margin: 0 0 8px;
+  color: #111315;
+}
+
+.sheet-subtitle {
+  font-size: 15.5px;
+  color: #3b4045;
+  margin: 0;
+}
+
+.sheet-intro {
+  background: #fafbfc;
+  border-left: 2.5px solid #8a99a8;
+  padding: 12px 18px;
+  margin: 0 0 28px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.sheet-intro p {
+  margin: 0;
+}
+
+.sheet-page h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 32px 0 12px;
+  color: #111315;
+}
+
+.sheet-page p {
+  margin: 0 0 14px;
+}
+
+.eq {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0;
+  padding: 4px 8px;
+}
+
+.eq__expr {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 18px;
+}
+
+.eq__num {
+  font-size: 15.5px;
+  color: #444a50;
+  margin-left: 12px;
+}
+
+.frac {
+  display: inline-grid;
+  grid-template-rows: auto auto;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 0.9em;
+  margin: 0 0.14em;
+  line-height: 1.15;
+}
+
+.frac > span:first-child {
+  border-bottom: 1px solid currentColor;
+  padding: 0 0.22em 0.08em;
+}
+
+.frac > span:last-child {
+  padding: 0.08em 0.22em 0;
+}
+
+.thm,
+.problem,
+.solution {
+  margin: 18px 0;
+}
+
+.thm-head,
+.prob-head,
+.sol-head {
+  font-weight: 700;
+  color: #111315;
+}
+
+.remark {
+  margin: 16px 0;
+  color: #24292e;
+}
+
+.remark-head {
+  font-style: italic;
+  font-weight: 700;
+}
+
+.subparts {
+  list-style: none;
+  margin: 8px 0 14px;
+  padding-left: 22px;
+}
+
+.subparts li {
+  margin: 6px 0;
+}
+
+.subparts li > .part-label {
+  display: inline-block;
+  min-width: 28px;
+  margin-left: -28px;
+}
+
+.sheet-nav {
+  margin-top: 44px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-family: var(--sans);
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ============================================================
+   404 Page
+   ============================================================ */
+.not-found {
+  max-width: 620px;
+  margin: 90px auto;
+  padding: 0 28px;
+}
+
+.not-found h1 {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: var(--ink-strong);
+  margin: 6px 0 12px;
+}
+
+/* ============================================================
+   Responsive Breakpoints
+   ============================================================ */
+@media (min-width: 1200px) {
+  .page-layout {
+    margin-top: 74px;
+  }
+}
+
+@media (max-width: 760px) {
+  .header-inner {
+    padding: 18px 22px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .wordmark span {
+    font-size: 12px;
+  }
+
+  .site-nav {
+    gap: 20px;
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .page-layout {
+    margin: 34px auto 46px;
+    padding: 0 22px;
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .profile {
+    padding-bottom: 26px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .club-logo {
+    width: 150px;
+    margin-bottom: 18px;
+  }
+
+  .profile h1 {
+    font-size: 24px;
+  }
+
+  .profile-details {
+    max-width: 320px;
+    margin: 20px auto 0;
+    text-align: center;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .handout-row {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 6px 10px;
+  }
+
+  .handout-links {
+    grid-column: 2;
+    margin-top: 2px;
+  }
+
+  .site-footer {
+    margin: 0 22px;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .sheet-page {
+    margin: 26px auto 48px;
+    padding: 0 20px;
+    font-size: 16.5px;
+  }
+
+  .running-head {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 12.5px;
+  }
+
+  .sheet-title-block h1 {
+    font-size: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media print {
+  .site-header,
+  .handout-bar,
+  .sheet-nav,
+  .site-footer,
+  .skip-link {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+
+  .sheet-page {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 11.5pt;
+    line-height: 1.5;
+  }
+
+  .thm,
+  .problem,
+  .solution,
+  .remark,
+  .eq {
+    break-inside: avoid;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}

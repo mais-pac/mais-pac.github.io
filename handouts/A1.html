@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A1: The Night Sky and Celestial Motion — MAIS Physics &amp; Astronomy Club handout on angular size, celestial coordinates, sidereal time, and observing from Ulaanbaatar.">
+  <meta name="theme-color" content="#ffffff">
+  <title>A1: The Night Sky &amp; Celestial Motion · MAIS PAC Handouts</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#sheet">Skip to handout</a>
+
+  <div class="handout-bar">
+    <div class="handout-bar__inner">
+      <a href="../#handouts">← MAIS Physics &amp; Astronomy Club</a>
+      <div class="handout-bar__links">
+        <strong>Handout A1</strong>
+        <a href="A1-solutions.html">Solutions</a>
+        <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheet-page" id="sheet">
+    <div class="running-head">
+      <span>MAIS Physics &amp; Astronomy Club Handouts</span>
+      <span>A1: The Night Sky &amp; Celestial Motion</span>
+    </div>
+
+    <header class="sheet-title-block">
+      <h1>Astronomy A1: The Night Sky and Celestial Motion</h1>
+      <p class="sheet-subtitle">MAIS Physics &amp; Astronomy Club (PAC)</p>
+    </header>
+
+    <div class="sheet-intro">
+      <p>Before pointing a telescope upward, every astronomer learns to read the celestial sphere with the naked eye: measuring angles on the sky, predicting which stars rise or stay visible all night from our latitude in Ulaanbaatar, and understanding how Earth’s spin and orbit shape days, months, and seasons.</p>
+    </div>
+
+    <h2>1. Angles on the Sky and Parallax</h2>
+    <p>Looking at the sky alone tells us directions, not distances. One degree (1°) is subdivided into 60 arcminutes (60′), and each arcminute into 60 arcseconds (60″), so 1 rad = 180°/π ≈ 206,265″. Whenever an object of linear diameter <i>d</i> sits at a much larger distance <i>D</i> ≫ <i>d</i>, its angular diameter is</p>
+    <div class="eq">
+      <div class="eq__expr">θ (in radians) ≈ <span class="frac"><span><i>d</i></span><span><i>D</i></span></span>,&emsp;&emsp; θ (in arcseconds) ≈ 206,265 <span class="frac"><span><i>d</i></span><span><i>D</i></span></span>.</div>
+      <span class="eq__num">(1)</span>
+    </div>
+    <p>As Earth moves around the Sun on a baseline of 1 AU, a nearby star shifts against distant background stars by parallax angle <i>p</i> = (1 AU)/<i>D</i>. By definition, a star at distance <i>D</i> = 1 parsec (pc) has parallax <i>p</i> = 1″, so <strong>1 pc = 206,265 AU ≈ 3.26 light-years</strong>.</p>
+
+    <div class="problem">
+      <p><span class="prob-head">[1] Problem 1 (A cosmic coincidence).</span> The Sun has radius <i>R</i><sub>⊙</sub> ≈ 6.96 × 10<sup>5</sup> km at mean distance <i>D</i><sub>⊙</sub> ≈ 1.50 × 10<sup>8</sup> km, while the Moon has radius <i>R<sub>M</sub></i> ≈ 1,737 km at mean distance <i>D<sub>M</sub></i> ≈ 3.84 × 10<sup>5</sup> km.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Calculate the mean angular diameters θ<sub>⊙</sub> and θ<sub><i>M</i></sub> in arcminutes.</li>
+        <li><span class="part-label">(b)</span> Because the Moon’s orbit is slightly elliptical (<i>e</i> ≈ 0.055), some central solar eclipses are <em>total</em> while others are <em>annular</em> (“ring of fire”). Explain why, and explain why solar eclipses do not occur at every new moon.</li>
+      </ul>
+    </div>
+
+    <h2>2. The Celestial Sphere from Ulaanbaatar</h2>
+    <p>Projecting Earth’s equator and poles onto the sky defines the <em>celestial equator</em> (declination δ = 0°) and the north/south celestial poles (δ = ±90°). For an observer at northern geographic latitude φ (for Ulaanbaatar, <strong>φ ≈ 47.9° N</strong>):</p>
+    <ul class="subparts">
+      <li><span class="part-label">•</span> The north celestial pole (marked closely by Polaris) sits due north at altitude <i>h</i><sub>NCP</sub> = φ above the horizon.</li>
+      <li><span class="part-label">•</span> A star of declination δ reaches its highest altitude (upper culmination) when crossing the meridian:</li>
+    </ul>
+    <div class="eq">
+      <div class="eq__expr"><i>h</i><sub>max</sub> = 90° − |φ − δ|.</div>
+      <span class="eq__num">(2)</span>
+    </div>
+    <p>Stars with δ &gt; 90° − φ never dip below the northern horizon (<em>circumpolar</em>), whereas stars with δ &lt; −(90° − φ) never rise above the southern horizon.</p>
+
+    <div class="remark">
+      <p><span class="remark-head">Remark.</span> Check two extreme latitudes in equation (2): at the North Pole (φ = 90°), Polaris is straight overhead (<i>h</i> = 90°) and the northern sky never sets; at the equator (φ = 0°), every star on the celestial sphere spends 12 hours above the horizon and 12 hours below.</p>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 2 (Stargazing over Mongolia).</span> Consider observing from Ulaanbaatar at latitude φ = 47.9° N (neglecting atmospheric refraction and horizon hills).</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Find the declination range of stars that are circumpolar from Ulaanbaatar, and the declination range of stars that can never be seen.</li>
+        <li><span class="part-label">(b)</span> Classify each of the following bright stars—Dubhe in Ursa Major (δ = +61.8°), Vega (δ = +38.8°), Sirius (δ = −16.7°), and Alpha Centauri (δ = −60.8°)—as circumpolar, seasonal (rises and sets), or never visible, and find both the maximum and minimum altitudes of Dubhe and the maximum altitude of Sirius.</li>
+      </ul>
+    </div>
+
+    <h2>3. Solar Time, Sidereal Time, and Synodic Periods</h2>
+    <p>Because Earth orbits the Sun in the same sense that it spins on its axis, after one 360° rotation relative to the distant stars (one <em>sidereal day</em>) the Sun has shifted eastward along the ecliptic by nearly 1°, so Earth must turn an extra ~4 minutes to bring the Sun back to the meridian (one 24-hour <em>solar day</em>).</p>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 3.</span> Earth completes one orbit around the Sun in <i>N</i> = 365.2422 mean solar days.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Explain geometrically why Earth completes <i>N</i> + 1 (not <i>N</i>) rotations relative to the distant stars in one year, and calculate the length of a sidereal day in hours, minutes, and seconds.</li>
+        <li><span class="part-label">(b)</span> If Orion crosses the southern meridian at 23:00 local time tonight in Ulaanbaatar, at what clock time will Orion cross the meridian 30 days later?</li>
+      </ul>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[3] Problem 4 (Synodic periods of the Moon and planets).</span> Two bodies orbit the same central mass in circular coplanar orbits in the same direction with sidereal periods <i>P</i><sub>1</sub> &lt; <i>P</i><sub>2</sub>. Their <em>synodic period</em> <i>S</i> is the time interval between successive alignments on the same side of the center.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> By comparing their angular speeds ω<sub><i>i</i></sub> = 2π/<i>P<sub>i</sub></i>, prove that <span class="frac"><span>1</span><span><i>S</i></span></span> = <span class="frac"><span>1</span><span><i>P</i><sub>1</sub></span></span> − <span class="frac"><span>1</span><span><i>P</i><sub>2</sub></span></span>.</li>
+        <li><span class="part-label">(b)</span> The Moon orbits Earth relative to the stars in <i>P<sub>M</sub></i> = 27.32 days while Earth orbits the Sun in <i>P</i><sub>⊕</sub> = 365.25 days. Compute the cycle of lunar phases (new moon to new moon).</li>
+        <li><span class="part-label">(c)</span> Explain why distant Neptune (<i>P<sub>N</sub></i> ≈ 165 yr) reaches opposition from Earth almost every year (<i>S</i> ≈ 367.5 d), whereas nearby Mars (<i>P</i><sub>Mars</sub> ≈ 1.88 yr) reaches opposition only once every ~780 days!</li>
+      </ul>
+    </div>
+
+    <nav class="sheet-nav" aria-label="Handout navigation">
+      <a href="P3.html">← Previous: P3 Gravity, Orbits &amp; Waves</a>
+      <a href="A1-solutions.html">View A1 Solutions →</a>
+      <a href="A2.html">Next: A2 Light, Telescopes &amp; Stars →</a>
+    </nav>
+  </main>
+</body>
+</html>

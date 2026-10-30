@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Worked solutions for Handout P3: Gravity, Orbits and Waves — MAIS Physics &amp; Astronomy Club.">
+  <meta name="theme-color" content="#ffffff">
+  <title>P3 Solutions · MAIS PAC Handouts</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#sheet">Skip to solutions</a>
+
+  <div class="handout-bar">
+    <div class="handout-bar__inner">
+      <a href="../#handouts">← MAIS Physics &amp; Astronomy Club</a>
+      <div class="handout-bar__links">
+        <a href="P3.html">Handout P3</a>
+        <strong>Solutions</strong>
+        <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheet-page" id="sheet">
+    <div class="running-head">
+      <span>MAIS Physics &amp; Astronomy Club Handouts</span>
+      <span>P3 Solutions: Gravity, Orbits &amp; Waves</span>
+    </div>
+
+    <header class="sheet-title-block">
+      <h1>Physics P3: Solutions</h1>
+      <p class="sheet-subtitle">Gravity, Orbits, and Waves · MAIS PAC</p>
+    </header>
+
+    <div class="solution">
+      <p><span class="sol-head">Problem 1.</span></p>
+      <p><strong>(a)</strong> A satellite’s orbital plane stays fixed relative to the distant stars (inertial space), so to hover over a fixed point on Earth’s surface it must match Earth’s true 360° rotation period relative to the stars—one sidereal day (86,164 s). Moreover, Earth’s gravity pulls toward Earth’s center, so every Keplerian orbit lies in a plane passing through Earth’s center (a great circle). Hovering perpetually at latitude 47.9° N would define a small circle north of Earth’s center whose centripetal acceleration points toward Earth’s rotation axis rather than Earth’s center, leaving an unbalanced southward component of gravity.</p>
+      <p><strong>(b)</strong> From Kepler’s third law <i>r</i> = (<i>GM</i><sub>⊕</sub><i>P</i><sup>2</sup> / 4π<sup>2</sup>)<sup>1/3</sup>, using <i>GM</i><sub>⊕</sub> = 3.986 × 10<sup>14</sup> m<sup>3</sup>/s<sup>2</sup> and <i>P</i> = 86,164 s:</p>
+      <div class="eq">
+        <div class="eq__expr"><i>r</i> = (<span class="frac"><span>(3.986 × 10<sup>14</sup>)(86,164)<sup>2</sup></span><span>4π<sup>2</sup></span></span>)<sup>1/3</sup> ≈ 4.216 × 10<sup>7</sup> m = 42,160 km.</div>
+        <span class="eq__num">(1)</span>
+      </div>
+      <p>Subtracting <i>R</i><sub>⊕</sub> = 6,370 km gives an altitude <i>h</i> ≈ <strong>35,790 km</strong> (about 5.6 Earth radii above the equator).</p>
+    </div>
+
+    <div class="solution">
+      <p><span class="sol-head">Problem 2.</span></p>
+      <p><strong>(a)</strong> For a circular orbit of radius <i>r</i>, kinetic energy is <i>K</i> = +<i>GMm</i>/(2<i>r</i>), potential energy is <i>U</i> = −<i>GMm</i>/<i>r</i>, and total energy is <i>E</i> = −<i>GMm</i>/(2<i>r</i>) = −<i>K</i>. When drag does negative work <i>W</i><sub>drag</sub> = Δ<i>E</i> &lt; 0, total energy <i>E</i> becomes more negative, so <i>r</i> decreases—and therefore kinetic energy <i>K</i> = −<i>E</i> <em>increases</em> by Δ<i>K</i> = −Δ<i>E</i> &gt; 0! The satellite <strong>speeds up</strong> as it spirals lower.</p>
+      <p><strong>(b)</strong> Because the satellite spirals slightly inward rather than moving strictly perpendicular to gravity, its velocity vector has a tiny downward radial component toward Earth’s center. Gravity therefore does <em>positive</em> work Δ<i>W</i><sub>grav</sub> = −Δ<i>U</i> = +2|Δ<i>E</i>|, twice as large as the energy −|Δ<i>E</i>| dissipated by drag, leaving net kinetic energy gain Δ<i>K</i> = +|Δ<i>E</i>|.</p>
+    </div>
+
+    <div class="solution">
+      <p><span class="sol-head">Problem 3.</span></p>
+      <p><strong>(a)</strong> Since <i>r<sub>p</sub></i> + <i>r<sub>a</sub></i> = 2<i>a</i>, the semi-major axis is <i>a</i> = <span class="frac"><span>1.00 + 1.52</span><span>2</span></span> = <strong>1.26 AU</strong>. A full orbit on this ellipse takes <i>P</i> = <i>a</i><sup>3/2</sup> = (1.26)<sup>3/2</sup> ≈ 1.414 yr. Coasting from perihelion (Earth) to aphelion (Mars) is exactly half an orbit:</p>
+      <div class="eq">
+        <div class="eq__expr"><i>t</i><sub>transfer</sub> = <span class="frac"><span><i>P</i></span><span>2</span></span> ≈ 0.707 yr × 365.25 d/yr ≈ 258 days (≈ 8.5 months).</div>
+        <span class="eq__num">(2)</span>
+      </div>
+      <p><strong>(b)</strong> At <i>r</i> = <i>r</i><sub>1</sub>, Earth’s circular speed satisfies <i>v</i><sub>⊕</sub><sup>2</sup> = <i>GM</i><sub>⊙</sub>/<i>r</i><sub>1</sub>. Dividing the vis-viva equation by <i>v</i><sub>⊕</sub><sup>2</sup> gives</p>
+      <div class="eq">
+        <div class="eq__expr"><span class="frac"><span><i>v<sub>p</sub></i></span><span><i>v</i><sub>⊕</sub></span></span> = √(2 − <span class="frac"><span><i>r</i><sub>1</sub></span><span><i>a</i></span></span>) = √(2 − <span class="frac"><span>1.00</span><span>1.26</span></span>) ≈ 1.098.</div>
+        <span class="eq__num">(3)</span>
+      </div>
+      <p>Thus <i>v<sub>p</sub></i> ≈ 1.098 × 29.8 km/s ≈ 32.7 km/s, requiring a departure boost Δ<i>v</i><sub>1</sub> = <i>v<sub>p</sub></i> − <i>v</i><sub>⊕</sub> ≈ <strong>2.9 km/s</strong>.</p>
+    </div>
+
+    <div class="solution">
+      <p><span class="sol-head">Problem 4.</span></p>
+      <p><strong>(a)</strong> Around the center of mass, momentum vanishes: <i>M</i><sub>★</sub><i>v</i><sub>★</sub> = <i>m<sub>p</sub>v<sub>p</sub></i>. For <i>m<sub>p</sub></i> ≪ <i>M</i><sub>★</sub>, the planet’s orbital radius <i>a</i> satisfies Kepler’s third law <i>a</i> = (<i>GM</i><sub>★</sub><i>P</i><sup>2</sup> / 4π<sup>2</sup>)<sup>1/3</sup>, so its circular speed is <i>v<sub>p</sub></i> = 2π<i>a</i>/<i>P</i> = (2π<i>GM</i><sub>★</sub> / <i>P</i>)<sup>1/3</sup>. Multiplying by <i>m<sub>p</sub></i>/<i>M</i><sub>★</sub> immediately gives</p>
+      <div class="eq">
+        <div class="eq__expr"><i>v</i><sub>★</sub> = <span class="frac"><span><i>m<sub>p</sub></i></span><span><i>M</i><sub>★</sub></span></span> (<span class="frac"><span>2π<i>GM</i><sub>★</sub></span><span><i>P</i></span></span>)<sup>1/3</sup> = <i>m<sub>p</sub></i> (<span class="frac"><span>2π<i>G</i></span><span><i>M</i><sub>★</sub><sup>2</sup><i>P</i></span></span>)<sup>1/3</sup>.</div>
+        <span class="eq__num">(4)</span>
+      </div>
+      <p><strong>(b)</strong> With <i>P</i> = 11.86 × 3.156 × 10<sup>7</sup> s ≈ 3.74 × 10<sup>8</sup> s, Jupiter’s orbital speed is <i>v<sub>J</sub></i> = (2π<i>GM</i><sub>⊙</sub>/<i>P</i>)<sup>1/3</sup> ≈ 1.306 × 10<sup>4</sup> m/s. Multiplying by <i>m<sub>J</sub></i>/<i>M</i><sub>⊙</sub> = 9.55 × 10<sup>−4</sup> yields <i>v</i><sub>⊙</sub> ≈ <strong>12.5 m/s</strong> (a brisk bicycle ride!), producing a tiny Doppler shift Δλ/λ<sub>0</sub> = <i>v</i><sub>⊙</sub>/<i>c</i> ≈ <strong>4.2 × 10<sup>−8</sup></strong>. Modern stabilized spectrographs measure shifts down to ~0.3 m/s, routinely discovering rocky planets around nearby stars.</p>
+    </div>
+
+    <nav class="sheet-nav" aria-label="Handout navigation">
+      <a href="P3.html">← Back to P3 Handout</a>
+      <a href="../#handouts">All handouts</a>
+      <a href="A1.html">Next: A1 The Night Sky &amp; Celestial Motion →</a>
+    </nav>
+  </main>
+</body>
+</html>

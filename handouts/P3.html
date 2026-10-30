@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="P3: Gravity, Orbits and Waves — MAIS Physics &amp; Astronomy Club handout on Newtonian gravitation, Kepler's laws, orbital energy, and Doppler shifts.">
+  <meta name="theme-color" content="#ffffff">
+  <title>P3: Gravity, Orbits &amp; Waves · MAIS PAC Handouts</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#sheet">Skip to handout</a>
+
+  <div class="handout-bar">
+    <div class="handout-bar__inner">
+      <a href="../#handouts">← MAIS Physics &amp; Astronomy Club</a>
+      <div class="handout-bar__links">
+        <strong>Handout P3</strong>
+        <a href="P3-solutions.html">Solutions</a>
+        <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheet-page" id="sheet">
+    <div class="running-head">
+      <span>MAIS Physics &amp; Astronomy Club Handouts</span>
+      <span>P3: Gravity, Orbits &amp; Waves</span>
+    </div>
+
+    <header class="sheet-title-block">
+      <h1>Physics P3: Gravity, Orbits, and Waves</h1>
+      <p class="sheet-subtitle">MAIS Physics &amp; Astronomy Club (PAC)</p>
+    </header>
+
+    <div class="sheet-intro">
+      <p>Newton’s discovery that the same inverse-square law governs a falling apple and the orbiting Moon turned astronomy into a branch of physics. Together with wave physics and the Doppler shift, orbital mechanics lets us weigh distant planets, stars, and even invisible companions across light-years of empty space.</p>
+    </div>
+
+    <h2>1. Universal Gravitation and Circular Orbits</h2>
+    <p>Two point masses <i>M</i> and <i>m</i> separated by distance <i>r</i> attract with force <i>F</i> = <i>GMm</i>/<i>r</i><sup>2</sup>, with potential energy <i>U</i>(<i>r</i>) = −<i>GMm</i>/<i>r</i> (choosing <i>U</i>(∞) = 0). By Newton’s shell theorem, any spherically symmetric body acts on external objects as if all of its mass were concentrated at its center. For a circular orbit of radius <i>r</i> around a much heavier mass <i>M</i> ≫ <i>m</i>, equating gravitational pull to centripetal force gives</p>
+    <div class="eq">
+      <div class="eq__expr"><span class="frac"><span><i>GMm</i></span><span><i>r</i><sup>2</sup></span></span> = <span class="frac"><span><i>mv</i><sup>2</sup></span><span><i>r</i></span></span> &ensp;⇒&ensp; <i>v</i> = √(<span class="frac"><span><i>GM</i></span><span><i>r</i></span></span>),&emsp; <i>P</i><sup>2</sup> = <span class="frac"><span>4π<sup>2</sup></span><span><i>GM</i></span></span> <i>r</i><sup>3</sup>.</div>
+      <span class="eq__num">(1)</span>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[1] Problem 1 (Geostationary satellites).</span> A weather or communications satellite in geostationary orbit stays fixed above a single longitude on Earth’s equator (<i>G</i> = 6.67 × 10<sup>−11</sup> N·m<sup>2</sup>/kg<sup>2</sup>, <i>M</i><sub>⊕</sub> = 5.97 × 10<sup>24</sup> kg, <i>R</i><sub>⊕</sub> = 6.37 × 10<sup>6</sup> m).</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Explain why the satellite’s orbital period must equal Earth’s <em>sidereal</em> rotation period (<i>P</i> = 86,164 s) rather than the 86,400 s solar day, and explain why a stationary orbit directly above Ulaanbaatar (latitude 47.9° N) is impossible under gravity alone.</li>
+        <li><span class="part-label">(b)</span> Compute the satellite’s orbital radius <i>r</i> and its altitude <i>h</i> = <i>r</i> − <i>R</i><sub>⊕</sub> above Earth’s surface (in km).</li>
+      </ul>
+    </div>
+
+    <h2>2. Elliptical Orbits and Orbital Energy</h2>
+    <p>Bound orbits under an inverse-square force are ellipses with the central mass <i>M</i> at one focus. If the ellipse has semi-major axis <i>a</i> and eccentricity <i>e</i> (0 ≤ <i>e</i> &lt; 1), its closest approach (periapsis) is <i>r<sub>p</sub></i> = <i>a</i>(1 − <i>e</i>) and its farthest point (apoapsis) is <i>r<sub>a</sub></i> = <i>a</i>(1 + <i>e</i>). Remarkably, both total mechanical energy <i>E</i> and orbital period <i>P</i> depend <em>only</em> on <i>a</i>, not on eccentricity:</p>
+    <div class="eq">
+      <div class="eq__expr"><i>E</i> = <i>K</i> + <i>U</i> = −<span class="frac"><span><i>GMm</i></span><span>2<i>a</i></span></span>,&emsp;&emsp; <i>v</i><sup>2</sup> = <i>GM</i> (<span class="frac"><span>2</span><span><i>r</i></span></span> − <span class="frac"><span>1</span><span><i>a</i></span></span>).</div>
+      <span class="eq__num">(2)</span>
+    </div>
+
+    <div class="remark">
+      <p><span class="remark-head">Remark (The vis-viva equation).</span> The second relation in (2) follows immediately from <i>E</i> = <span class="frac"><span>1</span><span>2</span></span><i>mv</i><sup>2</sup> − <i>GMm</i>/<i>r</i> = −<i>GMm</i>/(2<i>a</i>). Check two limits: for a circle (<i>r</i> = <i>a</i>) it gives <i>v</i><sup>2</sup> = <i>GM</i>/<i>r</i>; for an unbound parabolic escape trajectory (<i>a</i> → ∞) it gives escape speed <i>v</i><sub>esc</sub> = √(2<i>GM</i>/<i>r</i>) = √2 <i>v</i><sub>circ</sub>.</p>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 2 (The atmospheric drag paradox).</span> A low-Earth satellite in a nearly circular orbit of radius <i>r</i> experiences a very weak atmospheric drag force opposing its motion, losing a small amount of mechanical energy per orbit while its path remains nearly circular.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Does the satellite’s orbital speed <i>v</i> slow down or <em>speed up</em> as drag removes mechanical energy? Prove your answer using equation (2).</li>
+        <li><span class="part-label">(b)</span> Resolve the apparent paradox using the work–energy theorem: if drag opposes the velocity vector, what force does positive work larger than the negative work of drag?</li>
+      </ul>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 3 (Journey to Mars).</span> Model Earth and Mars as moving in coplanar circular orbits around the Sun of radii <i>r</i><sub>1</sub> = 1.00 AU and <i>r</i><sub>2</sub> = 1.52 AU. A fuel-efficient Hohmann transfer places a spacecraft onto an elliptical orbit tangent to Earth’s orbit at perihelion (<i>r<sub>p</sub></i> = <i>r</i><sub>1</sub>) and tangent to Mars’s orbit at aphelion (<i>r<sub>a</sub></i> = <i>r</i><sub>2</sub>).</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Find the semi-major axis <i>a</i> of the transfer ellipse (in AU) and use Kepler’s third law (<i>P</i><sup>2</sup> = <i>a</i><sup>3</sup> in years and AU) to calculate the one-way travel time to Mars in days.</li>
+        <li><span class="part-label">(b)</span> Given Earth’s orbital speed <i>v</i><sub>⊕</sub> = 29.8 km/s, use the vis-viva equation to find the speed boost Δ<i>v</i><sub>1</sub> needed to enter the transfer ellipse from Earth’s orbit (ignoring Earth’s local gravity).</li>
+      </ul>
+    </div>
+
+    <h2>3. Waves and the Doppler Effect</h2>
+    <p>Light in vacuum travels at <i>c</i> = λν = 3.00 × 10<sup>8</sup> m/s. When a source moves with radial velocity <i>v<sub>r</sub></i> ≪ <i>c</i> along the line of sight (taking <i>v<sub>r</sub></i> &gt; 0 for recession and <i>v<sub>r</sub></i> &lt; 0 for approach), every spectral line of rest wavelength λ<sub>0</sub> shifts by</p>
+    <div class="eq">
+      <div class="eq__expr"><span class="frac"><span>Δλ</span><span>λ<sub>0</sub></span></span> = <span class="frac"><span>λ − λ<sub>0</sub></span><span>λ<sub>0</sub></span></span> ≈ <span class="frac"><span><i>v<sub>r</sub></i></span><span><i>c</i></span></span>.</div>
+      <span class="eq__num">(3)</span>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[3] Problem 4 (Detecting unseen worlds via Doppler wobble).</span> A star of mass <i>M</i><sub>★</sub> and a planet of mass <i>m<sub>p</sub></i> ≪ <i>M</i><sub>★</sub> orbit their common center of mass in circular orbits of period <i>P</i>, viewed edge-on from Earth.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Show that the star’s reflex orbital speed around the center of mass is <i>v</i><sub>★</sub> ≈ <i>m<sub>p</sub></i> (<span class="frac"><span>2π<i>G</i></span><span><i>M</i><sub>★</sub><sup>2</sup><i>P</i></span></span>)<sup>1/3</sup>.</li>
+        <li><span class="part-label">(b)</span> Compute the Sun’s reflex speed <i>v</i><sub>⊙</sub> (in m/s) caused by Jupiter (<i>m<sub>J</sub></i> ≈ 9.55 × 10<sup>−4</sup> <i>M</i><sub>⊙</sub>, <i>P</i> = 11.86 yr, <i>M</i><sub>⊙</sub> = 1.99 × 10<sup>30</sup> kg), and find the resulting fractional wavelength shift Δλ/λ<sub>0</sub>.</li>
+      </ul>
+    </div>
+
+    <nav class="sheet-nav" aria-label="Handout navigation">
+      <a href="P2.html">← Previous: P2 Motion, Forces &amp; Conservation</a>
+      <a href="P3-solutions.html">View P3 Solutions →</a>
+      <a href="A1.html">Next: A1 The Night Sky &amp; Celestial Motion →</a>
+    </nav>
+  </main>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A3: Relativity and Black Holes — MAIS Physics &amp; Astronomy Club handout on escape speed, the Schwarzschild radius, tidal forces, and glowing accretion disks.">
+  <meta name="theme-color" content="#ffffff">
+  <title>A3: Relativity &amp; Black Holes · MAIS PAC Handouts</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#sheet">Skip to handout</a>
+
+  <div class="handout-bar">
+    <div class="handout-bar__inner">
+      <a href="../#handouts">← MAIS Physics &amp; Astronomy Club</a>
+      <div class="handout-bar__links">
+        <strong>Handout A3</strong>
+        <a href="A3-solutions.html">Solutions</a>
+        <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheet-page" id="sheet">
+    <div class="running-head">
+      <span>MAIS Physics &amp; Astronomy Club Handouts</span>
+      <span>A3: Relativity &amp; Black Holes</span>
+    </div>
+
+    <header class="sheet-title-block">
+      <h1>Astronomy A3: Relativity and Black Holes</h1>
+      <p class="sheet-subtitle">MAIS Physics &amp; Astronomy Club (PAC)</p>
+    </header>
+
+    <div class="sheet-intro">
+      <p>The MAIS Physics &amp; Astronomy Club crest shows a dark shadow encircled by a warped, glowing golden disk against the night sky. Far from being purely artistic, every feature of that image—the event horizon, the photon ring, and the lensed far side of the accretion disk—follows directly from gravity and the finite speed of light.</p>
+    </div>
+
+    <h2>1. Escape Speed and the Event Horizon</h2>
+    <p>In 1783, John Michell asked how compact a star of mass <i>M</i> would have to be for its Newtonian escape speed <i>v</i><sub>esc</sub> = √(2<i>GM</i>/<i>R</i>) to reach the speed of light <i>c</i> = 3.00 × 10<sup>8</sup> m/s. Setting <i>v</i><sub>esc</sub> = <i>c</i> yields the <em>Schwarzschild radius</em>:</p>
+    <div class="eq">
+      <div class="eq__expr"><i>R<sub>s</sub></i> = <span class="frac"><span>2<i>GM</i></span><span><i>c</i><sup>2</sup></span></span> ≈ 2.95 km (<span class="frac"><span><i>M</i></span><span><i>M</i><sub>⊙</sub></span></span>).</div>
+      <span class="eq__num">(1)</span>
+    </div>
+
+    <div class="remark">
+      <p><span class="remark-head">Remark.</span> Getting the exact prefactor 2 from <span class="frac"><span>1</span><span>2</span></span><i>mc</i><sup>2</sup> = <i>GMm</i>/<i>R</i> is a famous cancellation of two errors! Newtonian mechanics uses neither relativistic kinetic energy nor curved spacetime; in Einstein’s general relativity (solved by Karl Schwarzschild in 1916), light does not “slow down and fall back”—rather, inside <i>r</i> = <i>R<sub>s</sub></i> spacetime is curved so strongly that all future-directed paths point toward smaller <i>r</i>.</p>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[1] Problem 1.</span> Using equation (1) with <i>G</i> = 6.67 × 10<sup>−11</sup> N·m<sup>2</sup>/kg<sup>2</sup> and <i>c</i> = 3.00 × 10<sup>8</sup> m/s:</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Compute the Schwarzschild radius <i>R<sub>s</sub></i> of Earth (<i>M</i><sub>⊕</sub> = 5.97 × 10<sup>24</sup> kg) in millimeters, and of the Milky Way’s central black hole Sagittarius A* (<i>M</i> ≈ 4.15 × 10<sup>6</sup> <i>M</i><sub>⊙</sub>) in kilometers and in AU.</li>
+        <li><span class="part-label">(b)</span> Suppose the Sun were instantaneously replaced by a 1 <i>M</i><sub>⊙</sub> black hole without losing any mass. What would happen to Earth’s orbit?</li>
+      </ul>
+    </div>
+
+    <h2>2. Tidal Forces Across Extended Bodies</h2>
+    <p>In free fall, an observer feels weightless because every part of their body accelerates together—<em>except</em> for the slight variation of gravity from head to toe! For a radial rod of small length ℓ ≪ <i>r</i> at distance <i>r</i> from mass <i>M</i>, differentiating <i>g</i>(<i>r</i>) = <i>GM</i>/<i>r</i><sup>2</sup> gives the stretching tidal acceleration between its ends:</p>
+    <div class="eq">
+      <div class="eq__expr">Δ<i>a</i> = <i>g</i>(<i>r</i> − <span class="frac"><span>ℓ</span><span>2</span></span>) − <i>g</i>(<i>r</i> + <span class="frac"><span>ℓ</span><span>2</span></span>) ≈ <span class="frac"><span>2<i>GM</i>ℓ</span><span><i>r</i><sup>3</sup></span></span>.</div>
+      <span class="eq__num">(2)</span>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 2 (Stellar vs. supermassive horizons).</span> Define the effective “horizon density” ρ̄<sub><i>s</i></sub> = <i>M</i> / (<span class="frac"><span>4</span><span>3</span></span>π<i>R<sub>s</sub></i><sup>3</sup>), and consider an astronaut of height ℓ = 1.8 m falling feet-first through the horizon at <i>r</i> = <i>R<sub>s</sub></i>.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Show that both ρ̄<sub><i>s</i></sub> and the horizon tidal acceleration Δ<i>a</i>(<i>R<sub>s</sub></i>) scale as <i>M</i><sup>−2</sup>—getting <em>weaker</em> as the black hole gets heavier!</li>
+        <li><span class="part-label">(b)</span> Calculate Δ<i>a</i>(<i>R<sub>s</sub></i>) (in units of Earth gravity <i>g</i><sub>0</sub> = 9.8 m/s<sup>2</sup>) for a stellar-mass black hole of 10 <i>M</i><sub>⊙</sub> versus a supermassive black hole of 10<sup>8</sup> <i>M</i><sub>⊙</sub>, and compute ρ̄<sub><i>s</i></sub> for the 10<sup>8</sup> <i>M</i><sub>⊙</sub> black hole.</li>
+      </ul>
+    </div>
+
+    <h2>3. Accretion Disks and Gravitational Lensing</h2>
+    <p>Isolated black holes are completely dark, yet accreting black holes power the brightest quasars in the universe. Infalling gas carries angular momentum and flattens into a hot <em>accretion disk</em>; viscous friction causes gas to spiral inward down to the innermost stable circular orbit (<i>r</i><sub>ISCO</sub> = 3<i>R<sub>s</sub></i> for a non-spinning black hole), radiating away gravitational binding energy before plunging across the horizon. Meanwhile, light passing near the photon sphere (<i>r</i><sub>ph</sub> = 1.5<i>R<sub>s</sub></i>) bends so strongly that rays emitted from the <em>top and bottom of the far side</em> of the disk curve over and under the black hole toward our eyes—producing the double-arched halo seen on our club crest!</p>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 3 (Why quasars outshine galaxies).</span> Estimate the energy released when a parcel of gas of mass <i>m</i> spirals slowly from infinity down to a circular orbit at <i>r</i><sub>ISCO</sub> = 3<i>R<sub>s</sub></i> = 6<i>GM</i>/<i>c</i><sup>2</sup>.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Using the Newtonian circular-orbit energy <i>E</i> = −<i>GMm</i>/(2<i>r</i>) as a simple estimate, find the radiated energy as a fraction of rest-mass energy <i>mc</i><sup>2</sup>, and compare it with the 0.7% efficiency of hydrogen nuclear fusion in stars. (Exact general relativity gives 1 − √(8/9) ≈ 5.7% for a non-spinning black hole, and up to 42% for a rapidly spinning black hole!)</li>
+        <li><span class="part-label">(b)</span> Using the relativistic efficiency η = 0.10 (10%), what mass accretion rate <i>dM</i>/<i>dt</i> (in <i>M</i><sub>⊙</sub> per year) is needed to power a luminous quasar shining at <i>L</i> = 10<sup>13</sup> <i>L</i><sub>⊙</sub> (<i>L</i><sub>⊙</sub> = 3.83 × 10<sup>26</sup> W)?</li>
+      </ul>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[3] Problem 4 (Weighing Sagittarius A* with the star S2).</span> Over three decades of infrared adaptive-optics observations, astronomers tracked the B-type star S2 completing full elliptical orbits around the compact radio source Sagittarius A* at the center of our Milky Way (distance <i>d</i> = 8,200 pc). S2’s orbit has period <i>P</i> = 16.05 yr, eccentricity <i>e</i> = 0.885, and apparent angular semi-major axis θ<sub><i>a</i></sub> = 0.125″.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Convert θ<sub><i>a</i></sub> at distance <i>d</i> = 8,200 pc into S2’s physical semi-major axis <i>a</i> in AU, and use Kepler’s third law to determine the central mass <i>M</i> in units of <i>M</i><sub>⊙</sub>.</li>
+        <li><span class="part-label">(b)</span> Find S2’s closest approach distance <i>r<sub>p</sub></i> = <i>a</i>(1 − <i>e</i>) in AU, and use the vis-viva equation to compute S2’s speed at pericenter as a percentage of the speed of light <i>c</i>.</li>
+      </ul>
+    </div>
+
+    <nav class="sheet-nav" aria-label="Handout navigation">
+      <a href="A2.html">← Previous: A2 Light, Telescopes &amp; Stars</a>
+      <a href="A3-solutions.html">View A3 Solutions →</a>
+      <a href="../#handouts">Back to all handouts →</a>
+    </nav>
+  </main>
+</body>
+</html>

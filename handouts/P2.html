@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="P2: Motion, Forces and Conservation — MAIS Physics &amp; Astronomy Club handout on kinematics, free-body diagrams, energy, and momentum.">
+  <meta name="theme-color" content="#ffffff">
+  <title>P2: Motion, Forces &amp; Conservation · MAIS PAC Handouts</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#sheet">Skip to handout</a>
+
+  <div class="handout-bar">
+    <div class="handout-bar__inner">
+      <a href="../#handouts">← MAIS Physics &amp; Astronomy Club</a>
+      <div class="handout-bar__links">
+        <strong>Handout P2</strong>
+        <a href="P2-solutions.html">Solutions</a>
+        <button class="print-btn" type="button" onclick="window.print()">Print / PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="sheet-page" id="sheet">
+    <div class="running-head">
+      <span>MAIS Physics &amp; Astronomy Club Handouts</span>
+      <span>P2: Motion, Forces &amp; Conservation</span>
+    </div>
+
+    <header class="sheet-title-block">
+      <h1>Physics P2: Motion, Forces, and Conservation</h1>
+      <p class="sheet-subtitle">MAIS Physics &amp; Astronomy Club (PAC)</p>
+    </header>
+
+    <div class="sheet-intro">
+      <p>Newton’s second law <b>F</b> = <i>m</i><b>a</b> determines the entire trajectory of a mechanical system in principle, yet integrating forces instant by instant is often the hardest route. Conservation of energy and conservation of momentum extract global information—relating initial and final states directly—even when intermediate forces are complicated or rapidly varying.</p>
+    </div>
+
+    <h2>1. Kinematics and Reference Frames</h2>
+    <p>Position <b>r</b>(<i>t</i>), velocity <b>v</b> = <i>d</i><b>r</b>/<i>dt</i>, and acceleration <b>a</b> = <i>d</i><b>v</b>/<i>dt</i> are vectors. Under constant gravitational acceleration <b>g</b>, horizontal and vertical motions decouple, while switching to another inertial frame moving at constant velocity <b>u</b> shifts all velocities by <b>v</b>′ = <b>v</b> − <b>u</b> without altering accelerations or forces.</p>
+
+    <div class="thm">
+      <p><span class="thm-head">Example 1.</span> Projectile A is launched from ground level toward an elevated target, and at the exact same instant a ball B at the target is dropped from rest. Assuming no air resistance and that A’s initial velocity vector points directly at B’s starting position, do they collide?</p>
+      <p><span class="thm-head">Solution.</span> Switch to the free-falling frame accelerating downward at <b>g</b>. In this frame gravity disappears: ball B floats motionless at its starting point, while projectile A travels in a straight line at constant speed <i>v</i><sub>0</sub> aimed directly at B. Provided A is fast enough to reach B before hitting the ground, they always collide—regardless of the launch angle!</p>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[1] Problem 1.</span> Three identical stones are thrown from the edge of a cliff of height <i>h</i> with the same initial speed <i>v</i><sub>0</sub>: stone 1 at angle +α above the horizontal, stone 2 horizontally, and stone 3 at angle −α below the horizontal. Neglect air resistance.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Compare the speeds <i>v</i><sub>1</sub>, <i>v</i><sub>2</sub>, and <i>v</i><sub>3</sub> with which the three stones strike the ground below.</li>
+        <li><span class="part-label">(b)</span> Find the difference <i>t</i><sub>1</sub> − <i>t</i><sub>3</sub> between the total flight times of stones 1 and 3, and explain physically why your result is independent of the cliff height <i>h</i>.</li>
+      </ul>
+    </div>
+
+    <h2>2. Forces and Circular Constraints</h2>
+    <p>Whenever an object follows a curved path of local radius <i>R</i> at speed <i>v</i>, its acceleration has a radial (centripetal) component <i>v</i><sup>2</sup>/<i>R</i> directed toward the center of curvature and a tangential component <i>dv</i>/<i>dt</i> along the path:</p>
+    <div class="eq">
+      <div class="eq__expr"><i>a<sub>r</sub></i> = <span class="frac"><span><i>v</i><sup>2</sup></span><span><i>R</i></span></span>,&emsp;&emsp; <i>a<sub>t</sub></i> = <span class="frac"><span><i>dv</i></span><span><i>dt</i></span></span>.</div>
+      <span class="eq__num">(1)</span>
+    </div>
+
+    <div class="remark">
+      <p><span class="remark-head">Remark.</span> “Centripetal force” is never a separate arrow on a free-body diagram! Draw only real physical interactions—gravity, normal contact forces, tension, friction—and set their net inward component equal to <i>mv</i><sup>2</sup>/<i>R</i>.</p>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 2.</span> A small bead of mass <i>m</i> slides from rest down a frictionless ramp from height <i>h</i> above the ground and enters a vertical circular loop-the-loop of radius <i>R</i> whose bottom touches the ground.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Find the minimum release height <i>h</i><sub>min</sub> (in terms of <i>R</i>) so that the bead stays in contact with the track at the very top of the loop.</li>
+        <li><span class="part-label">(b)</span> When released from <i>h</i> = <i>h</i><sub>min</sub>, find the magnitude and direction of the bead’s <em>total</em> acceleration vector when it reaches the horizontal midpoint of the loop (at height <i>R</i> above the ground).</li>
+      </ul>
+    </div>
+
+    <h2>3. Conservation of Energy and Momentum</h2>
+    <p>For an isolated system with no external net force, total momentum <b>P</b> = ∑ <i>m<sub>i</sub></i><b>v</b><sub><i>i</i></sub> is conserved—even during violent inelastic collisions where mechanical energy is converted into heat. When all forces are conservative (elastic collisions, gravity, ideal springs), total mechanical energy <i>E</i> = <i>K</i> + <i>U</i> is conserved as well.</p>
+
+    <div class="eq">
+      <div class="eq__expr"><i>K</i> = <span class="frac"><span>1</span><span>2</span></span> <i>mv</i><sup>2</sup> = <span class="frac"><span><i>p</i><sup>2</sup></span><span>2<i>m</i></span></span>,&emsp;&emsp; Δ<i>E</i><sub>mech</sub> = <i>W</i><sub>non-cons</sub>.</div>
+      <span class="eq__num">(2)</span>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[2] Problem 3 (The gravitational slingshot in miniature).</span> Hold a light tennis ball of mass <i>m</i> just above a heavy basketball of mass <i>M</i> ≫ <i>m</i>, and drop both together from rest at height <i>h</i> above a hard floor. Assume all collisions are perfectly elastic and vertical.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> Just after the basketball rebounds off the floor at upward speed <i>v</i><sub>0</sub> = √(2<i>gh</i>), switch into the basketball’s rest frame to find the rebound speed of the tennis ball in the room frame (in the limit <i>M</i> ≫ <i>m</i>).</li>
+        <li><span class="part-label">(b)</span> To what maximum height (in terms of <i>h</i>) does the tennis ball rise? Explain briefly how space probes use the exact same mechanism when flying past Jupiter.</li>
+      </ul>
+    </div>
+
+    <div class="problem">
+      <p><span class="prob-head">[3] Problem 4 (Falling chain on a scale).</span> A uniform flexible chain of total mass <i>M</i> and length <i>L</i> is held vertically so that its bottom tip barely touches the pan of an electronic force scale. At <i>t</i> = 0 the chain is released from rest; each link comes to rest immediately upon hitting the pan without bouncing.</p>
+      <ul class="subparts">
+        <li><span class="part-label">(a)</span> At an instant when a length <i>y</i> &lt; <i>L</i> of the chain has already fallen onto the pan, find the speed <i>v</i> of the falling upper portion and the rate <i>dm</i>/<i>dt</i> at which mass strikes the pan.</li>
+        <li><span class="part-label">(b)</span> Show that the upward force exerted by the scale is <i>F</i>(<i>y</i>) = <span class="frac"><span>3<i>Mg</i></span><span><i>L</i></span></span> <i>y</i> for 0 &lt; <i>y</i> &lt; <i>L</i>. What is the maximum reading right before the top link lands, and what does the reading drop to afterward?</li>
+      </ul>
+    </div>
+
+    <nav class="sheet-nav" aria-label="Handout navigation">
+      <a href="P1.html">← Previous: P1 Physical Reasoning</a>
+      <a href="P2-solutions.html">View P2 Solutions →</a>
+      <a href="P3.html">Next: P3 Gravity, Orbits &amp; Waves →</a>
+    </nav>
+  </main>
+</body>
+</html>
