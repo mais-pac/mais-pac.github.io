@@ -750,3 +750,216 @@ main p {
 /* Syllabus divisions use the same compact bold heading style as Core Curriculum. */
 .teaching-main .curriculum-group { margin-top: 22px; }
 .teaching-main .curriculum-group h3 { font-size: 15px; font-weight: 700; line-height: 1.4; margin: 0 0 5px; color: var(--ink-strong); }
+
+/* Color-boxed academic handout theme (screen and print). */
+.sheet-page {
+  --sheet-accent: #2457c5;
+  --sheet-accent-dark: #1e3a8a;
+  --sheet-tint: #f3f6ff;
+}
+
+.running-head {
+  align-items: center;
+  border-bottom: 2px solid var(--sheet-accent);
+  margin-bottom: 22px;
+  padding-bottom: 9px;
+  font-style: normal;
+}
+
+.brand-link {
+  display: inline-block;
+  flex: 0 0 auto;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: var(--sheet-accent-dark);
+  color: #ffffff !important;
+  font: 700 10px/1.4 var(--sans);
+  letter-spacing: 0.06em;
+  text-decoration: none !important;
+}
+
+.brand-link:hover,
+.brand-link:visited {
+  color: #ffffff;
+}
+
+.running-head > span:last-child {
+  color: var(--sheet-accent-dark);
+  font: 600 11px/1.5 var(--sans);
+  text-align: right;
+}
+
+.sheet-title-block {
+  border: 1px solid #c7d2fe;
+  border-left: 6px solid var(--sheet-accent);
+  border-radius: 8px;
+  background: var(--sheet-tint);
+  box-shadow: 0 2px 8px rgb(30 58 138 / 7%);
+  padding: 18px 22px;
+  text-align: left;
+}
+
+.sheet-title-block h1 {
+  color: var(--sheet-accent-dark);
+}
+
+.sheet-subtitle {
+  color: #526079;
+}
+
+.sheet-intro {
+  border: 1px solid #dbe4ff;
+  border-left: 5px solid #6d28a4;
+  border-radius: 7px;
+  background: #f8f5ff;
+  box-shadow: 0 2px 7px rgb(55 36 106 / 5%);
+  padding: 13px 18px;
+}
+
+.sheet-page h2 {
+  border: 1px solid #d8e2fa;
+  border-left: 5px solid var(--sheet-accent);
+  border-radius: 6px;
+  background: #f3f6ff;
+  color: var(--sheet-accent-dark);
+  padding: 8px 12px;
+  margin: 28px 0 14px;
+}
+
+.thm,
+.problem,
+.solution,
+.remark,
+.eq {
+  border: 1px solid #dce4f2;
+  border-left: 5px solid var(--sheet-accent);
+  border-radius: 8px;
+  background: #fbfcff;
+  box-shadow: 0 2px 8px rgb(15 23 42 / 5%);
+  margin: 16px 0;
+  padding: 12px 15px;
+}
+
+.thm {
+  border-color: #c7d2fe;
+  border-left-color: #4338ca;
+  background: #f5f5ff;
+}
+
+.problem {
+  border-color: #bfdbfe;
+  border-left-color: #2563eb;
+  background: #f4f8ff;
+}
+
+.solution {
+  border-color: #a7f3d0;
+  border-left-color: #059669;
+  background: #f0fdf7;
+}
+
+.remark {
+  border-color: #ddd6fe;
+  border-left-color: #7c3aed;
+  background: #faf7ff;
+}
+
+.eq {
+  border-color: #bfdbfe;
+  border-left-color: #2563eb;
+  background: #eff6ff;
+}
+
+.thm-head { color: #4338ca; }
+.prob-head { color: #1d4ed8; }
+.sol-head { color: #047857; }
+.remark-head { color: #6d28d9; }
+
+.sheet-nav {
+  border-top: 2px solid #dbe4ff;
+  border-bottom: 1px solid #dbe4ff;
+  background: #f8faff;
+  padding: 14px;
+  border-radius: 6px;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm 15mm 14mm;
+  }
+
+  html,
+  body {
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
+  }
+
+  .running-head {
+    display: flex !important;
+    margin-bottom: 14pt;
+    padding-bottom: 5pt;
+    border-bottom-width: 1.5pt;
+  }
+
+  .brand-link {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .sheet-title-block,
+  .sheet-intro,
+  .thm,
+  .problem,
+  .solution,
+  .remark,
+  .eq,
+  .sheet-page h2 {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .problem,
+  .solution,
+  .remark,
+  .eq,
+  .thm {
+    margin: 9pt 0;
+    padding: 8pt 10pt;
+  }
+
+  .sheet-page h2 {
+    margin: 18pt 0 8pt;
+    padding: 6pt 9pt;
+  }
+}
+
+.pdf-download {
+  display: inline-block;
+  padding: 4px 9px;
+  border: 1px solid #c7d2fe;
+  border-radius: 4px;
+  background: #f3f6ff;
+  color: #1e3a8a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.pdf-download:hover {
+  background: #e5ebff;
+  text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .handout-bar__links {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+}
+
+.handout-links {
+  gap: 8px;
+  font-size: 12.5px;
+}
