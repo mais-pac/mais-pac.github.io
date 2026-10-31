@@ -35,10 +35,12 @@ python3 -m http.server 8080 --bind 0.0.0.0
 ## Teaching curriculum and PDFs
 
 `teaching/` contains the Cosmic Calculation Series curriculum, with 37 topic
-blocks based on the IOAA syllabus, a reformatted syllabus PDF, an FAQ PDF, and
-clearly labeled placeholder PDFs for each topic's Problems and Solutions.
-No new problem sheets or solutions have been authored. Existing club sheets
-remain in `handouts/` and are linked from Teaching.
+blocks based on the IOAA syllabus, a reformatted syllabus PDF, and an FAQ PDF.
+Original problem sets are available for the five Basic Astrophysics topics and
+the two Coordinates and Times topics (01.01–02.02). Each has a linked, colored
+contents page and four multi-part questions. Other Problems PDFs and all
+Solutions PDFs are clearly labeled placeholders. Existing club sheets remain
+in `handouts/` and are linked from Teaching.
 
 The syllabus source is https://www.ioaa2026.vn/en/ioaa-syllabus (which credits
 IOAA, updated 17 November 2021). Club codes and practical-topic labels are
@@ -46,4 +48,5 @@ organizational aids, not official IOAA designations.
 
 To rebuild the Teaching page and PDFs, install `reportlab` in a Python virtual
 environment and run `python scripts/build_teaching.py`. The generator uses
-DejaVu Sans fonts from `/usr/share/fonts/truetype/dejavu/`.
+DejaVu Sans fonts from `/usr/share/fonts/truetype/dejavu/`. The authored
+questions are maintained in `scripts/question_sets.py`.

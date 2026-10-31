@@ -9,3 +9,6 @@ vendor/
 # Python build caches
 __pycache__/
 *.pyc
+
+# Local Python environment
+.venv/

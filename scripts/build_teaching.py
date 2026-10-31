@@ -1,5 +1,6 @@
 """Rebuild Teaching and its PDFs: pip install reportlab; python scripts/build_teaching.py."""
 from pathlib import Path
+from question_sets import SETS
 from html import escape
 import re
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, KeepTogether, PageBreak
@@ -32,11 +33,11 @@ notes = [
 ]
 faqs = [
 ('What is the Cosmic Calculation Series?', 'A planned collection of astronomy learning materials organized around the IOAA syllabus. It is intended to support both physical understanding and curiosity about the universe.'),
-('Are the problems and solutions available?', 'Not yet. Every topic has Problems and Solutions links, but these PDFs are clearly marked “To be Added!” They contain no handout content or exercises.'),
+('Are the problems and solutions available?', 'Original problem sets are available for the five Basic Astrophysics topics and the two Coordinates and Times topics. All other problem PDFs and every Solutions PDF are placeholders marked “To be Added!”'),
 ('What background does the syllabus require?', 'The IOAA syllabus requires high-school physics and mathematics. Standard solutions should not require complex numbers or solving differential equations. The listed mathematical methods include basic calculus.'),
 ('What does (Q) mean?', 'Qualitative understanding only. Quantitative reasoning or proficiency in topics marked (Q) is not mandatory.'),
 ('Is this an official IOAA publication?', 'No. This is a MAIS PAC study resource. The syllabus PDF is a reformatted reproduction of the syllabus published on the IOAA 2026 website, which credits IOAA and an update of 17 November 2021. The topic codes and practical-topic labels are club organizational aids.'),
-('Where are the existing club handouts?', 'The existing introductory physics and astronomy handouts remain available in the Teaching page’s “Existing club handouts” section. They are separate from the upcoming Cosmic Calculation Series.')
+('Where are the existing club handouts?', 'The existing introductory physics and astronomy handouts remain available in the Teaching page’s “Existing club handouts” section. They are separate from the Cosmic Calculation Series.')
 ]
 # Embedded Unicode fonts preserve mathematical marks and typographic punctuation.
 fontdir = Path('/usr/share/fonts/truetype/dejavu')
@@ -67,6 +68,28 @@ def write_pdf(path, title, story):
     doc = SimpleDocTemplate(str(path), pagesize=(595.28,841.89), rightMargin=60,leftMargin=60,topMargin=48,bottomMargin=62,title=title,author='MAIS Physics & Astronomy Club')
     doc.build(story,onFirstPage=footer,onLaterPages=footer)
 
+
+# The contents entries link to the corresponding questions within each PDF.
+styles.add(ParagraphStyle(name='QuestionTitle', fontName='ClubBold', fontSize=12, leading=17, textColor=colors.HexColor('#244bc1'), spaceBefore=13, spaceAfter=6, keepWithNext=True))
+styles.add(ParagraphStyle(name='ContentsEntry', fontName='ClubBold', fontSize=10, leading=16, textColor=colors.HexColor('#244bc1')))
+
+def write_questions(code, name, color):
+    questions = SETS[code]
+    story = [p('COSMIC CALCULATION SERIES  /  PROBLEMS', 'SmallClub'),
+             p(name, 'TitleClub'), p(f'{code}  ·  Original practice problems', 'TopicHead'),
+             p('Show your reasoning, use SI units where appropriate, and state any assumptions. Constants are supplied in the questions that need them.'),
+             heading('CONTENTS', color), Spacer(1, 10)]
+    for i, (title, _) in enumerate(questions, 1):
+        story.append(Paragraph(f'<link href="#q{i}" color="{color}">{i:02d}  {escape(title)}</link>', styles['ContentsEntry']))
+        story.append(Spacer(1, 8))
+    story += [Spacer(1, 20), p('A MAIS Physics & Astronomy Club study resource. These are original exercises, not official IOAA problems.', 'SmallClub'), PageBreak(),
+              heading('PROBLEMS', color), Spacer(1, 8)]
+    for i, (title, question) in enumerate(questions, 1):
+        story.append(Paragraph(f'<a name="q{i}"/><font color="{color}">{i:02d}  {escape(title)}</font>', styles['QuestionTitle']))
+        story.append(p(question))
+        story.append(Spacer(1, 8))
+    write_pdf(PDF/f'{code}-problems.pdf', f'{name} — Problems', story)
+
 story = [p('IOAA Syllabus', 'TitleClub'), p('A study edition · MAIS Physics & Astronomy Club', 'TopicHead'), p('Reformatted from the IOAA 2026 website. Source credits IOAA; updated 17 November 2021. Topic wording is preserved with minor punctuation and typography normalization. Club topic codes and practical-topic labels are organizational aids, not official designations.', 'SmallClub'), Paragraph(f'<link href="{SOURCE}" color="#244bc1">Official source: IOAA 2026 syllabus</link>',styles['Text']), heading('General Notes',palette[0]), Spacer(1,10)]
 for i,n in enumerate(notes,1): story.append(p(f'{i}. {n}'))
 story += [heading('Theoretical Part',palette[1]),Spacer(1,10),p('Symbol (Q) is attached to some topics in the list. It means “qualitative understanding only”. Quantitative reasoning / proficiency in these topics is not mandatory. The following theoretical contents are proposed for the contestants.')]
@@ -83,8 +106,12 @@ for gi,(group, topics) in enumerate(groups):
         story.append(KeepTogether([p(code+'  '+name,'TopicHead'),p(detail),Spacer(1,5)]))
         for kind in ['problems','solutions']:
             filename=f'{code}-{kind}.pdf'
-            write_pdf(PDF/filename,f'{name} — {kind.title()}',[p('Cosmic Calculation Series','SmallClub'),p(name,'TitleClub'),heading(kind.title(),palette[gi%4]),Spacer(1,20),p('To be Added!','TitleClub'),p('This is a placeholder only. No problems or solutions have been published for this topic.'),p('Syllabus topic: '+detail),p('Return to Teaching: https://mais-pac.github.io/teaching/','SmallClub')])
-        cards.append(f'''<li class="curriculum-card"><span class="topic-code">{code}</span><div><h4>{escape(name)}</h4><div class="pdf-actions"><a href="pdf/{code}-problems.pdf" aria-label="{escape(name)}: Problems PDF, to be added">Problems</a><a href="pdf/{code}-solutions.pdf" aria-label="{escape(name)}: Solutions PDF, to be added">Solutions</a></div></div></li>''')
+            if kind == 'problems' and code in SETS:
+                write_questions(code, name, palette[gi % 4])
+            else:
+                write_pdf(PDF/filename,f'{name} — {kind.title()}',[p('Cosmic Calculation Series','SmallClub'),p(name,'TitleClub'),heading(kind.title(),palette[gi%4]),Spacer(1,20),p('To be Added!','TitleClub'),p('This is a placeholder only. No '+kind+' have been published for this topic.'),p('Syllabus topic: '+detail),p('Return to Teaching: https://mais-pac.github.io/teaching/','SmallClub')])
+        problem_status = '' if code in SETS else ', to be added'
+        cards.append(f'''<li class="curriculum-card"><span class="topic-code">{code}</span><div><h4>{escape(name)}</h4><div class="pdf-actions"><a href="pdf/{code}-problems.pdf" aria-label="{escape(name)}: Problems PDF{problem_status}">Problems</a><a href="pdf/{code}-solutions.pdf" aria-label="{escape(name)}: Solutions PDF, to be added">Solutions</a></div></div></li>''')
     blocks.append(cards)
 # Group the curriculum under the nine syllabus headings; combine practical sections.
 curriculum_sections = []
@@ -103,11 +130,11 @@ content='''<main id="main-content" class="teaching-main">
 <section class="teaching-section" aria-labelledby="series-title"><h2 id="series-title">Cosmic Calculation Series</h2>
 <p>I wrote this series to be the resource I wish I had when I first began studying astronomy, and I hope it helps other students develop both their understanding of physics and their curiosity about the universe.</p>
 <h3>Logistics</h3><ul class="logistics-links"><li><a href="pdf/ioaa-syllabus.pdf">Syllabus <span>(PDF)</span></a> and <a href="pdf/frequently-asked-questions.pdf">Frequently Asked Questions <span>(PDF)</span></a></li><li><a href="https://www.ioaa2026.vn/en/ioaa-syllabus">Official IOAA syllabus ↗</a></li></ul>
-<p class="publication-note"><strong>To be Added!</strong> The curriculum below is planned. Problems and Solutions currently open placeholder PDFs, not completed handouts.</p>
+<p class="publication-note"><strong>Now available:</strong> Problems for Basic Astrophysics and Coordinates and Times. All other Problems and all Solutions links currently open placeholder PDFs.</p>
 <h3>Core Curriculum</h3><p class="curriculum-note">Organized by IOAA syllabus topics, including observations and data analysis. Club topic codes are for navigation; (Q) in the syllabus means qualitative understanding only.</p>
-'''+''.join(curriculum_sections)+'''</section><section class="teaching-section" aria-labelledby="legacy-title"><h2 id="legacy-title">Existing club handouts</h2><p>Our introductory physics and astronomy sheets remain available below. These are separate from the planned Cosmic Calculation Series.</p>'''+legacy+'''</section></main>'''
+'''+''.join(curriculum_sections)+'''</section><section class="teaching-section" aria-labelledby="legacy-title"><h2 id="legacy-title">Existing club handouts</h2><p>Our introductory physics and astronomy sheets remain available below. These are separate from the Cosmic Calculation Series.</p>'''+legacy+'''</section></main>'''
 page=re.sub(r'<main id="main-content">.*?</main>',lambda m:content,base,flags=re.S)
 page=page.replace('Handouts ·','Teaching ·').replace('https://mais-pac.github.io/handouts/','https://mais-pac.github.io/teaching/').replace('>Handouts</a>','>Teaching</a>').replace('aria-current="page" href="../handouts/"','aria-current="page" href="../teaching/"')
 page=page.replace('A place to explore physics, begin learning astronomy, and ask questions until they become understanding.','Teaching resources, the Cosmic Calculation Series, and the IOAA syllabus.')
 (OUT/'index.html').write_text(page)
-print(f'Built Teaching: {sum(len(t) for _,t in groups)} topics, syllabus, FAQ, and placeholder PDFs.')
+print(f'Built Teaching: {sum(len(t) for _,t in groups)} topics, {len(SETS)} problem sets, syllabus, FAQ, and remaining placeholders.')
