@@ -9,7 +9,11 @@ Live site: <https://mais-pac.github.io/>
 A simple, static academic website with self-contained physics and astronomy club handouts — no build step, no JavaScript dependencies, no trackers, and no cookies.
 
 ```
-index.html                  Club homepage & handout index
+index.html                  Club homepage
+about/index.html            Club background
+handouts/index.html         Physics & astronomy handout index
+explore/index.html          Topics and learning approach
+resources/index.html        Recommended references & tools
 404.html                    Minimal fallback page
 style.css                   Academic layout, handout typography & print styles
 assets/club-logo.png        Club crest
@@ -27,3 +31,19 @@ handouts/
 ```bash
 python3 -m http.server 8080 --bind 0.0.0.0
 ```
+
+## Teaching curriculum and PDFs
+
+`teaching/` contains the Cosmic Calculation Series curriculum, with 37 topic
+blocks based on the IOAA syllabus, a reformatted syllabus PDF, an FAQ PDF, and
+clearly labeled placeholder PDFs for each topic's Problems and Solutions.
+No new problem sheets or solutions have been authored. Existing club sheets
+remain in `handouts/` and are linked from Teaching.
+
+The syllabus source is https://www.ioaa2026.vn/en/ioaa-syllabus (which credits
+IOAA, updated 17 November 2021). Club codes and practical-topic labels are
+organizational aids, not official IOAA designations.
+
+To rebuild the Teaching page and PDFs, install `reportlab` in a Python virtual
+environment and run `python scripts/build_teaching.py`. The generator uses
+DejaVu Sans fonts from `/usr/share/fonts/truetype/dejavu/`.

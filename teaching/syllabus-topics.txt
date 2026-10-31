@@ -1,0 +1,47 @@
+# Basic Astrophysics
+Celestial Mechanics | Newton’s Laws of Gravitation, Kepler’s Laws for circular and non-circular orbits, Roche limit, barycentre, 2-body problem, Lagrange points
+Electromagnetic Theory & Quantum Physics | Electromagnetic spectrum, Radiation Laws, Blackbody radiation
+Thermodynamics | Thermodynamic equilibrium, Ideal gas, Energy transfer
+Spectroscopy and Atomic Physics | Absorption, Emission, Scattering, Spectra of Celestial objects, Doppler effect, Line formation, Continuum spectra, Splitting and Broadening of spectral lines, polarisation
+Nuclear Physics | Basic concepts including structure of atom, Mass defect and binding energy, Radioactivity, Neutrinos (Q)
+# Coordinates and Times
+Celestial Sphere | Spherical trigonometry, Celestial coordinates and their applications, Equinox and Solstice, Circumpolar stars, Constellations and Zodiac (Note: azimuth is measured in the range 0° to 360° starting from N and increasing towards E unless stated otherwise.)
+Concept of Time | Solar time, Sidereal time, Julian date, Heliocentric Julian date, Time zone, Universal Time, Local Mean Time, Different definitions of “year”, Equation of time
+# Solar System
+The Sun | Solar structure, Solar surface activities, Solar rotation, Solar radiation and Solar constant, Solar neutrinos (Q), Sun-Earth relations, Role of magnetic fields (Q), Solar wind and radiation pressure, Heliosphere (Q), Magnetosphere (Q)
+The Solar System | Earth-Moon System, precession, nutation, libration, Formation and evolution of the Solar System (Q), Structure and components of the Solar System (Q), Structure and orbits of the Solar System objects, Sidereal and Synodic periods, Retrograde motion, Outer reaches of the solar system (Q)
+Space Exploration | Satellite trajectories and transfers, Human exploration of the Solar System (Q), planetary missions (Q), Sling-shot effect of gravity, Space-based instruments (Q)
+Phenomena | Tides, Seasons, Factors influencing climate (Q), Eclipses, Aurorae and space weather (Q), Meteor Showers
+# Stars
+Stellar Properties | Methods of Distance determination, Radiation, Luminosity and magnitude, Color indices and temperature, Determination of radii and masses, Stellar motion, Irregular and regular stellar variabilities – broad classification & properties, Cepheids and period-luminosity relation, Physics of pulsation (Q)
+Stellar Interior and Atmospheres | Stellar equilibrium, Stellar nucleosynthesis, Energy transportation (Q), Boundary conditions, Stellar atmospheres and atmospheric spectra
+Stellar Evolution | Stellar formation, Hertzsprung-Russell diagram, Pre-Main Sequence, Main Sequence, Post-Main Sequence stars, supernovae, planetary nebulae, End states of stars
+# Stellar Systems
+Binary Star Systems | Different types of binary stars, Mass determination in binary star systems, Light and radial velocity curves of eclipsing binary systems, Doppler shifts in binary systems, interacting binaries, peculiar binary systems
+Exoplanets | Techniques used to detect exoplanets, Habitable zone, Classes of exoplanets (Q), Spectral signatures of possible life (Q)
+Star Clusters | Classification and Structure, Mass, age, luminosity and distance determination
+Milky Way Galaxy | Structure and composition, Rotation, Satellites of Milky Way (Q)
+Interstellar Medium | Gas (Q), dust (Q), HII regions, 21cm radiation, nebulae (Q), interstellar absorption, dispersion measure, Faraday rotation
+Galaxies | Classifications based on structure, composition and activity, Mass, luminosity and distance determination, Rotation curves
+Accretion Processes | Basic concepts (spherical and disc accretion) (Q), Eddington luminosity
+# Cosmology
+Elementary Cosmology | Expanding Universe and Hubble’s Law, Cluster of galaxies, Dark matter, Dark energy (Q), Gravitational lensing, Cosmic Microwave Background Radiation, Big Bang (Q), Alternative models of the Universe (Q), Large scale structure (Q), Distance measurement at cosmological scale, cosmological redshift
+# Instrumentation and Space Technologies
+Multi-wavelength Astronomy | Observations in radio, microwave, infrared, visible, ultraviolet, X-ray, and gamma-ray wavelength bands, Earth’s atmospheric effects, Artificial light and EM pollution
+Instrumentation | Telescopes and detectors (e.g. charge-coupled devices, photometers, spectrographs), Magnification, Focal length, Focal ratio, resolving and light-gathering powers of telescopes, Geometric model of two element interferometer, Aperture synthesis, Adaptive optics, photometry, astrometry
+# Mathematical Methods and Tools
+Numerical Methods | Linearisation of equations and expressions, Iterative solving of functions, estimating area under a curve by graphical method and/or by integration and/or by numerical approximations, Taylor series approximations of common functions
+Basic Calculus | Derivatives of elementary functions, their sums, products, quotients, and nested functions. Integration as the inverse procedure to differentiation. Finding definite and indefinite integrals for elementary functions, and sums of functions. Geometric interpretation of derivatives and integrals. Finding constants of integration using initial conditions.
+Vectors | Basic properties of vector sums, dot and cross products, Geometrical interpretation of a time derivative of a vector quantity
+Geometric Instruments | Use of ruler, geometric compass, protractor, set-square
+Statistics & Error Analysis | Mean, Median, Mode, percentiles, box plots, Standard deviation, basic probabilities, relative errors, error estimation using maximum error and/or standard error
+# Practical Part — Observations
+Naked-Eye Observations | Naked-Eye Observations
+Sky Maps and Catalogues | Usage of sky maps and catalogues (note: any stars referred to by name rather than Bayer designation or catalogue number must be on the list of IAU-approved star names; knowledge of the whole list should not be required).
+Observational Coordinates and Estimates | Application of coordinate systems in the sky, magnitude estimation, estimation of angular separation.
+Astronomical Instruments | Usage of basic astronomical instruments-telescopes and various detectors for observations but enough instructions must be provided to the contestants.
+# Practical Part — Data Analysis
+Error Sources | Proper identification of error sources
+Graphs and Best Fit | Proper use of graph papers with different scales, e.g., polar and logarithmic papers. Finding the “Best Fit” line approximately.
+Geometrical Instruments in Practice | Familiarity with the use of basic geometrical instruments (ruler, compass, protractor, set-square).
+Experimental Techniques | Knowledge of the most common experimental techniques for measuring physical quantities mentioned in Part A.
