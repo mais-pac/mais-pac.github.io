@@ -6,24 +6,20 @@ Live site: <https://mais-pac.github.io/>
 
 ## Structure
 
-A simple, static academic website with self-contained physics and astronomy club handouts — no build step, no JavaScript dependencies, no trackers, and no cookies.
+A static academic website with physics and astronomy club handouts, the Cosmic Calculation Series, and teaching resources.
 
 ```
 index.html                  Club homepage
 about/index.html            Club background
-handouts/index.html         Physics & astronomy handout index
-explore/index.html          Topics and learning approach
-resources/index.html        Recommended references & tools
-404.html                    Minimal fallback page
-style.css                   Academic layout, handout typography & print styles
+teaching/index.html         Curriculum, lecture PDFs, problem sets, and handouts
+handouts/                   Six handouts and six worked-solution pages
+handouts/pdf/               Downloadable PDFs of the handouts and solutions
+scripts/build_teaching.py   Build Teaching page and curriculum PDFs
+scripts/build_handout_pdfs.py  Export the existing HTML handouts as PDFs
+scripts/lecture_content.py  Original theory notes and past-paper identifiers
+scripts/question_sets.py   Original practice exercises for Coordinates and Times
+style.css                   Site layout and colorful print/handout styles
 assets/club-logo.png        Club crest
-handouts/
-  P1.html, P1-solutions.html    Physical Reasoning & Estimation
-  P2.html, P2-solutions.html    Motion, Forces & Conservation
-  P3.html, P3-solutions.html    Gravity, Orbits & Waves
-  A1.html, A1-solutions.html    The Night Sky & Celestial Motion
-  A2.html, A2-solutions.html    Light, Telescopes & Stars
-  A3.html, A3-solutions.html    Relativity & Black Holes
 ```
 
 ## Local preview
@@ -34,19 +30,23 @@ python3 -m http.server 8080 --bind 0.0.0.0
 
 ## Teaching curriculum and PDFs
 
-`teaching/` contains the Cosmic Calculation Series curriculum, with 37 topic
-blocks based on the IOAA syllabus, a reformatted syllabus PDF, and an FAQ PDF.
-Original problem sets are available for the five Basic Astrophysics topics and
-the two Coordinates and Times topics (01.01–02.02). Each has a linked, colored
-contents page and four multi-part questions. Other Problems PDFs and all
-Solutions PDFs are clearly labeled placeholders. Existing club sheets remain
-in `handouts/` and are linked from Teaching.
+`teaching/` contains 37 topic blocks based on the IOAA syllabus, a reformatted syllabus PDF, and an FAQ PDF. Each Basic Astrophysics topic (01.01–01.05) now has a theory-first lecture PDF. Its final pages provide 16–26 official past-paper identifiers (year, round, question label); the copyrighted question statements are not reproduced. Each lecture PDF includes the requested notice: “The following questions are from official past IOAA problem sets.”
 
-The syllabus source is https://www.ioaa2026.vn/en/ioaa-syllabus (which credits
-IOAA, updated 17 November 2021). Club codes and practical-topic labels are
-organizational aids, not official IOAA designations.
+The Coordinates and Times PDFs (02.01–02.02) remain original MAIS PAC practice sets. Other Problems PDFs and the Solutions PDFs are clearly marked placeholders. The curriculum and handout PDFs carry a repeated, clickable MAIS PAC website badge at the top left and use the shared color-box style.
 
-To rebuild the Teaching page and PDFs, install `reportlab` in a Python virtual
-environment and run `python scripts/build_teaching.py`. The generator uses
-DejaVu Sans fonts from `/usr/share/fonts/truetype/dejavu/`. The authored
-questions are maintained in `scripts/question_sets.py`.
+The existing six physics/astronomy handouts and their six solution pages remain available as HTML. Downloadable, styled PDF exports are in `handouts/pdf/` and linked from Teaching and from each handout page. DejaVu font files needed for those exports are included in `handouts/pdf/fonts/` with their license.
+
+The syllabus study edition is based on the IOAA syllabus updated 17 November 2021. Club topic codes and practical-topic labels are organizational aids, not official IOAA designations.
+
+## Rebuilding PDFs
+
+Create a virtual environment, install the build dependencies, and run both generators:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python scripts/build_teaching.py
+.venv/bin/python scripts/build_handout_pdfs.py
+```
+
+`build_teaching.py` requires DejaVu Sans at `/usr/share/fonts/truetype/dejavu/`. It builds the curriculum page, all curriculum PDFs, the five theory-first Basic Astrophysics PDFs, the two original Coordinates and Times practice PDFs, placeholders, syllabus and FAQ. `build_handout_pdfs.py` exports the twelve existing HTML pages and stamps every page with a clickable website badge.
