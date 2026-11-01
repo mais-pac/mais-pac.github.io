@@ -7,7 +7,26 @@
   <meta name="theme-color" content="#ffffff">
   <title>Page not found · MAIS Physics &amp; Astronomy Club</title>
   <link rel="icon" type="image/png" href="/assets/club-logo.png">
-  <link rel="stylesheet" href="/style.css?v=handout-boxed-1">
+  <link rel="stylesheet" href="/style.css?v=sticky-teaching-2">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
 </head>
 <body>
   <header class="site-header">
@@ -16,6 +35,7 @@
       <nav class="site-nav" aria-label="Main navigation">
         <a href="/">Home</a>
         <a href="/about/">About</a>
+        <a href="/club/">Club</a>
         <a href="/teaching/">Teaching</a>
         <a href="/explore/">Explore</a>
         <a href="/resources/">Resources</a>

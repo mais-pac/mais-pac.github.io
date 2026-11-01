@@ -1,0 +1,89 @@
+/* Additions for the Cosmology handout. The existing site stylesheet is unchanged. */
+.sheet-page { overflow-wrap: break-word; }
+.sheet-page h2 { scroll-margin-top: calc(var(--header-offset, 56px) + 18px); }
+.sheet-page h3 { font-size: 18px; line-height: 1.4; margin: 23px 0 9px; color: #1e3a8a; }
+.sheet-page li { margin-bottom: 6px; }
+.sheet-page .eq { gap: 8px; }
+.sheet-page .eq__expr { min-width: 0; max-width: 100%; overflow-x: auto; overflow-y: hidden; padding: 4px 1px; font-size: 17px; }
+.eq .katex-display { margin: 0; text-align: center; }
+.eq .katex-display > .katex { white-space: nowrap; }
+.eq__num { flex: 0 0 auto; }
+.katex { font-size: 1.04em; }
+.problem > p:last-child, .solution > p:last-child, .thm > p:last-child, .remark > p:last-child { margin-bottom: 0; }
+.problem .eq, .solution .eq, .thm .eq { box-shadow: none; }
+.cosmo-meta { font: 12px/1.6 var(--sans); color: #526079; margin-top: 9px !important; }
+.cosmo-quicklinks { display: flex; flex-wrap: wrap; gap: 7px 15px; font: 13px/1.6 var(--sans); margin: -8px 0 22px; }
+.cosmo-toc { border: 1px solid #dce4f2; border-radius: 7px; background: #fbfcff; padding: 12px 16px; margin: 20px 0 26px; font: 13px/1.65 var(--sans); }
+.cosmo-toc > summary { cursor: pointer; color: #1e3a8a; font-weight: 700; }
+.cosmo-toc ol { columns: 2; column-gap: 28px; padding-left: 23px; margin: 12px 0 2px; }
+.cosmo-toc li { break-inside: avoid; margin: 0 0 5px; padding-left: 2px; }
+.solution-index { display: grid; grid-template-columns: repeat(10, minmax(0,1fr)); gap: 6px; margin-top: 12px; }
+.solution-index a { text-align: center; border: 1px solid #dce4f2; border-radius: 4px; padding: 4px 0; background: #f0fdf7; color: #047857; }
+.table-scroll { overflow-x: auto; margin: 16px 0; }
+.sheet-page table { width: 100%; border-collapse: collapse; font: 13px/1.55 var(--sans); margin: 15px 0; }
+.sheet-page th { text-align: left; background: #f3f6ff; color: #1e3a8a; font-weight: 650; }
+.sheet-page th, .sheet-page td { border: 1px solid #dce4f2; padding: 8px 10px; vertical-align: top; }
+.sheet-page td .katex { font-size: 1em; }
+.sheet-page caption { text-align: left; font-size: 12px; color: #6e767d; padding: 5px 0; }
+.cosmo-figure { margin: 23px 0; padding: 0; break-inside: avoid; }
+.cosmo-figure svg { display: block; width: 100%; height: auto; font-family: var(--sans); font-size: 13px; border: 1px solid #dce4f2; border-radius: 8px; background: #fbfcff; }
+.cosmo-figure figcaption { font: 12.5px/1.6 var(--sans); color: #526079; margin: 8px 3px 0; }
+.cosmo-lab { margin: 26px 0; border: 1px solid #bfdbfe; border-left: 5px solid #2457c5; border-radius: 8px; background: #fbfcff; box-shadow: 0 2px 8px rgb(15 23 42 / 5%); padding: 16px; break-inside: avoid; }
+.lab-heading { border-bottom: 1px solid #dbe4ff; padding-bottom: 11px; margin-bottom: 13px; }
+.lab-kicker { font: 650 10px/1.5 var(--sans); text-transform: uppercase; letter-spacing: .09em; color: #2457c5; }
+.sheet-page .lab-heading h3 { font: 700 18px/1.4 var(--serif); margin: 4px 0 7px; color: #1e3a8a; }
+.sheet-page .lab-heading p { font: 13px/1.65 var(--sans); color: #526079; margin: 0; }
+.lab-controls { display: flex; align-items: end; flex-wrap: wrap; gap: 12px; font: 12px/1.5 var(--sans); margin: 12px 0; }
+.lab-controls > label:not(.lab-check) { flex: 1 1 190px; min-width: 0; color: #344256; font-weight: 600; }
+.lab-controls input[type="range"] { display: block; width: 100%; margin: 9px 0 2px; accent-color: #2457c5; cursor: pointer; min-height: 22px; }
+.lab-controls select { display: block; width: 100%; border: 1px solid #cfd6dc; border-radius: 4px; background: #fff; color: #30363b; font: 12px var(--sans); padding: 7px; margin-top: 6px; }
+.lab-controls .print-btn { min-height: 32px; white-space: nowrap; }
+.range-value { font: 600 12px/1.5 var(--mono); color: #1e3a8a; min-width: 38px; padding-bottom: 6px; }
+.lab-check { display: flex; align-items: center; gap: 7px; min-height: 32px; }
+.lab-check input { accent-color: #2457c5; }
+.lab-outputs { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 8px; margin: 13px 0; }
+.lab-outputs > div { border: 1px solid #dce4f2; border-radius: 5px; padding: 8px 10px; background: #fff; min-width: 0; }
+.lab-outputs span { display: block; font: 11px/1.45 var(--sans); color: #6e767d; }
+.lab-outputs output { display: block; font: 650 14px/1.6 var(--sans); color: #1e3a8a; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.lab-canvas { display: block; width: 100%; height: auto; font-family: var(--sans); font-size: 12px; }
+.sheet-page .lab-summary { font: 12px/1.65 var(--sans); color: #344256; margin: 9px 2px 12px; }
+.lab-prompt { border: 1px solid #ddd6fe; border-radius: 5px; background: #faf7ff; padding: 10px 12px; font: 12.5px/1.65 var(--sans); color: #4c3a69; }
+.lab-prompt strong { color: #6d28d9; }
+.lab-data { font: 12px/1.6 var(--sans); margin: 12px 0; }
+.lab-data summary { cursor: pointer; color: #2457c5; }
+.lab-data table { font-size: 11px; }
+.excluded-row { color: #94a3b8; background: #f8f9fa; }
+.lab-noscript { font: 13px/1.6 var(--sans); color: #6e767d; }
+.print-only { display: none; }
+.cosmo-source-note { font: 12.5px/1.65 var(--sans); color: #526079; }
+.solution .sol-head { display: inline-block; margin-bottom: 7px; }
+.solution, .problem { scroll-margin-top: calc(var(--header-offset, 56px) + 18px); }
+@media (max-width: 560px) {
+  .cosmo-toc ol { columns: 1; }
+  .solution-index { grid-template-columns: repeat(6,minmax(0,1fr)); }
+  .cosmo-lab { padding: 12px; }
+  .lab-outputs { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .lab-controls > label:not(.lab-check) { flex-basis: 160px; }
+  .sheet-page .eq__expr { font-size: 15.5px; }
+  .sheet-page th, .sheet-page td { padding: 6px 7px; }
+}
+@media print {
+  .cosmo-quicklinks, .lab-controls, .lab-data, .lab-noscript { display: none !important; }
+  .print-only { display: block; }
+  .cosmo-toc { break-inside: avoid; }
+  .cosmo-toc ol { columns: 2; }
+  .cosmo-lab { padding: 9pt; margin: 12pt 0; break-inside: avoid; }
+  .cosmo-lab .lab-canvas { max-height: 90mm; }
+  .lab-outputs { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  .lab-outputs output { font-size: 10pt; }
+  .lab-heading p, .lab-summary, .lab-prompt { font-size: 9pt !important; }
+  .cosmo-figure svg { max-height: 95mm; }
+  .sheet-page .eq__expr { overflow: visible; font-size: 11pt; }
+  .sheet-page .katex { font-size: 1.02em; }
+  .sheet-page table { font-size: 9pt; }
+  .sheet-page h3 { break-after: avoid; }
+  .cosmology-solutions .solution { break-inside: auto; }
+  .solution .eq, .solution .thm, .problem .eq { break-inside: avoid; }
+  .solution > p:first-child { break-after: avoid; }
+  a[href^="#"] { text-decoration: none; }
+}

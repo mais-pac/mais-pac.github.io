@@ -1,0 +1,85 @@
+/* MAIS PAC Mechanics Playground — visual-first, equation-optional. */
+.mechanics-main { max-width: 1240px; margin: 0 auto; padding: 30px 28px 64px; }
+.mech-hero { border: 1px solid #c7d2fe; border-left: 6px solid #2457c5; border-radius: 10px; background: linear-gradient(135deg,#f3f6ff 0%,#faf7ff 100%); padding: 24px 26px; margin-bottom: 24px; }
+.mech-hero h1 { margin: 0 0 8px; font-size: 32px; line-height: 1.2; color: #1e3a8a; letter-spacing: -.5px; }
+.mech-hero p { margin: 0 0 14px; max-width: 760px; color: #3b4a63; font-size: 16px; }
+.mech-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.mech-badge { font: 600 12px/1.4 var(--sans); color: #1e3a8a; background: #fff; border: 1px solid #c7d2fe; border-radius: 999px; padding: 5px 11px; }
+.mech-progress { display: flex; align-items: center; gap: 12px; margin-top: 16px; font: 13px/1.4 var(--sans); color: #526079; }
+.mech-progress-track { flex: 1; max-width: 360px; height: 10px; border-radius: 999px; background: #e5eaff; overflow: hidden; }
+.mech-progress-fill { height: 100%; width: 0%; background: linear-gradient(90deg,#2457c5,#7c3aed); transition: width .3s ease; }
+.mech-lab { border: 1px solid #bfdbfe; border-radius: 12px; background: #fff; box-shadow: 0 4px 18px rgb(30 58 138 / 8%); overflow: hidden; margin-bottom: 30px; }
+.mech-lab-head { display: flex; justify-content: space-between; gap: 18px; align-items: flex-start; padding: 18px 22px; background: #f8faff; border-bottom: 1px solid #dbe4ff; }
+.mech-sim-tag { display: inline-block; font: 700 11px/1.4 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: #2457c5; margin-bottom: 4px; }
+.mech-lab-head h2 { margin: 0 0 6px; font-size: 24px; color: #1e3a8a; }
+.mech-lab-head p { margin: 0; color: #526079; font-size: 14px; max-width: 640px; }
+.mech-transport { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; justify-content: flex-end; min-width: 250px; }
+.mech-btn { appearance: none; border: 1px solid #c7d2fe; background: #fff; color: #1e3a8a; border-radius: 6px; font: 600 13px/1.2 var(--sans); padding: 8px 13px; cursor: pointer; min-height: 36px; }
+.mech-btn:hover { border-color: #2457c5; background: #f3f6ff; }
+.mech-btn.primary { background: #2457c5; border-color: #2457c5; color: #fff; }
+.mech-btn.primary:hover { background: #1e40af; }
+.mech-speed { display: flex; align-items: center; gap: 6px; font: 12px var(--sans); color: #526079; }
+.mech-speed input { width: 90px; accent-color: #2457c5; }
+.mech-lab-body { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(280px,1fr); gap: 0; }
+.mech-stage-wrap { position: relative; padding: 16px; background: #fbfcff; border-right: 1px solid #e6ecf7; }
+#mech-stage { display: block; width: 100%; height: auto; border: 1px solid #dce4f2; border-radius: 10px; background: #fff; touch-action: none; }
+.mech-stage-hint { margin: 8px 4px 0; font: 12px/1.5 var(--sans); color: #6e767d; }
+.mech-side { padding: 18px; display: flex; flex-direction: column; gap: 14px; background: #fff; }
+.mech-controls { display: flex; flex-direction: column; gap: 12px; }
+.mech-control { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; font: 13px/1.4 var(--sans); color: #344256; }
+.mech-control label { font-weight: 600; }
+.mech-control output { font: 600 12px var(--mono); color: #1e3a8a; text-align: right; min-width: 64px; }
+.mech-control input[type="range"] { grid-column: 1 / -1; width: 100%; accent-color: #2457c5; }
+.mech-control select { grid-column: 1 / -1; padding: 7px; border: 1px solid #cfd6dc; border-radius: 5px; font: 13px var(--sans); }
+.mech-control.check { grid-template-columns: auto 1fr; }
+.mech-control.check input { width: 16px; height: 16px; accent-color: #2457c5; }
+.mech-control-buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+.mech-readouts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
+.mech-readout { border: 1px solid #dce4f2; border-radius: 7px; padding: 8px 10px; background: #f8faff; }
+.mech-readout span { display: block; font: 11px/1.4 var(--sans); color: #6e767d; }
+.mech-readout output { display: block; font: 700 15px/1.5 var(--sans); color: #1e3a8a; font-variant-numeric: tabular-nums; }
+.mech-challenge { border: 1px solid #ddd6fe; border-left: 4px solid #7c3aed; background: #faf7ff; border-radius: 7px; padding: 11px 13px; font: 13px/1.6 var(--sans); color: #4c3a69; }
+.mech-challenge strong { color: #6d28d9; }
+.mech-explored { align-self: flex-start; }
+.mech-explored.done { background: #ecfdf5; border-color: #a7f3d0; color: #047857; }
+.mech-physics { border: 1px solid #dce4f2; border-radius: 7px; padding: 10px 12px; font: 13px/1.65 var(--sans); color: #344256; }
+.mech-physics summary { cursor: pointer; font-weight: 600; color: #2457c5; }
+.mech-physics .eq-line { font-family: var(--mono); background: #f3f6ff; border-radius: 5px; padding: 6px 8px; margin: 7px 0; overflow-x: auto; }
+.mech-gallery h2, .mech-teachers h2 { font-size: 22px; color: #1e3a8a; margin: 0 0 14px; }
+.mech-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(230px,1fr)); gap: 14px; }
+.mech-card { border: 1px solid #dce4f2; border-radius: 10px; background: #fff; padding: 15px; display: flex; flex-direction: column; gap: 8px; cursor: pointer; text-align: left; font: inherit; transition: border-color .15s, box-shadow .15s, transform .15s; }
+.mech-card:hover, .mech-card:focus-visible { border-color: #2457c5; box-shadow: 0 4px 14px rgb(30 58 138 / 10%); transform: translateY(-2px); }
+.mech-card.active { border-color: #2457c5; background: #f3f6ff; }
+.mech-card-icon { display:block; color:#2457c5; margin-bottom:.35rem; }
+.mech-card-icon svg { display:block; }
+.mech-card h3 { margin: 0; font-size: 16px; color: #1e3a8a; }
+.mech-card p { margin: 0; font-size: 13px; color: #526079; flex: 1; }
+.mech-card small { font: 600 11px var(--sans); color: #7c3aed; text-transform: uppercase; letter-spacing: .05em; }
+.mech-card .explored-mark { color: #047857; }
+.mech-teachers { margin-top: 30px; border: 1px solid #dce4f2; border-radius: 10px; background: #fbfcff; padding: 18px 20px; }
+.mech-teachers ol { margin: 8px 0 0; padding-left: 22px; color: #344256; }
+.mech-teachers li { margin: 5px 0; }
+.mech-featured-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-weight: 600; }
+.mech-embed-card { border: 1px solid #c7d2fe; border-left: 5px solid #2457c5; border-radius: 9px; background: #f8faff; padding: 16px 18px; margin: 18px 0; }
+.mech-embed-card h3 { margin: 0 0 6px; color: #1e3a8a; }
+.mech-embed-card p { margin: 0 0 10px; }
+.mech-mini-pendulum { display: block; margin: 8px auto; max-width: 180px; }
+@media (max-width: 900px) {
+  .mech-lab-body { grid-template-columns: 1fr; }
+  .mech-stage-wrap { border-right: 0; border-bottom: 1px solid #e6ecf7; }
+  .mech-lab-head { flex-direction: column; }
+  .mech-transport { justify-content: flex-start; min-width: 0; }
+}
+@media (max-width: 560px) {
+  .mechanics-main { padding: 20px 16px 48px; }
+  .mech-hero h1 { font-size: 26px; }
+  .mech-readouts { grid-template-columns: 1fr 1fr; }
+  .mech-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mech-card, .mech-progress-fill { transition: none; }
+}
+@media print {
+  .mech-transport, .mech-controls, .mech-explored, .mech-gallery, .mech-progress { display: none !important; }
+  .mech-lab-body { grid-template-columns: 1fr; }
+}

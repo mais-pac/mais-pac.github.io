@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Errata · MAIS Physics &amp; Astronomy Club</title>
+<link rel="icon" type="image/png" href="../assets/club-logo.png">
+<link rel="stylesheet" href="../style.css?v=sticky-teaching-2">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
+<style>
+.errata-page{max-width:980px;margin:0 auto;padding:2rem 1.4rem 4rem;font-family:var(--sans);color:var(--ink);line-height:1.55}
+.errata-page h1{font-size:1.9rem;margin:0 0 .6rem}
+.errata-page h2{font-size:1.3rem;margin:2rem 0 .6rem;border-bottom:1px solid var(--line);padding-bottom:.3rem}
+.errata-page table{border-collapse:collapse;width:100%;font-size:.86rem;margin:1rem 0;display:block;overflow-x:auto}
+.errata-page th,.errata-page td{border:1px solid var(--line);padding:.45rem .55rem;text-align:left;vertical-align:top}
+.errata-page th{background:#f3f6ff}
+.errata-page code{background:#f4f6fb;padding:.05rem .25rem;border-radius:3px}
+.errata-page a{color:var(--link)}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="handout-bar"><div class="handout-bar__inner"><a href="../teaching/">← Teaching &amp; handouts</a><strong>Errata</strong><a href="../club/">Club</a></div></header>
+<main id="main-content" class="errata-page">
+<h1>Errata — MAIS Physics &amp; Astronomy Club handouts</h1>
+<p><strong>Audit cycle:</strong> 2 (corrections verified)<br />
+<strong>Scope:</strong> Basic Astrophysics 01.01–01.05; Cosmology 06.01; extended curriculum 07.01–10.04; legacy Physics P1–P3 and Astronomy A1–A3; generated figures and interactive laboratories.<br />
+<strong>Method:</strong> source reading, independent numerical recomputation, SVG/reference checks, and interactive-model inspection. External source links are checked for reachability; this is not a re-derivation of every cited official marking scheme.</p>
+<p>The table names each finding <strong>Errata E##</strong>. “Fixed” means the source was corrected, the affected HTML/PDF was rebuilt, and the item was re-checked in cycle 2.</p>
+<h2>Handout errata</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Location</th>
+<th>Finding</th>
+<th>Correction</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E01</td>
+<td>01.01 lecture §6; solutions 13</td>
+<td>The formula $2GMR/d^3$ was labelled “near–far” differential acceleration. It is the centre-to-near-side difference; the near-to-far difference is $4GMR/d^3$.</td>
+<td>Define the centre-to-near convention explicitly and label the Moon/Sun numbers with that convention.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E02</td>
+<td>01.03 solution 13</td>
+<td>Photon random-walk time was $1.63\times10^{12}$ s / $5.2\times10^4$ yr, a factor of ten too large.</td>
+<td>Correct to $1.63\times10^{11}$ s $\approx5.2\times10^3$ yr for the stated mean free path.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E03</td>
+<td>01.04 solution 6</td>
+<td>The quoted 7.96 MHz linewidth was a half-width convention but was not identified as such.</td>
+<td>State that $1/(4\pi\tau)$ is the HWHM under the stated convention; the corresponding FWHM is 15.9 MHz.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E04</td>
+<td>07.02 §4 and problem 5; 09.04 §2 and problem 1</td>
+<td>SNR formula and worked read-noise term used a per-pixel read noise without stating the aperture pixel count.</td>
+<td>Define $S,B,D$ as aperture totals and use $n_{\rm pix}\sigma_{\rm read}^2$; state that the worked numbers assume a one-pixel-equivalent aperture or give the total read variance.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E05</td>
+<td>09.01 solution 8</td>
+<td>“Halfway in brightness” was ambiguous and the flux-midpoint magnitude was rounded to 5.2.</td>
+<td>Define the arithmetic mean of the two comparison fluxes and give 5.26 mag; note that a magnitude midpoint would be 5.30.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E06</td>
+<td>09.03 §4; airmass figure; coordinates lab</td>
+<td>Text said the true airmass is larger than $\sec z$ near the horizon, and the lab/figure used the divergent plane-parallel formula there.</td>
+<td>Explain that $\sec z$ overestimates/diverges; use the finite Kasten–Young (1989) approximation in the lab and figure, with its low-altitude limits stated.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E07</td>
+<td>09.03 problem/solution 10</td>
+<td>The problem asked for information already supplied and the solution omitted the computable azimuth/airmass.</td>
+<td>Ask for altitude, azimuth and airmass from the given hour angle, latitude and declination; give 60.86°, 242.8°, 1.145.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E08</td>
+<td>09.03 solution 8</td>
+<td>A 30-day sidereal drift was rounded to exactly 20:00.</td>
+<td>Use 3 min 56 s per day: about 1 h 58 min earlier, near 20:02.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E09</td>
+<td>09.04 problem/solution 9</td>
+<td>“Minimum total observing time” confused 40 min of integration with the elapsed session needed to sample a 2 h eclipse plus baseline.</td>
+<td>Separate integration time from elapsed time: 40 min integration, about 4 h session for 2 h eclipse plus 1 h baseline on each side, with ≤6 min eclipse cadence.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E10</td>
+<td>09.04 problem 2</td>
+<td>Dark current was omitted without being declared negligible.</td>
+<td>State that dark current and read noise are neglected.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E11</td>
+<td>09.04 problem 8</td>
+<td>Exposure scaling answer assumed source-dominated noise without saying sky/dark/read terms were negligible.</td>
+<td>State the source-dominated assumption explicitly.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E12</td>
+<td>09.04 solution 10</td>
+<td>0.02 mag was described as “about 2%” without the exact conversion.</td>
+<td>Give $1-10^{-0.4(0.02)}\approx1.82\%$ (about 2%).</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E13</td>
+<td>10.04 §5</td>
+<td>A real target eclipse was said to appear in comparison stars “only if it is real,” reversing the control logic.</td>
+<td>A real target eclipse should <strong>not</strong> appear in stable comparison stars; a shared dip indicates a systematic.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E14</td>
+<td>10.04 differential-photometry discussion</td>
+<td>Differential magnitude was treated as an absolute magnitude without a zero-point caveat.</td>
+<td>State that $\Delta m$ is relative to the comparison ensemble and needs a zero point for an absolute magnitude.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E15</td>
+<td>10.01 §1–3</td>
+<td>“Error” and “uncertainty” were used interchangeably.</td>
+<td>Distinguish a mistake/known offset from a quantified uncertainty; known biases are corrected, residual calibration uncertainty is propagated.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E16</td>
+<td>08.03 lecture/problems</td>
+<td>Unit-vector definition omitted the nonzero condition; flux wording omitted sign/uniform-field assumptions; one problem said “vectors” where “angle” was meant.</td>
+<td>Add $\mathbf v\ne0$, define signed flux through an oriented surface in a uniform field, and correct the angle wording.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E17</td>
+<td>08.04; 10.03 §3 and solutions</td>
+<td>“Finer plate scale” was ambiguous and sometimes inverted.</td>
+<td>Define plate scale as $k$ in arcsec/mm: smaller $k$ means more mm per arcsec and a smaller angular error for the same ruler error.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E18</td>
+<td>08.04 parallax discussion</td>
+<td>The annual parallax baseline was not distinguished from the full peak-to-peak shift.</td>
+<td>State that the parsec definition uses the 1 AU radius (half the 2 AU peak-to-peak baseline).</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E19</td>
+<td>08.05; 10.01 uncertainty budget</td>
+<td>Calibration terms were described as random errors to be averaged away.</td>
+<td>Treat independent, zero-mean standard uncertainties in quadrature; correlated or known systematic offsets require separate treatment.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E20</td>
+<td>10.02 fitting lecture/problems</td>
+<td>Ordinary least-squares assumptions and transformations were under-specified.</td>
+<td>State equal-variance $y$ errors and $n-2$ degrees of freedom for $s$; logarithms require positive variables; pendulum linearization requires small amplitude.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E21</td>
+<td>09.02 catalogue lecture/problems</td>
+<td>Epoch and equinox were conflated; a small-angle separation problem omitted its approximation; a 25″ offset in a 1′ field was not contextualized.</td>
+<td>Distinguish proper-motion epoch from reference-frame equinox; state same-declination/small-angle assumptions; note 25″ is about 42% of a 1′ field.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E22</td>
+<td>08.01 solution 2; numerical integration remark</td>
+<td>A Newton iterate was claimed to have three correct digits; Simpson’s rule did not state its even-interval requirement.</td>
+<td>Remove the digit overclaim and state that composite Simpson’s rule needs an even number of subintervals.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E23</td>
+<td>08.02 calculus lecture</td>
+<td>A one-dimensional stationary point was called a saddle; antiderivatives omitted the constant of integration.</td>
+<td>Use local maximum/minimum/inflection language for 1-D; write $+C$ for indefinite integrals.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E24</td>
+<td>09.01 naked-eye lecture/solutions</td>
+<td>Polaris distance was measured from the wrong reference; dark adaptation was said to be fully reset by white light; synthetic field was not labelled.</td>
+<td>Use the Dubhe-to-Polaris pointer distance (~28°); say white light undoes much of the adaptation; label the practice field as synthetic.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E25</td>
+<td>10.03 procedure/problems</td>
+<td>“Centred” typo; resolved-image assumption and constant position-angle rate were implicit.</td>
+<td>Correct to “Centre”; state that the method assumes resolved images and that a constant PA rate is an approximation over short arcs.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E26</td>
+<td>08.03, 09.03, 10.03 figures</td>
+<td>Four SVG arrowheads referenced marker IDs containing underscores while the generated IDs used hyphens.</td>
+<td>Normalize marker references and add an automated unresolved-SVG-reference check.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E27</td>
+<td>10.02 fit laboratory</td>
+<td>The lab promised a residual panel but drew none; negative fitted values could be clipped.</td>
+<td>Add a residual subplot and a symmetric, data-aware y-range.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E28</td>
+<td>10.04 photometry laboratory</td>
+<td>“Recovered depth scale” was only the input slider; deterministic ripple was called noise.</td>
+<td>Relabel the output as the input depth scale and describe the ripple as deterministic synthetic scatter.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E29</td>
+<td>09.01 limiting-magnitude figure</td>
+<td>The figure used a power-law star count while the lecture used the Euclidean $10^{0.6m}$ model.</td>
+<td>Label the figure as schematic or align it with the stated model.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E30</td>
+<td>Extended figures (07.01, 08.01–08.05, 09.01, 09.03, 10.02–10.04)</td>
+<td>Several diagrams were geometrically inconsistent or unlabelled schematics: non-tangent “tangent,” mismatched shaded area, triangulation angle labels, vector-add title, distribution normalization, horizon-coordinate angle, double-star north arrow, differential-photometry curves, and wavelength-band spacing.</td>
+<td>Redraw/label the affected diagrams so the geometry matches the caption and the teaching model.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E31</td>
+<td>P1 problem/solution 3</td>
+<td>A local pressure ratio was presented as the fraction of Earth’s whole atmosphere below 1350 m.</td>
+<td>Reframe as the fraction of an idealized sea-level air column below that altitude; global mass fraction requires topography.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E32</td>
+<td>A1 lecture §1</td>
+<td>“Earth moves … on a baseline of 1 AU” blurred the parallax radius and full annual shift.</td>
+<td>State that annual parallax uses the 1 AU orbital radius; the peak-to-peak shift is twice the parallax angle.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E33</td>
+<td>A2 solution 1</td>
+<td>A 13.3 mag idealized limit was said to be “easily bright enough” for Pluto at ~14.3 mag.</td>
+<td>Correct the comparison: Pluto is fainter than that limit; larger aperture, detector integration or other gains are needed.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E34</td>
+<td>A2 lecture §3</td>
+<td>Fusion energy notation double-counted the efficiency if $\Delta m$ was already the converted mass.</td>
+<td>Write $E\simeq\epsilon m_{\rm fused}c^2$ for fused mass, or $E=\Delta m c^2$ for actual mass defect.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E35</td>
+<td>A2 solution 4</td>
+<td>The $M^{-2.5}$ lifetime scaling was extrapolated to a 0.2 $M_\odot$ star without noting the changing mass–luminosity slope and fuel fraction.</td>
+<td>Label the 560 Gyr value as the result of the stated crude scaling, not a reliable low-mass stellar model.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E36</td>
+<td>A3 solution 3</td>
+<td>A $10^{13}L_\odot$ quasar was compared to “a hundred” Milky Way galaxies.</td>
+<td>Use a defensible order-of-magnitude comparison (hundreds to about a thousand Milky-Way-like galaxies) or remove the count.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E37</td>
+<td>A3 lecture §1/§3</td>
+<td>“Isolated black holes are completely dark” and “up to 42%” spin efficiency lacked classical/ideal-limit qualifiers.</td>
+<td>Say classically dark apart from negligible Hawking radiation; identify ~42% as the ideal extremal-Kerr estimate, not a generic astrophysical value.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E38</td>
+<td>06.01 solution 27(d)</td>
+<td>A 2% increase in the BAO ruler $r_d$ was said to increase both $D_M$ and $H$. Since $H=c\Delta z/r_d$, $H$ decreases.</td>
+<td>Correct to $D_M$ increases by 2%, $H$ decreases by about 1.96% (to $H/1.02$).</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E39</td>
+<td>06.01 solution 1(c)</td>
+<td>The answer did not name the coasting model that makes $t_0=H_0^{-1}$ exact.</td>
+<td>Add the empty Milne / $a\propto t$ example while keeping the warning that $H_0^{-1}$ is not a general age.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E40</td>
+<td>08.03 vectors laboratory</td>
+<td>The angle between vectors was reported as 90° when either vector had zero magnitude.</td>
+<td>Return an undefined angle for a zero vector and display “—”.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>E41</td>
+<td>10.01 errors laboratory</td>
+<td>A known systematic offset was combined with random scatter as though it were automatically a standard uncertainty.</td>
+<td>Relabel the RSS output and explain that a known bias should be corrected; only an uncertainty on the residual bias is combined.</td>
+<td>Fixed</td>
+</tr>
+</tbody>
+</table>
+<h2>Requested site changes (tracked separately from errata)</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Request</th>
+<th>Implementation</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S01</td>
+<td>Add a navigation item called <strong>Club</strong>.</td>
+<td>Add a Club page and a Club link to every main site navigation and the Teaching template, preserving sticky behavior and mobile wrapping.</td>
+<td>Fixed</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>Remove the Mechanics Playground card from <strong>Explore</strong>.</td>
+<td>Delete the Explore feature section and patch <code>integrate_mechanics.py</code> so it cannot reinsert it; keep the Mechanics Lab navigation item and page.</td>
+<td>Fixed</td>
+</tr>
+</tbody>
+</table>
+<h2>Cycle log</h2>
+<ul>
+<li><strong>Cycle 1:</strong> full source and generated-artifact inspection; 41 handout/figure/lab errata and 2 requested site changes recorded.</li>
+<li><strong>Cycle 2:</strong> all 41 errata corrected at source; affected HTML and PDFs rebuilt. Structural audit PASS (54 handout HTML files, 9 navigation pages; no unresolved templates, KaTeX errors, duplicate IDs, broken SVG references, broken internal links, or problem/solution count mismatches). Basic, Cosmology, Extended-curriculum and Mechanics browser tests PASS offline/live. SVG text-bounds check PASS. PDF bounds check: 54 PDFs, 285 pages, 0 out-of-bounds text blocks. Club navigation present on all main pages; Explore Mechanics feature card absent. No new errata found in cycle 2.</li>
+</ul>
+</main>
+<footer class="site-footer"><span>MAIS Physics &amp; Astronomy Club (PAC)</span><span>Mongol Aspiration International School · Ulaanbaatar, Mongolia</span></footer>
+</body>
+</html>

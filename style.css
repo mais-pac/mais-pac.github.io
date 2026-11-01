@@ -19,7 +19,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 28px;
+  scroll-padding-top: calc(var(--header-offset, 96px) + 20px);
 }
 
 body {
@@ -49,7 +49,7 @@ button:focus-visible {
 }
 
 .skip-link {
-  position: absolute;
+  position: fixed;
   left: 16px;
   top: -80px;
   background: #ffffff;
@@ -57,7 +57,7 @@ button:focus-visible {
   border: 1px solid var(--line-strong);
   padding: 8px 12px;
   font-size: 14px;
-  z-index: 10;
+  z-index: 110;
 }
 
 .skip-link:focus {
@@ -68,6 +68,9 @@ button:focus-visible {
    Site Header
    ============================================================ */
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   border-bottom: 1px solid var(--line);
   background: #ffffff;
   box-shadow: 0 2px 4px rgb(0 0 0 / 8%);
@@ -368,6 +371,9 @@ main p {
    LaTeX / Kevin Zhou–Styled Handout Sheet Pages (handouts/*.html)
    ============================================================ */
 .handout-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   border-bottom: 1px solid var(--line);
   background: var(--surface);
   font-family: var(--sans);
@@ -963,3 +969,12 @@ main p {
   gap: 8px;
   font-size: 12.5px;
 }
+
+/* Persistent navigation: match the compact, always-visible academic reference. */
+.site-header, .handout-bar { isolation: isolate; }
+.sheet-page h2, .sheet-page h3, .sheet-page .problem, .sheet-page .solution,
+.teaching-main h2, .teaching-main h3, [id] { scroll-margin-top: calc(var(--header-offset, 96px) + 18px); }
+.physics-mechanics-heading a { font-weight: 600; }
+.teaching-contact { border-top: 1px solid var(--line); padding-top: 20px; margin-top: 30px !important; font-size: 14px; color: var(--muted); }
+.teaching-contact a { overflow-wrap: anywhere; }
+@media print { .site-header, .handout-bar { position: static; } }

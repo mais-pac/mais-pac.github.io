@@ -12,3 +12,7 @@ __pycache__/
 
 # Local Python environment
 .venv/
+
+# Local Node build/test dependencies (recreated by npm ci)
+node_modules/
+

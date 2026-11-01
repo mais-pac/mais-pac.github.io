@@ -7,7 +7,26 @@
   <meta name="theme-color" content="#ffffff">
   <title>A2: Light, Telescopes &amp; Stars · MAIS PAC Handouts</title>
   <link rel="icon" type="image/png" href="../assets/club-logo.png">
-  <link rel="stylesheet" href="../style.css?v=handout-boxed-1">
+  <link rel="stylesheet" href="../style.css?v=sticky-teaching-2">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
 </head>
 <body>
   <a class="skip-link" href="#sheet">Skip to handout</a>
@@ -84,7 +103,7 @@
     </div>
 
     <h2>3. Nuclear Fuel and Stellar Lifetimes</h2>
-    <p>During its main-sequence life, a star fuses hydrogen into helium in its core, converting roughly ε ≈ 0.007 (0.7%) of the fused rest mass into radiant energy via Δ<i>E</i> = ε Δ<i>mc</i><sup>2</sup>.</p>
+    <p>During its main-sequence life, a star fuses hydrogen into helium in its core, releasing roughly ε ≈ 0.007 (0.7%) of the fused rest mass as energy: <i>E</i> ≈ ε <i>m</i><sub>fused</sub><i>c</i><sup>2</sup>. Equivalently, if Δ<i>m</i> is the actual mass defect, <i>E</i> = Δ<i>mc</i><sup>2</sup>.</p>
 
     <div class="problem">
       <p><span class="prob-head">[3] Problem 4 (Live fast, die young).</span> Assume a star can fuse the innermost 10% of its total mass <i>M</i> before exhausting core hydrogen.</p>
