@@ -1,0 +1,32 @@
+{
+  "name": "mais-pac-cosmology",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static MAIS PAC website with interactive Cosmology, Basic Astrophysics, extended curriculum and Mechanics Playground.",
+  "type": "module",
+  "scripts": {
+    "build:cosmology": "python scripts/build_cosmology.py",
+    "integrate:cosmology": "python scripts/integrate_cosmology.py",
+    "pdf:cosmology": "node scripts/export_cosmology.mjs",
+    "test:cosmology": "node scripts/test_cosmology.mjs",
+    "preview": "python -m http.server 3000 --bind 0.0.0.0",
+    "build:mechanics": "python scripts/build_mechanics.py",
+    "integrate:mechanics": "python scripts/integrate_mechanics.py",
+    "test:mechanics": "node scripts/test_mechanics.mjs",
+    "build:basic": "python scripts/build_basic.py",
+    "integrate:basic": "python scripts/integrate_basic.py",
+    "pdf:basic": "node scripts/export_basic.mjs",
+    "test:basic": "node scripts/test_basic.mjs",
+    "build:syllabus": "python scripts/build_syllabus.py",
+    "build:curriculum": "python scripts/build_curriculum.py",
+    "integrate:curriculum": "python scripts/integrate_curriculum.py",
+    "pdf:curriculum": "node scripts/export_curriculum.mjs",
+    "test:curriculum": "node scripts/test_curriculum.mjs",
+    "audit:handouts": "python scripts/audit_handouts.py",
+    "pdf:legacy": "python scripts/build_handout_pdfs.py"
+  },
+  "devDependencies": {
+    "katex": "^0.18.2",
+    "playwright": "1.56.1"
+  }
+}

@@ -7,7 +7,26 @@
   <meta name="theme-color" content="#ffffff">
   <title>A2 Solutions · MAIS PAC Handouts</title>
   <link rel="icon" type="image/png" href="../assets/club-logo.png">
-  <link rel="stylesheet" href="../style.css?v=handout-boxed-1">
+  <link rel="stylesheet" href="../style.css?v=sticky-teaching-2">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
 </head>
 <body>
   <a class="skip-link" href="#sheet">Skip to solutions</a>
@@ -42,7 +61,7 @@
         <div class="eq__expr"><i>m</i><sub>lim</sub> = 6.0 + 2.5 log<sub>10</sub>(816) ≈ 6.0 + 7.28 ≈ 13.3,</div>
         <span class="eq__num">(1)</span>
       </div>
-      <p>easily bright enough to reveal Pluto (~14.3 on photography) and hundreds of galaxies and globular clusters.</p>
+      <p>not bright enough, in this idealized estimate, for Pluto at ~14.3 mag; reaching Pluto requires a larger aperture, detector integration or other gains. The same aperture can still show many galaxies and globular clusters.</p>
       <p><strong>(b)</strong> At λ = 5.50 × 10<sup>−7</sup> m and <i>D</i> = 0.20 m, θ<sub>min</sub> = 1.22(5.50 × 10<sup>−7</sup>)/0.20 = 3.36 × 10<sup>−6</sup> rad ≈ <strong>0.69″</strong>. From the ground, turbulent temperature pockets in Earth’s atmosphere (“astronomical seeing”) refract starlight randomly over ~0.5″–2″, blurring large telescopes unless deformable adaptive-optics mirrors correct the wavefront in real time.</p>
     </div>
 
@@ -80,7 +99,7 @@
         <div class="eq__expr">τ<sub>MS</sub> ∝ <span class="frac"><span><i>M</i></span><span><i>L</i></span></span> ∝ <i>M</i><sup>−2.5</sup> &ensp;⇒&ensp; τ<sub>MS</sub> ≈ 10 Gyr (<span class="frac"><span><i>M</i></span><span><i>M</i><sub>⊙</sub></span></span>)<sup>−2.5</sup>.</div>
         <span class="eq__num">(5)</span>
       </div>
-      <p>A massive 10 <i>M</i><sub>⊙</sub> star shines ~3,160 times brighter than the Sun and exhausts its core in just 10 Gyr × 10<sup>−2.5</sup> ≈ <strong>32 million years</strong>, exploding as a core-collapse supernova. Conversely, a thrifty 0.20 <i>M</i><sub>⊙</sub> red dwarf lasts 10 Gyr × (0.20)<sup>−2.5</sup> ≈ <strong>560 Gyr</strong> (even longer in practice because low-mass dwarfs are fully convective and burn nearly 100% of their hydrogen)—more than 40 times the present 13.8 Gyr age of the universe!</p>
+      <p>A massive 10 <i>M</i><sub>⊙</sub> star shines ~3,160 times brighter than the Sun and exhausts its core in just 10 Gyr × 10<sup>−2.5</sup> ≈ <strong>32 million years</strong>, exploding as a core-collapse supernova. Conversely, a thrifty 0.20 <i>M</i><sub>⊙</sub> red dwarf lasts 10 Gyr × (0.20)<sup>−2.5</sup> ≈ <strong>560 Gyr</strong> (this is only the stated crude scaling extrapolated to low mass; real low-mass stars have a different mass–luminosity slope and can mix a larger fuel fraction, so detailed lifetimes differ)—more than 40 times the present 13.8 Gyr age of the universe!</p>
     </div>
 
     <nav class="sheet-nav" aria-label="Handout navigation">

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Hands-on mechanics simulations for MAIS PAC: pendulum, projectiles, forces, springs, collisions, energy, orbits, torque, rolling, cradle and waves. Learn by doing, with equations optional.">
+<meta name="theme-color" content="#ffffff">
+<link rel="canonical" href="https://mais-pac.github.io/mechanics/">
+<title>Mechanics Playground · MAIS Physics &amp; Astronomy Club</title>
+<link rel="icon" type="image/png" href="{{ICON}}">
+<style>{{CSS}}</style>
+<script data-pac-sticky>{{HEADER_JS}}</script>
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <div class="header-inner">
+    <a class="wordmark" href="../" aria-label="MAIS Physics and Astronomy Club home">MAIS <span>Physics &amp; Astronomy Club</span></a>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="../">Home</a>
+      <a href="../about/">About</a>
+        <a href="../club/">Club</a>
+      <a href="../teaching/">Teaching</a>
+      <a class="active" aria-current="page" href="./">Mechanics Lab</a>
+      <a href="../explore/">Explore</a>
+      <a href="../resources/">Resources</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content" class="mechanics-main">
+  <section class="mech-hero" aria-labelledby="mech-title">
+    <h1 id="mech-title">Mechanics Playground</h1>
+    <p>Pull, launch, collide, balance, and roll. These experiments are built for playing first and formalizing later. Change a slider, make a prediction, watch what happens, then explain it in your own words. The equations are there when you want them—but they are not the starting point.</p>
+    <div class="mech-badges">
+      <span class="mech-badge">13 interactive experiments</span>
+      <span class="mech-badge">Drag · launch · race</span>
+      <span class="mech-badge">Equations optional</span>
+      <span class="mech-badge">Works offline</span>
+    </div>
+    <div class="mech-progress" aria-live="polite">
+      <span id="mech-progress-text">0 / 13 explored</span>
+      <div class="mech-progress-track" aria-hidden="true"><div class="mech-progress-fill" id="mech-progress-fill"></div></div>
+      <span>Lab passport</span>
+    </div>
+  </section>
+
+  <section class="mech-lab" id="mech-lab" aria-labelledby="mech-sim-title">
+    <div class="mech-lab-head">
+      <div>
+        <span class="mech-sim-tag" id="mech-sim-tag">Oscillations</span>
+        <h2 id="mech-sim-title">Pendulum lab</h2>
+        <p id="mech-sim-blurb">Loading experiment…</p>
+      </div>
+      <div class="mech-transport">
+        <button type="button" class="mech-btn primary" id="mech-play" aria-pressed="true">Pause</button>
+        <button type="button" class="mech-btn" id="mech-step">Step</button>
+        <button type="button" class="mech-btn" id="mech-reset">Reset</button>
+        <label class="mech-speed">Speed <input type="range" id="mech-speed" min="0.25" max="2" step="0.05" value="1" aria-label="Simulation speed"><output id="mech-speed-out">1.00×</output></label>
+      </div>
+    </div>
+    <div class="mech-lab-body">
+      <div class="mech-stage-wrap">
+        <svg id="mech-stage" viewBox="0 0 800 450" role="img" aria-label="Interactive mechanics simulation"></svg>
+        <p class="mech-stage-hint" id="mech-stage-hint"></p>
+      </div>
+      <aside class="mech-side" aria-label="Experiment controls and observations">
+        <div class="mech-controls" id="mech-controls"></div>
+        <div class="mech-readouts" id="mech-readouts"></div>
+        <div class="mech-challenge" id="mech-challenge"></div>
+        <button type="button" class="mech-btn mech-explored" id="mech-mark">Mark explored</button>
+        <details class="mech-physics">
+          <summary>Show the physics (optional)</summary>
+          <div id="mech-physics-body"></div>
+        </details>
+      </aside>
+    </div>
+  </section>
+
+  <section class="mech-gallery" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">All mechanics experiments</h2>
+    <p>Choose an experiment. Each one has a challenge, live measurements, and an optional physics explanation.</p>
+    <div class="mech-grid" id="mech-grid"></div>
+    <noscript>
+      <p>JavaScript is required for the interactive experiments. The collection covers pendulums, projectiles, ramp friction, force and motion, springs, collisions, energy coasters, orbits, torque, Atwood machines, rolling races, Newton’s cradle, and standing waves.</p>
+    </noscript>
+  </section>
+
+  <section class="mech-teachers" aria-labelledby="teachers-title">
+    <h2 id="teachers-title">How to use this in a club session</h2>
+    <ol>
+      <li><strong>Predict:</strong> before touching a slider, write down what you expect.</li>
+      <li><strong>Play:</strong> change one variable at a time and watch the readouts.</li>
+      <li><strong>Explain:</strong> describe the pattern in words before opening the optional physics panel.</li>
+      <li><strong>Challenge:</strong> try the purple challenge box, then mark the experiment explored.</li>
+    </ol>
+    <p>Looking for the mathematical handouts? Visit <a href="../teaching/">Teaching</a> or the <a href="../handouts/06.01.html">Cosmology handout</a>.</p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span>MAIS Physics &amp; Astronomy Club (PAC)</span>
+  <span>Mongol Aspiration International School · Ulaanbaatar, Mongolia</span>
+</footer>
+<script>{{JS}}</script>
+</body>
+</html>

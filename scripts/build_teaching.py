@@ -21,6 +21,36 @@ from reportlab.platypus import (
 from lecture_content import LECTURES
 from question_sets import SETS
 
+# HTML-first handouts retain the existing sheet theme and supply their own
+# browser-printed PDFs. Do not overwrite these with placeholder PDFs.
+WEB_HANDOUTS = {
+    "07.01": {"lecture": "../handouts/07.01.html", "solutions": "../handouts/07.01-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "07.02": {"lecture": "../handouts/07.02.html", "solutions": "../handouts/07.02-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "08.01": {"lecture": "../handouts/08.01.html", "solutions": "../handouts/08.01-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "08.02": {"lecture": "../handouts/08.02.html", "solutions": "../handouts/08.02-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "08.03": {"lecture": "../handouts/08.03.html", "solutions": "../handouts/08.03-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "08.04": {"lecture": "../handouts/08.04.html", "solutions": "../handouts/08.04-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "08.05": {"lecture": "../handouts/08.05.html", "solutions": "../handouts/08.05-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "09.01": {"lecture": "../handouts/09.01.html", "solutions": "../handouts/09.01-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "09.02": {"lecture": "../handouts/09.02.html", "solutions": "../handouts/09.02-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "09.03": {"lecture": "../handouts/09.03.html", "solutions": "../handouts/09.03-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "09.04": {"lecture": "../handouts/09.04.html", "solutions": "../handouts/09.04-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "10.01": {"lecture": "../handouts/10.01.html", "solutions": "../handouts/10.01-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "10.02": {"lecture": "../handouts/10.02.html", "solutions": "../handouts/10.02-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "10.03": {"lecture": "../handouts/10.03.html", "solutions": "../handouts/10.03-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "10.04": {"lecture": "../handouts/10.04.html", "solutions": "../handouts/10.04-solutions.html", "detail": "Interactive lecture, 10 original problems and vector experiment"},
+    "01.01": {"lecture": "../handouts/01.01.html", "solutions": "../handouts/01.01-solutions.html", "detail": "Interactive lecture, 15 original problems and vector experiments"},
+    "01.02": {"lecture": "../handouts/01.02.html", "solutions": "../handouts/01.02-solutions.html", "detail": "Interactive lecture, 15 original problems and vector experiments"},
+    "01.03": {"lecture": "../handouts/01.03.html", "solutions": "../handouts/01.03-solutions.html", "detail": "Interactive lecture, 15 original problems and vector experiments"},
+    "01.04": {"lecture": "../handouts/01.04.html", "solutions": "../handouts/01.04-solutions.html", "detail": "Interactive lecture, 15 original problems and vector experiments"},
+    "01.05": {"lecture": "../handouts/01.05.html", "solutions": "../handouts/01.05-solutions.html", "detail": "Interactive lecture, 15 original problems and vector experiments"},
+    "06.01": {
+        "lecture": "../handouts/06.01.html",
+        "solutions": "../handouts/06.01-solutions.html",
+        "detail": "Interactive lecture, 30 problems and vector experiments",
+    },
+}
+
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "teaching"
 PDF = OUT / "pdf"
@@ -51,8 +81,8 @@ notes = [
 ]
 faqs = [
     ("What is the Cosmic Calculation Series?", "A collection of astronomy learning materials organized around the IOAA syllabus, intended to support physical understanding and curiosity about the universe."),
-    ("What is available for Basic Astrophysics?", "Each of the five Basic Astrophysics topics has a theory-first lecture PDF followed by an index of official past-paper problem identifiers. The question statements themselves are not reproduced. Original club practice exercises are available for the two Coordinates and Times topics."),
-    ("Are solutions available?", "The Solutions PDFs are styled placeholders while worked solutions are being prepared."),
+    ("What is available for Basic Astrophysics?", "Each of the five Basic Astrophysics topics has an HTML lecture, 15 original problems, fully worked solutions, vector figures and an interactive experiment, with downloadable PDFs. The earlier theory PDFs are retained as archives. Original club practice exercises are available for the two Coordinates and Times topics."),
+    ("Are solutions available?", "Basic Astrophysics (01.01–01.05) has 75 fully worked solutions, Cosmology (06.01) has 30, and the extended curriculum (07–10) has 150. These are independent MAIS PAC solutions to original exercises, not official marking schemes. Instrumentation, Mathematical Methods and the Practical Part (07–10) also have HTML lectures and worked solutions; remaining placeholder PDFs are clearly marked."),
     ("What background does the syllabus require?", "The IOAA syllabus requires high-school physics and mathematics. Standard solutions should not require complex numbers or solving differential equations. The listed mathematical methods include basic calculus."),
     ("What does (Q) mean?", "Qualitative understanding only. Quantitative reasoning or proficiency in topics marked (Q) is not mandatory."),
     ("Is this an official IOAA publication?", "No. This is a MAIS PAC study resource. The syllabus PDF is a reformatted study edition of the syllabus; the topic codes and practical-topic labels are club organizational aids."),
@@ -317,41 +347,19 @@ def write_questions(code, name, accent):
     )
 
 
-# Build the IOAA syllabus PDF with the same clickable masthead and boxed style.
-story = [
-    p("IOAA Syllabus", "TitleClub"),
-    p("A study edition  ·  MAIS Physics & Astronomy Club", "TopicHead"),
-    p("Reformatted from the IOAA 2026 website. Source credits IOAA; updated 17 November 2021. Topic wording is preserved with minor punctuation and typography normalization. Club topic codes and practical-topic labels are organizational aids, not official designations.", "SmallClub"),
-    Paragraph(f'<link href="{SYLLABUS_SOURCE}" color="#244bc1">Official source: IOAA 2026 syllabus</link>', styles["Text"]),
-    heading("GENERAL NOTES", PALETTE[0]),
-]
-for i, note in enumerate(notes, 1):
-    story.append(p(f"{i}. {note}"))
-story.extend([
-    heading("THEORETICAL PART", PALETTE[1]),
-    p("Symbol (Q) is attached to some topics in the list. It means qualitative understanding only. Quantitative reasoning or proficiency in these topics is not mandatory. The following theoretical contents are proposed for contestants."),
-])
+# The syllabus uses the official-style, black-and-white two-column layout.
+import subprocess, sys
+subprocess.run([sys.executable, str(ROOT / "scripts/build_syllabus.py")], check=True)
+
 blocks = []
 for gi, (group, topics) in enumerate(groups):
-    if gi == 8:
-        story.extend([
-            PageBreak(), p("PRACTICAL PART", "TitleClub"),
-            p("This part consists of observations and data-analysis sections. The theoretical part of the Syllabus provides the basis for all practical problems."),
-            p("The observations section focuses on contestants' experience in:"),
-        ])
-    if gi == 9:
-        story.extend([
-            p("Observational objects may be real sources in the sky or imitated sources in the laboratory."),
-            p("Computer simulations may be used, with sufficient instructions provided to contestants."),
-            p("The data-analysis section focuses on calculation and analysis of astronomical data provided in the problems."),
-        ])
     accent = PALETTE[gi % len(PALETTE)]
-    story.append(heading(group.upper(), accent))
     cards = []
     for ti, (name, detail) in enumerate(topics, 1):
         code = f"{gi + 1:02d}.{ti:02d}"
-        story.append(KeepTogether([p(f"{code}  {name}", "TopicHead"), p(detail), Spacer(1, 4)]))
         for kind in ("problems", "solutions"):
+            if code in WEB_HANDOUTS:
+                continue
             filename = f"{code}-{kind}.pdf"
             if kind == "problems" and code in LECTURES:
                 write_lecture(code, LECTURES[code])
@@ -360,25 +368,25 @@ for gi, (group, topics) in enumerate(groups):
             else:
                 placeholder = [
                     p("COSMIC CALCULATION SERIES", "SmallClub"),
-                    p(name, "TitleClub"),
-                    heading(kind.upper(), accent),
+                    p(name, "TitleClub"), heading(kind.upper(), accent),
                     callout("In preparation", f"This is a clearly marked placeholder. No {kind} have been published for this topic yet.", accent),
                     Spacer(1, 10), p("Syllabus topic: " + detail),
                     p("Return to Teaching: https://mais-pac.github.io/teaching/", "SmallClub"),
                 ]
-                write_pdf(
-                    PDF / filename, f"{name} — {kind.title()}", placeholder,
-                    accent=accent, header_label=f"{code}  ·  {kind.upper()}",
-                )
-        is_published = code in LECTURES or code in SETS
-        problem_label = "Lecture + Problems" if code in LECTURES else "Problems"
-        problem_detail = "Theory and past-paper problem index" if code in LECTURES else "Problems PDF"
+                write_pdf(PDF / filename, f"{name} — {kind.title()}", placeholder,
+                          accent=accent, header_label=f"{code}  ·  {kind.upper()}")
+        is_published = code in LECTURES or code in SETS or code in WEB_HANDOUTS
+        problem_label = "Lecture + Problems" if is_published else "Problems"
+        problem_detail = "Interactive lecture, original problems and vector experiments" if code in WEB_HANDOUTS else ("Theory and past-paper problem index" if code in LECTURES else "Problems PDF")
         problem_status = "" if is_published else ", to be added"
-        cards.append(
-            f'<li class="curriculum-card"><span class="topic-code">{code}</span><div><h4>{escape(name)}</h4>'
-            f'<div class="pdf-actions"><a href="pdf/{code}-problems.pdf" aria-label="{escape(name)}: {problem_detail}{problem_status}">{problem_label}</a>'
-            f'<a href="pdf/{code}-solutions.pdf" aria-label="{escape(name)}: Solutions PDF, to be added">Solutions</a></div></div></li>'
-        )
+        if code in WEB_HANDOUTS:
+            entry = WEB_HANDOUTS[code]
+            actions = (f'<a href="{entry["lecture"]}" aria-label="{escape(name)}: {problem_detail}">Lecture + Problems</a>'
+                       f'<a href="{entry["solutions"]}" aria-label="{escape(name)}: fully worked solutions">Solutions</a>')
+        else:
+            actions = (f'<a href="pdf/{code}-problems.pdf" aria-label="{escape(name)}: {problem_detail}{problem_status}">{problem_label}</a>'
+                       f'<a href="pdf/{code}-solutions.pdf" aria-label="{escape(name)}: Solutions PDF, to be added">Solutions</a>')
+        cards.append(f'<li class="curriculum-card"><span class="topic-code">{code}</span><div><h4>{escape(name)}</h4><div class="pdf-actions">{actions}</div></div></li>')
     blocks.append(cards)
 
 # Group the curriculum under the nine syllabus headings; combine practical sections.
@@ -392,10 +400,6 @@ for gi in range(9):
         + "".join(cards) + "</ul></section>"
     )
 
-write_pdf(
-    PDF / "ioaa-syllabus.pdf", "IOAA Syllabus — MAIS PAC Study Edition", story,
-    accent=PALETTE[0], header_label="IOAA SYLLABUS  ·  STUDY EDITION",
-)
 faqstory = [
     p("Frequently Asked Questions", "TitleClub"),
     p("Cosmic Calculation Series  ·  Teaching logistics", "SmallClub"),
@@ -415,9 +419,9 @@ content = '''<main id="main-content" class="teaching-main">
 <section class="teaching-section" aria-labelledby="series-title"><h2 id="series-title">Cosmic Calculation Series</h2>
 <p>I wrote this series to be the resource I wish I had when I first began studying astronomy, and I hope it helps other students develop both their understanding of physics and their curiosity about the universe.</p>
 <h3>Logistics</h3><ul class="logistics-links"><li><a href="pdf/ioaa-syllabus.pdf">Syllabus <span>(PDF)</span></a> and <a href="pdf/frequently-asked-questions.pdf">Frequently Asked Questions <span>(PDF)</span></a></li><li><a href="https://www.ioaa2026.vn/en/ioaa-syllabus">Official IOAA syllabus ↗</a></li></ul>
-<p class="publication-note"><strong>New:</strong> Theory-first lecture PDFs with official past-paper problem identifiers are available for Basic Astrophysics (01.01–01.05). Their final section lists problem IDs only; question statements are not reproduced. The Coordinates and Times problem PDFs remain original club practice sets.</p>
+<p class="publication-note"><strong>New: <a href="../handouts/06.01.html">Cosmology — Lecture + Problems</a>.</strong> Comprehensive notes, five interactive experiments, vector diagrams and 30 problems with <a href="../handouts/06.01-solutions.html">fully worked solutions</a>, including website-sourced adaptations and original IOAA-inspired challenges. Basic Astrophysics (01.01–01.05) now uses the same HTML-first design, with 75 original problems, fully worked solutions, vector figures and five interactive experiments. The extended curriculum (07.01–10.04) now adds 15 HTML-first lectures, 150 original problems and worked solutions, 30 vector figures and 15 interactive experiments. The earlier theory PDFs remain archived; the Coordinates and Times problem PDFs remain original club practice sets.</p>
 <h3>Core Curriculum</h3><p class="curriculum-note">Organized by IOAA syllabus topics, including observations and data analysis. Club topic codes are for navigation; (Q) in the syllabus means qualitative understanding only.</p>
-'''+''.join(curriculum_sections)+'''</section><section class="teaching-section" aria-labelledby="legacy-title"><h2 id="legacy-title">Existing club handouts</h2><p>Our introductory physics and astronomy sheets remain available below, with matching downloadable PDFs for handouts and solutions.</p>'''+legacy+'''</section></main>'''
+'''+''.join(curriculum_sections)+'''</section><section class="teaching-section" aria-labelledby="legacy-title"><h2 id="legacy-title">Existing club handouts</h2><p>Our introductory physics and astronomy sheets remain available below, with matching downloadable PDFs for handouts and solutions.</p>'''+legacy+'''</section><p class="teaching-contact">Feel free to reach out (at my personal address, <a href="mailto:physicsandastronomy24@gmail.com">physicsandastronomy24@gmail.com</a>) if you find an issue or have a suggestion.</p></main>'''
 page = re.sub(r'<main id="main-content">.*?</main>', lambda _match: content, base, flags=re.S)
 page = page.replace("Handouts ·", "Teaching ·")
 page = page.replace("https://mais-pac.github.io/handouts/", "https://mais-pac.github.io/teaching/")
@@ -431,6 +435,6 @@ page = page.replace(
 
 print(
     f"Built Teaching: {sum(len(topics) for _, topics in groups)} topics, "
-    f"{len(LECTURES)} theory-first Basic Astrophysics PDFs, "
+    f"{len(LECTURES)} HTML-first Basic Astrophysics handouts, "
     f"{sum(code not in LECTURES for code in SETS)} original problem sets, syllabus, FAQ and placeholders."
 )

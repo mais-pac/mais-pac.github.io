@@ -7,7 +7,26 @@
   <meta name="theme-color" content="#ffffff">
   <title>A1: The Night Sky &amp; Celestial Motion · MAIS PAC Handouts</title>
   <link rel="icon" type="image/png" href="../assets/club-logo.png">
-  <link rel="stylesheet" href="../style.css?v=handout-boxed-1">
+  <link rel="stylesheet" href="../style.css?v=sticky-teaching-2">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
 </head>
 <body>
   <a class="skip-link" href="#sheet">Skip to handout</a>
@@ -45,7 +64,7 @@
       <div class="eq__expr">θ (in radians) ≈ <span class="frac"><span><i>d</i></span><span><i>D</i></span></span>,&emsp;&emsp; θ (in arcseconds) ≈ 206,265 <span class="frac"><span><i>d</i></span><span><i>D</i></span></span>.</div>
       <span class="eq__num">(1)</span>
     </div>
-    <p>As Earth moves around the Sun on a baseline of 1 AU, a nearby star shifts against distant background stars by parallax angle <i>p</i> = (1 AU)/<i>D</i>. By definition, a star at distance <i>D</i> = 1 parsec (pc) has parallax <i>p</i> = 1″, so <strong>1 pc = 206,265 AU ≈ 3.26 light-years</strong>.</p>
+    <p>Annual parallax uses Earth’s orbital radius, 1 AU, as the baseline: a nearby star’s parallax angle is <i>p</i> = (1 AU)/<i>D</i>, half the peak-to-peak shift against distant background stars over six months. By definition, a star at distance <i>D</i> = 1 parsec (pc) has parallax <i>p</i> = 1″, so <strong>1 pc = 206,265 AU ≈ 3.26 light-years</strong>.</p>
 
     <div class="problem">
       <p><span class="prob-head">[1] Problem 1 (A cosmic coincidence).</span> The Sun has radius <i>R</i><sub>⊙</sub> ≈ 6.96 × 10<sup>5</sup> km at mean distance <i>D</i><sub>⊙</sub> ≈ 1.50 × 10<sup>8</sup> km, while the Moon has radius <i>R<sub>M</sub></i> ≈ 1,737 km at mean distance <i>D<sub>M</sub></i> ≈ 3.84 × 10<sup>5</sup> km.</p>

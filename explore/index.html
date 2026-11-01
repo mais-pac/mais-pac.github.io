@@ -8,7 +8,26 @@
   <link rel="canonical" href="https://mais-pac.github.io/explore/">
   <title>Explore · MAIS Physics &amp; Astronomy Club</title>
   <link rel="icon" type="image/png" href="../assets/club-logo.png">
-  <link rel="stylesheet" href="../style.css?v=handout-boxed-1">
+  <link rel="stylesheet" href="../style.css?v=sticky-teaching-2">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
@@ -19,7 +38,9 @@
       <nav class="site-nav" aria-label="Main navigation">
         <a href="../">Home</a>
         <a href="../about/">About</a>
+        <a href="../club/">Club</a>
         <a href="../teaching/">Teaching</a>
+        <a href="../mechanics/">Mechanics Lab</a>
         <a class="active" aria-current="page" href="../explore/">Explore</a>
         <a href="../resources/">Resources</a>
       </nav>
@@ -49,6 +70,7 @@
     <main id="main-content">
       <section id="explore" aria-labelledby="explore-title">
         <h2 class="page-title" id="explore-title">What we explore</h2>
+
         <div class="topic">
           <h3>Physics</h3>
           <p>How do we describe the world around us? We start with questions about motion, forces, energy, gravity, and light, connecting mathematical ideas to clear physical intuition.</p>
