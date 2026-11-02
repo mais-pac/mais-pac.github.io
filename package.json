@@ -23,7 +23,10 @@
     "pdf:curriculum": "node scripts/export_curriculum.mjs",
     "test:curriculum": "node scripts/test_curriculum.mjs",
     "audit:handouts": "python scripts/audit_handouts.py",
-    "pdf:legacy": "python scripts/build_handout_pdfs.py"
+    "pdf:legacy": "python scripts/build_handout_pdfs.py",
+    "build:ipho": "python scripts/build_ipho_curriculum.py",
+    "integrate:ipho": "python scripts/integrate_ipho.py",
+    "pdf:ipho": "python scripts/build_ipho_pdfs.py"
   },
   "devDependencies": {
     "katex": "^0.18.2",
