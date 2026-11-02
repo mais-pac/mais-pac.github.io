@@ -29,6 +29,9 @@ def card(topic):
         f'10 original problems and interactive experiment">Lecture + Problems</a>'
         f'<a href="../handouts/{code}-solutions.html" aria-label="IPhO {code} {escape(name)}: '
         f'10 fully worked solutions">Solutions</a>'
+        f'<a href="../handouts/pdf/ipho-{code}.pdf" aria-label="IPhO {code} {escape(name)}: handout PDF">PDF</a>'
+        f'<a href="../handouts/pdf/ipho-{code}-solutions.pdf" aria-label="IPhO {code} {escape(name)}: solutions PDF">'
+        f'Solutions PDF</a>'
         f'</div></div></li>'
     )
 
