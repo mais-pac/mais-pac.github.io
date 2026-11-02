@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mathematics fundamentals for the MAIS Physics &amp; Astronomy Club: the core branches of mathematics, a Calculus 1–3 pathway, and how each branch powers physics and astronomy — built in the same curriculum style as the club's IOAA and IPhO sections.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://mais-pac.github.io/math/">
+  <title>Mathematics · MAIS Physics &amp; Astronomy Club</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css?v=math-foundations-1">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="../" aria-label="MAIS Physics and Astronomy Club home">MAIS <span>Physics &amp; Astronomy Club</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../about/">About</a>
+        <a href="../club/">Club</a>
+        <a href="../teaching/">Teaching</a>
+        <a class="active" aria-current="page" href="./">Math</a>
+        <a href="../mechanics/">Mechanics Lab</a>
+        <a href="../explore/">Explore</a>
+        <a href="../news/">News</a>
+        <a href="../resources/">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <aside class="profile" aria-label="Club information">
+      <img class="club-logo" src="../assets/club-logo.png" alt="MAIS Physics and Astronomy Club crest: a glowing black hole against a star-filled sky" width="403" height="487">
+      <h1>MAIS Physics &amp;<br>Astronomy Club</h1>
+      <p class="school">Mongol Aspiration<br>International School</p>
+      <p class="location">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+        </svg>
+        Ulaanbaatar, Mongolia
+      </p>
+      <div class="profile-details">
+        <h2>Our club</h2>
+        <p>Founded 14 November 2024</p>
+        <p>Founder: Galbadrakh Ulziibold</p>
+        <p>Physics · Astronomy · Curiosity</p>
+      </div>
+    </aside>
+
+    <main id="main-content" class="teaching-main">
+      <h2 class="page-title">Mathematics Fundamentals</h2>
+      <p class="lead">The language physics is written in. This curriculum follows the same house style as our IOAA and IPhO sections — topic codes, grouped cards, lectures and worked paths — so you always know where you are and what comes next.</p>
+
+      <section aria-labelledby="why-math-title">
+        <h2 id="why-math-title">Why a math foundation for the club</h2>
+        <p>Every formula in our <a href="../teaching/">Teaching</a> sheets is a sentence in the language below. The IPhO syllabus quietly assumes Calculus 1–3 and linear algebra; the IOAA syllabus assumes algebra, graphs, logarithms and basic statistics. When the maths is solid, the physics stops feeling like memorisation and starts feeling like reading.</p>
+        <p>You do not need all of it at once. Pick the branch that is blocking you today — most club members begin with the Calculus pathway, because that is the gate to mechanics, electromagnetism, orbits and cosmology.</p>
+      </section>
+
+      <section aria-labelledby="compare-title">
+        <h2 id="compare-title">Direct comparison of core branches</h2>
+        <p>Five branches, five different questions. If you can say which question you are asking, you have already chosen the right tool.</p>
+        <div class="table-wrap">
+          <table class="compare-table">
+            <thead>
+              <tr>
+                <th scope="col">Branch</th>
+                <th scope="col">Primary object of study</th>
+                <th scope="col">Core question it answers</th>
+                <th scope="col">Common real-world application</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Algebra</td>
+                <td>Equations and structures</td>
+                <td>“What is the value of the unknown variable?”</td>
+                <td>Computer science algorithms, structural engineering</td>
+              </tr>
+              <tr>
+                <td>Calculus</td>
+                <td>Change and accumulation</td>
+                <td>“How fast is this changing right now?”</td>
+                <td>Rocket trajectories, economic forecasting, physics</td>
+              </tr>
+              <tr>
+                <td>Geometry</td>
+                <td>Shapes and spatial relations</td>
+                <td>“What are the dimensions and properties of this space?”</td>
+                <td>Architecture, computer graphics, navigation</td>
+              </tr>
+              <tr>
+                <td>Statistics</td>
+                <td>Data and trends</td>
+                <td>“What story is this dataset telling us?”</td>
+                <td>Clinical medical trials, market research, AI training</td>
+              </tr>
+              <tr>
+                <td>Discrete Math</td>
+                <td>Distinct, separated values</td>
+                <td>“What is the most efficient path or combination?”</td>
+                <td>Cryptography, network routing, logistics</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section aria-labelledby="branches-title">
+        <h2 id="branches-title">The five branches in detail</h2>
+        <p class="curriculum-note">Club topic codes are for navigation. Cards marked <em>Lecture</em> open a full foundation page in this same style.</p>
+
+        <section class="curriculum-group" aria-labelledby="group-m1">
+          <h3 id="group-m1">M1 · Arithmetic &amp; Algebra — numbers and structures</h3>
+          <p class="curriculum-note">The foundation: concrete values first, then variables, then abstract structures. Arithmetic is the counting and operating you already do; algebra replaces numbers with letters so one rule can answer a whole family of questions. Advanced algebra (linear and abstract algebra) deals with vector spaces, matrices, and structures like groups and rings — the machinery behind quantum mechanics and crystal symmetry.</p>
+          <ul class="curriculum-grid">
+            <li class="curriculum-card"><span class="topic-code">M1.01</span><div><h4>Arithmetic &amp; Number Sense</h4><p class="card-note">Addition, subtraction, multiplication, division, fractions, ratios and orders of magnitude — the concrete values everything else is built on.</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M1.02</span><div><h4>Algebra, Equations &amp; Functions</h4><p class="card-note">Variables (x, y, z), generalized rules, and finding unknown values. Functions map inputs to outputs — the first abstraction in physics.</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M1.03</span><div><h4>Linear Algebra: Matrices &amp; Vector Spaces</h4><p class="card-note">Vectors, matrices, transformations. The language of quantum states, computer graphics, rotations and coupled oscillators.</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M1.04</span><div><h4>Abstract Algebra: Groups &amp; Rings <span class="tag">advanced</span></h4><p class="card-note">Symmetry made rigorous. Groups describe what stays the same when you rotate, reflect or reorder — from crystals to particle physics.</p></div></li>
+          </ul>
+        </section>
+
+        <section class="curriculum-group" aria-labelledby="group-m2">
+          <h3 id="group-m2">M2 · Calculus &amp; Analysis — change and continuous motion</h3>
+          <p class="curriculum-note">The mathematics of becoming: how fast something is changing at an instant (differential calculus), how much has accumulated (integral calculus), and the rigorous foundation underneath both — limits, infinite series, continuity, and the nature of the real numbers (mathematical analysis). This is the club's recommended starting point.</p>
+          <ul class="curriculum-grid">
+            <li class="curriculum-card"><span class="topic-code">C1</span><div><h4>Calculus I — Limits &amp; Derivatives</h4><div class="pdf-actions"><a href="calculus-1.html">Lecture</a><a href="calculus-1.html#course-map">Course map</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C2</span><div><h4>Calculus II — Integration &amp; Series</h4><div class="pdf-actions"><a href="calculus-2.html">Lecture</a><a href="calculus-2.html#course-map">Course map</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3</span><div><h4>Calculus III — Multivariable &amp; Vector Calculus</h4><div class="pdf-actions"><a href="calculus-3.html">Lecture</a><a href="calculus-3.html#videos">Video list</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">M2.04</span><div><h4>Mathematical Analysis <span class="tag">advanced</span></h4><p class="card-note">The rigorous foundation of calculus: limits, infinite series, continuity, and the nature of real and complex numbers — why calculus is allowed to work.</p></div></li>
+          </ul>
+        </section>
+
+        <section class="curriculum-group" aria-labelledby="group-m3">
+          <h3 id="group-m3">M3 · Geometry &amp; Topology — shape, size and space</h3>
+          <p class="curriculum-note">Geometry studies shapes, sizes, positions and properties of space — angles, lines, triangles, circles — including Euclidean geometry, differential geometry (curves and surfaces), and non-Euclidean geometry (used in general relativity). Topology, often called “rubber-sheet geometry,” studies what survives stretching, twisting and deforming without tearing or gluing: the number of holes, not the number of centimetres.</p>
+          <ul class="curriculum-grid">
+            <li class="curriculum-card"><span class="topic-code">M3.01</span><div><h4>Euclidean Geometry &amp; Trigonometry</h4><p class="card-note">Triangles, circles, similarity, the Pythagorean theorem and the trig functions — the geometry of everyday space.</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M3.02</span><div><h4>Coordinate &amp; Analytic Geometry</h4><p class="card-note">Putting geometry into equations: lines, conics, coordinates — the bridge that made calculus possible.</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M3.03</span><div><h4>Differential Geometry &amp; Non-Euclidean Space</h4><p class="card-note">Curves and surfaces described by derivatives; curved spacetime where parallel lines can meet — the geometry behind general relativity.</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M3.04</span><div><h4>Topology</h4><p class="card-note">Properties unchanged by continuous deformation: knots, holes, connectedness. From coffee cups to the shape of the universe.</p></div></li>
+          </ul>
+        </section>
+
+        <section class="curriculum-group" aria-labelledby="group-m4">
+          <h3 id="group-m4">M4 · Probability &amp; Statistics — randomness and data</h3>
+          <p class="curriculum-note">Probability is the mathematical modelling of randomness and uncertainty: it quantifies the likelihood that a specific event will occur. Statistics is the science of collecting, organizing, analyzing, interpreting and presenting data — turning raw numbers into actionable insights and predictions. Together they are how science deals with noise, error and evidence.</p>
+          <ul class="curriculum-grid">
+            <li class="curriculum-card"><span class="topic-code">M4.01</span><div><h4>Probability Foundations</h4><p class="card-note">Sample spaces, events, conditional probability and Bayes' rule — quantifying “how likely?” before any data arrives.</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M4.02</span><div><h4>Random Variables &amp; Distributions</h4><p class="card-note">Expectation, variance, the binomial, Poisson and normal distributions — the shapes randomness tends to make.</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M4.03</span><div><h4>Statistics: From Data to Inference</h4><p class="card-note">Sampling, error bars, confidence intervals and hypothesis testing — the toolkit behind every experimental claim, including IPhO data analysis.</p></div></li>
+          </ul>
+        </section>
+
+        <section class="curriculum-group" aria-labelledby="group-m5">
+          <h3 id="group-m5">M5 · Discrete Mathematics — finite and countable structures</h3>
+          <p class="curriculum-note">Where values are distinct and separated rather than continuous: counting, networks and proof. Discrete mathematics is the working language of computer science, cryptography and logistics — and of clean mathematical reasoning itself.</p>
+          <ul class="curriculum-grid">
+            <li class="curriculum-card"><span class="topic-code">M5.01</span><div><h4>Combinatorics &amp; Counting</h4><p class="card-note">Counting, arranging and combining objects — how many passwords, orbits or orderings are even possible?</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M5.02</span><div><h4>Graph Theory</h4><p class="card-note">Networks of points connected by lines: circuits, maps, social graphs, and the shortest path between two stations.</p></div></li>
+            <li class="curriculum-card"><span class="topic-code">M5.03</span><div><h4>Mathematical Logic &amp; Proof</h4><p class="card-note">Truth values, implication and the forms of proof — the bedrock of programming and of every physics derivation.</p></div></li>
+          </ul>
+        </section>
+      </section>
+
+      <section aria-labelledby="pathway-title">
+        <h2 id="pathway-title">The Calculus pathway — a strong foundation in three steps</h2>
+        <p>These three pages are the club's Calculus 1, 2 and 3 foundation: each topic has a plain-language explanation, the key formulas, a worked example, a self-check line, and a note on where it appears in physics and astronomy. Calculus III ends with the vector-calculus language of Maxwell's equations, fluid flow and gravitational fields — with a video list built in.</p>
+        <section class="curriculum-group" aria-label="Calculus pathway">
+          <ul class="curriculum-grid">
+            <li class="curriculum-card"><span class="topic-code">C1</span><div><h4>Calculus I — Limits &amp; Derivatives</h4><p class="card-note">Instantaneous change: limits, continuity, the derivative, rules of differentiation, optimisation, growth and decay.</p><div class="pdf-actions"><a href="calculus-1.html">Open Calculus I</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C2</span><div><h4>Calculus II — Integration &amp; Series</h4><p class="card-note">Accumulation: definite integrals, techniques, applications (work, volumes), infinite series, Taylor series, first ODEs.</p><div class="pdf-actions"><a href="calculus-2.html">Open Calculus II</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3</span><div><h4>Calculus III — Multivariable &amp; Vector Calculus</h4><p class="card-note">Fields and flows: partial derivatives, gradient, multiple integrals, Jacobian, divergence, curl, Green–Stokes–Gauss, Maxwell.</p><div class="pdf-actions"><a href="calculus-3.html">Open Calculus III</a><a href="calculus-3.html#videos">Videos</a></div></div></li>
+          </ul>
+        </section>
+      </section>
+
+      <section aria-labelledby="connect-title">
+        <h2 id="connect-title">Where this connects</h2>
+        <div class="topic">
+          <h3>With our IPhO curriculum</h3>
+          <p>IPhO group 04 already carries the physics-flavoured version of this material: <a href="../handouts/04.01.html">Algebra, Functions and Geometry</a>, <a href="../handouts/04.02.html">Vectors and Complex Numbers</a>, <a href="../handouts/04.03.html">Calculus</a> and <a href="../handouts/04.04.html">Approximation, Taylor Series and Numerical Methods</a>. Use this math section as the groundwork, then move to those handouts for physics-styled problems.</p>
+        </div>
+        <div class="topic">
+          <h3>With real research</h3>
+          <p>Gradient, divergence, curl and the Jacobian are not exam trivia — they are how the papers on our <a href="../resources/">Resources</a> page talk about fields, flux and transformations. Read the Calculus III lecture, then open a real paper and find the maths you recognise.</p>
+        </div>
+        <div class="topic">
+          <h3>With the sky</h3>
+          <p>Orbits are calculus. Starlight spectra are statistics. Galaxy maps are geometry. Follow what is happening now on the <a href="../news/">News</a> page, and check the club <a href="../club/">activities</a> for paper-reading nights where we tackle this material together.</p>
+        </div>
+      </section>
+
+      <p class="teaching-contact">Spot an error or want a topic added? Write to <a href="mailto:physicsandastronomy24@gmail.com">physicsandastronomy24@gmail.com</a>.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <span>MAIS Physics &amp; Astronomy Club (PAC)</span>
+    <span>Mongol Aspiration International School · Ulaanbaatar, Mongolia</span>
+  </footer>
+</body>
+</html>

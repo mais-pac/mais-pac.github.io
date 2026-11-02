@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculus III foundation for the MAIS Physics &amp; Astronomy Club: vectors, partial derivatives, gradient, multiple integrals, Jacobian, divergence, curl, Green–Stokes–Gauss theorems, Maxwell's equations — with a curated video list.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://mais-pac.github.io/math/calculus-3.html">
+  <title>Calculus III · MAIS Physics &amp; Astronomy Club</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css?v=math-foundations-1">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="../" aria-label="MAIS Physics and Astronomy Club home">MAIS <span>Physics &amp; Astronomy Club</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../about/">About</a>
+        <a href="../club/">Club</a>
+        <a href="../teaching/">Teaching</a>
+        <a class="active" aria-current="page" href="./">Math</a>
+        <a href="../mechanics/">Mechanics Lab</a>
+        <a href="../explore/">Explore</a>
+        <a href="../news/">News</a>
+        <a href="../resources/">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <aside class="profile" aria-label="Club information">
+      <img class="club-logo" src="../assets/club-logo.png" alt="MAIS Physics and Astronomy Club crest: a glowing black hole against a star-filled sky" width="403" height="487">
+      <h1>MAIS Physics &amp;<br>Astronomy Club</h1>
+      <p class="school">Mongol Aspiration<br>International School</p>
+      <p class="location">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+        </svg>
+        Ulaanbaatar, Mongolia
+      </p>
+      <div class="profile-details">
+        <h2>Our club</h2>
+        <p>Founded 14 November 2024</p>
+        <p>Founder: Galbadrakh Ulziibold</p>
+        <p>Physics · Astronomy · Curiosity</p>
+      </div>
+    </aside>
+
+    <main id="main-content" class="teaching-main">
+      <h2 class="page-title">Calculus III — Multivariable &amp; Vector Calculus</h2>
+      <p class="lead">The mathematics of fields, flows and higher dimensions — the language Maxwell's equations, fluid dynamics and general relativity are written in. This page follows the same “super simple explanation” style as the video list at the end, so you can read first, watch second, and derive third.</p>
+
+      <section id="course-map" aria-labelledby="map-title">
+        <h2 id="map-title">Course map</h2>
+        <p class="curriculum-note">Eleven topics. Vectors → partials → gradient → integrals → Jacobian → vector fields → divergence &amp; curl → the three big theorems → Maxwell.</p>
+        <section class="curriculum-group" aria-label="Calculus III topics">
+          <ul class="curriculum-grid">
+            <li class="curriculum-card"><span class="topic-code">C3.01</span><div><h4>Vectors &amp; coordinate systems</h4><div class="pdf-actions"><a href="#c3-01">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.02</span><div><h4>Partial derivatives</h4><div class="pdf-actions"><a href="#c3-02">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.03</span><div><h4>The gradient ∇f</h4><div class="pdf-actions"><a href="#c3-03">Lecture</a><a href="https://www.youtube.com/watch?v=TYLyAfFn_ME" target="_blank" rel="noopener">Video ↗</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.04</span><div><h4>Multiple integrals</h4><div class="pdf-actions"><a href="#c3-04">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.05</span><div><h4>Jacobian &amp; change of variables</h4><div class="pdf-actions"><a href="#c3-05">Lecture</a><a href="https://www.youtube.com/watch?v=E4e9lhsL_w8" target="_blank" rel="noopener">Video ↗</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.06</span><div><h4>Vector fields</h4><div class="pdf-actions"><a href="#c3-06">Lecture</a><a href="https://youtu.be/m_Psx7CdvDk" target="_blank" rel="noopener">Video ↗</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.07</span><div><h4>Divergence ∇·F — sources &amp; sinks</h4><div class="pdf-actions"><a href="#c3-07">Lecture</a><a href="#videos">Videos</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.08</span><div><h4>Curl ∇×F — rotation</h4><div class="pdf-actions"><a href="#c3-08">Lecture</a><a href="#videos">Videos</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.09</span><div><h4>Line integrals &amp; potentials</h4><div class="pdf-actions"><a href="#c3-09">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.10</span><div><h4>Green, Stokes &amp; Gauss theorems</h4><div class="pdf-actions"><a href="#c3-10">Lecture</a><a href="https://www.youtube.com/watch?v=a8dj_nYN_SE" target="_blank" rel="noopener">Video ↗</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C3.11</span><div><h4>Maxwell's equations &amp; applications</h4><div class="pdf-actions"><a href="#c3-11">Lecture</a><a href="#videos">Videos</a></div></div></li>
+          </ul>
+        </section>
+      </section>
+
+      <section class="teaching-section" id="c3-01" aria-labelledby="c3-01-title">
+        <h3 id="c3-01-title">C3.01 · Vectors &amp; coordinate systems</h3>
+        <p>A vector has magnitude and direction: wind at 10 m/s east, force 5 N along a ramp, position on a map. Components (x, y, z) pin it to a grid; unit vectors î, ĵ, k̂ name the directions.</p>
+        <div class="formula">a · b = aₓbₓ + a_y b_y + a_z b_z = |a||b| cos θ &nbsp;(projection)<br>a × b = |a||b| sin θ · n̂ &nbsp;(perpendicular area &amp; direction)</div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>The dot product asks “how much do these two arrows point the same way?” (a number). The cross product asks “how strongly are they trying to rotate around each other?” (a new arrow, perpendicular to both — its length is the parallelogram's area they span).</p>
+        </div>
+        <p><strong>Coordinates matter.</strong> Cartesian (x, y, z) for boxes; polar (r, θ) for circles and orbits; cylindrical (r, θ, z) for pipes and galaxies' rotation; spherical (r, θ, φ) for stars, planets and “draw a sphere” problems. Choosing the right coordinates often converts an impossible integral into a one-liner — that is exactly what the Jacobian (C3.05) formalises.</p>
+        <p><strong>Worked example.</strong> a = (1, 2, 0), b = (2, −1, 0). a·b = 2 − 2 = 0 → perpendicular. a × b = (0, 0, −1 − 4) = (0, 0, −5): a 5-area parallelogram in the xy-plane, arrow pointing into −ẑ. Sanity: sin 90° = 1, |a||b| = √5·√5 = 5. ✓</p>
+        <p class="check-line"><strong>Check:</strong> If a·b = 0 with both vectors non-zero, what must the angle be — and why does that make the cross product's magnitude maximal?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> torque r × F, angular momentum r × p, the Poynting vector E × B, and force qv × B are all cross products; dot products give work (F · dx) and fluxes. Vector notation is not decoration — it compresses three equations into one.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-02" aria-labelledby="c3-02-title">
+        <h3 id="c3-02-title">C3.02 · Partial derivatives — walking one axis at a time</h3>
+        <p>With several variables, ask: how does the output change when I nudge <em>only this one</em>? Differentiate with respect to x while freezing y and z — then repeat for each axis.</p>
+        <div class="formula">f(x, y) = x²y³ → ∂f/∂x = 2xy³, &nbsp; ∂f/∂y = 3x²y²<span class="hint">∂ (curved d) marks a partial derivative; treat other variables as constants</span></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Imagine standing on a hillside where height depends on how far east (x) and how far north (y) you walk. The partial ∂f/∂x is the slope you feel walking strictly east, ignoring north entirely — the hill's “east-facing steepness” at your feet.</p>
+        </div>
+        <p><strong>Worked example.</strong> T(x, y) = x² + y² is a bowl of temperature. At (1, 2): ∂T/∂x = 2x = 2 (walk east → warms at 2 °C per metre), ∂T/∂y = 2y = 4 (walk north → warms at 4 °C per metre). Second partials ∂²f/∂x², ∂²f/∂y² measure curvature per axis; mixed partials ∂²f/∂x∂y measure how the east-slope changes as you move north (they are equal when smooth — Clairaut's theorem).</p>
+        <p class="check-line"><strong>Check:</strong> For the pressure field P(x, y, z) = −ρgz + P₀, which partials are zero? What does each surviving partial mean physically?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> ∂P/∂x is the pressure gradient that pushes wind; ∂T/∂z drives convection; the wave equation mixes ∂²/∂t² with ∂²/∂x². Multivariable functions are the norm in physics — temperature fields, potentials, probability clouds.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-03" aria-labelledby="c3-03-title">
+        <h3 id="c3-03-title">C3.03 · The gradient ∇f — the arrow of steepest ascent</h3>
+        <p>Gather all partial derivatives into one vector. The gradient points in the direction where f increases fastest; its length is that maximum slope.</p>
+        <div class="formula">∇f = (∂f/∂x, ∂f/∂y, ∂f/∂z) &nbsp;·&nbsp; f(x, y) = x² + y² → ∇f = (2x, 2y)</div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Place a ball on the bowl f = x² + y² at the point (1, 2). The gradient there is (2, 4) — a flat-map arrow saying “push this way along the ground and you'll climb fastest.” The ball itself rolls the exact opposite way, downhill along −∇f. That single fact powers gradient descent in machine learning: every training step nudges weights downhill on the loss surface.</p>
+        </div>
+        <p><strong>Worked example.</strong> f(x, y) = x² + y² at (1, 2): ∇f = (2, 4), living in the xy-plane — not sticking up into the air. Moving to (3, 6) — one step along the gradient — raises the height from 5 to 45. In 3D: temperature T(x,y,z), ∇T points toward the hottest nearby direction; you feel it as “which way is it getting warmer?”</p>
+        <p><strong>Gradient and level curves.</strong> ∇f is always perpendicular to the contour lines of f. On a topographic map: contours crowd where the gradient is long (steep), and the gradient arrow crosses contours at right angles, pointing uphill.</p>
+        <p class="check-line"><strong>Check:</strong> For a flat plateau (f = constant), what is ∇f? For the top of the bowl (x = y = 0)? What do both results mean for a ball placed there?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> the electric field is the negative gradient of the potential, E = −∇V; temperature flux follows −∇T (Fourier's law); velocity of a falling object follows −∇(gravitational potential). “Force points downhill from potential energy” is gradient language. See the <a href="https://www.youtube.com/watch?v=TYLyAfFn_ME" target="_blank" rel="noopener">Partial Derivatives &amp; Gradients video ↗</a>.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-04" aria-labelledby="c3-04-title">
+        <h3 id="c3-04-title">C3.04 · Multiple integrals — volumes, masses, probabilities</h3>
+        <p>Integrate over a region in the plane or in space: double integrals for areas and volumes, triple integrals for masses and probabilities.</p>
+        <div class="formula">∬<sub>R</sub> f(x, y) dA = volume under z = f(x, y) over the region R<br>∭ ρ(x, y, z) dV = total mass (density integrated over volume)</div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Fubini's theorem says you may slice either way — integrate x first, then y, or vice versa — as long as you describe the region correctly. It is like measuring a lake's volume by horizontal layers or by vertical columns; both give the same number, but one is far easier to write down.</p>
+        </div>
+        <p><strong>Worked example.</strong> Volume of the region under z = 12 − x² − y² above the disk x² + y² ≤ 9. Switch to polar (the region is circular!): x² + y² = r², dA = r dr dθ, so V = ∫<sub>0</sub><sup>2π</sup>∫<sub>0</sub><sup>3</sup> (12 − r²) r dr dθ. Inner: ∫ (12r − r³) dr = 6r² − r⁴/4 from 0 to 3 = 54 − 20.25 = 33.75. Times 2π: V = 67.5π ≈ 212. The polar switch turned a painful Cartesian integral into two easy ones.</p>
+        <p><strong>Probability connection.</strong> If p(x, y) is a 2D density, ∬ p dA = 1 (normalisation), and ∬ x·p dA gives the mean — the same idea as Calculus II's centre of mass, one dimension up.</p>
+        <p class="check-line"><strong>Check:</strong> ∬<sub>R</sub> dA over a circle radius a should give πa². Set up the polar integral and verify — where exactly does the factor r come from?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> mass = ∫ρ dV, charge = ∫ρ<sub>charge</sub> dV, moments of inertia = ∫ r² dm, flux through surfaces (next topics), and quantum probabilities |ψ|² dV are all multiple integrals.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-05" aria-labelledby="c3-05-title">
+        <h3 id="c3-05-title">C3.05 · Jacobian &amp; change of variables</h3>
+        <p>When you rewrite an integral in new coordinates (x, y) → (u, v), areas stretch or shrink. The Jacobian determinant measures exactly how much — the local area-scaling factor of the transformation.</p>
+        <div class="formula">J = ∂(x, y)/∂(u, v) = det [ ∂x/∂u &nbsp; ∂x/∂v ; ∂y/∂u &nbsp; ∂y/∂v ] &nbsp;→&nbsp; dA = |J| du dv</div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>A zoom lens for coordinates: the Jacobian says “a small patch that measured 1 unit² in your new grid actually covers |J| units² of the real world.” Polar coordinates are the classic case: r dr dθ instead of dx dy — the factor r is the Jacobian, and it grows with distance from the origin because far-out arcs are longer.</p>
+        </div>
+        <p><strong>Worked example.</strong> Polar: x = r cos θ, y = r sin θ. Compute J = det [cos θ, −r sin θ ; sin θ, r cos θ] = r cos²θ + r sin²θ = <strong>r</strong>. So dx dy = r dr dθ — the famous area element, now proven instead of memorised. In 3D spherical coordinates the Jacobian is r² sin φ, which is why every spherical integral on your formula sheet carries that factor.</p>
+        <p><strong>General rule.</strong> For any smooth change of variables: ∫ f dx dy = ∫ f(u,v) · |J| du dv. The absolute value keeps areas positive even if the transformation flips orientation (like swapping the order of axes).</p>
+        <p class="check-line"><strong>Check:</strong> For the scaling transformation u = 2x, v = 3y (a rectangle stretched to twice the width, thrice the height), compute J and explain the new area element geometrically.</p>
+        <div class="physics-note"><p><strong>In physics:</strong> change of variables is how we move between reference frames, how statistical mechanics sums over states, and how general relativity handles curved spacetime coordinates — the Jacobian is the honest “ruler conversion” factor. Watch the <a href="https://www.youtube.com/watch?v=E4e9lhsL_w8" target="_blank" rel="noopener">Jacobian &amp; Change of Variables video ↗</a>.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-06" aria-labelledby="c3-06-title">
+        <h3 id="c3-06-title">C3.06 · Vector fields — a vector at every point</h3>
+        <p>Four objects, one family: a <em>scalar</em> is a number (temperature); a <em>vector</em> has magnitude and direction (wind); a <em>scalar field</em> assigns a number to every point in space (the temperature map); a <em>vector field</em> assigns a vector to every point (the wind map). Physics runs on fields.</p>
+        <div class="formula">Scalar field: T(x, y, z) &nbsp;·&nbsp; Vector field: F(x, y, z) = (P, Q, R)<span class="hint">example: F = (−y, x) rotates around the origin; F = (x, y) points radially outward</span></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>A vector field is a weather map of arrows: at each location it tells you which way and how hard. A scalar field is the same map with numbers instead of arrows — colour the map by temperature and you have T(x, y). Physicists' job is largely to figure out which field describes their problem, then ask how the field changes (divergence, curl — next topics).</p>
+        </div>
+        <p><strong>Worked example.</strong> F(x, y) = (−y, x): at (1, 0) the arrow is (0, 1) pointing up; at (0, 1) it is (−1, 0) pointing left. Every arrow is tangent to a circle around the origin — a pure rotation field, the simplest model of a vortex, a spinning galaxy's velocity field, or a magnetic field around a wire.</p>
+        <p class="check-line"><strong>Check:</strong> For F = (x, y), draw the arrows at (1, 0), (0, 1), (−1, 0). What physical situation does this field resemble (hint: a source pushing outward everywhere)?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> electric fields, magnetic fields, fluid velocities, gravitational fields, and temperature gradients are all fields. Start with the <a href="https://youtu.be/m_Psx7CdvDk" target="_blank" rel="noopener">Gradient, Divergence and Curl video ↗</a> — it builds exactly this scalar/vector-field foundation first.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-07" aria-labelledby="c3-07-title">
+        <h3 id="c3-07-title">C3.07 · Divergence ∇·F — sources and sinks</h3>
+        <p>The divergence is the dot product of ∇ with a vector field: a scalar field measuring, at each point, how much the field is spreading out from (or collapsing into) that point.</p>
+        <div class="formula">∇·F = ∂P/∂x + ∂Q/∂y + ∂R/∂z<span class="hint">positive → source; negative → sink; zero → incompressible flow (nothing accumulates)</span></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Stand in a river and cup your hands around a small box of water. Divergence asks: does more water flow out of your box than in? Positive divergence means the box secretly contains a spring (a source); negative means a drain (a sink); zero means whatever flows in flows out — like an incompressible fluid where nothing piles up.</p>
+        </div>
+        <p><strong>Worked example.</strong> F = (x, y): ∇·F = ∂x/∂x + ∂y/∂y = 1 + 1 = 2 everywhere — uniform outward spreading, like air exploding from a point. G = (−y, x): ∇·G = −0 + 0 = 0 — pure rotation spreads nothing; a spinning wheel doesn't create water. Maxwell's ∇·E = ρ/ε₀ says exactly: electric field divergence exists only where charge sits — charge is the source of E.</p>
+        <p class="check-line"><strong>Check:</strong> Compute ∇·F for F = (x², y², z²) at (1, 1, 1). Is this point a source, a sink, or neutral? By how much?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> Gauss's law (∇·E = ρ/ε₀), mass conservation (∇·(ρv) = −∂ρ/∂t), and fluid incompressibility (∇·v = 0) are divergence statements. Watch the <a href="https://www.youtube.com/watch?v=a8dj_nYN_SE" target="_blank" rel="noopener">Gauss Divergence Theorem video ↗</a> and the <a href="https://www.youtube.com/watch?v=3RnFjMhgvrY" target="_blank" rel="noopener">Electric Flux &amp; Gauss's Law video ↗</a>.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-08" aria-labelledby="c3-08-title">
+        <h3 id="c3-08-title">C3.08 · Curl ∇×F — rotation and twist</h3>
+        <p>The curl is the cross product of ∇ with a vector field: a vector measuring how much the field swirls around the point you're standing at — axis along the swirl, length = rotation strength.</p>
+        <div class="formula">∇×F = (∂R/∂y − ∂Q/∂z, ∂P/∂z − ∂R/∂x, ∂Q/∂x − ∂P/∂y)<span class="hint">zero curl → irrotational (conservative) field — path-independent like gravity</span></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Imagine a tiny paddle wheel dropped into the flow. Curl asks: will it spin? If the water drags its top faster than its bottom, it rotates — nonzero curl. If the paddle drifts but never turns, the field has no local rotation — zero curl. The curl vector points along the rotation axis by the right-hand rule.</p>
+        </div>
+        <p><strong>Worked example.</strong> G = (−y, x) (the rotation field): ∇×G in 2D = ∂G₂/∂x − ∂G₁/∂y = 1 − (−1) = 2 — constant counterclockwise spin everywhere. F = (x, y) (radial): ∂(y)/∂x − ∂(x)/∂y = 0 — no spin, only spreading. Two fields that look “equally active” on a plot behave completely differently under the curl test.</p>
+        <p><strong>Physical reading.</strong> In fluid flow, curl is 2× the local angular velocity of the fluid. In electromagnetism, ∇×B = μ₀J says magnetic fields curl around currents — a wire's field wraps the wire, right-hand rule included.</p>
+        <p class="check-line"><strong>Check:</strong> Compute ∇×F for F = (−y, x, 0). Which direction does the curl point, and does that match the right-hand rule for counterclockwise rotation in the xy-plane?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> Faraday's law (∇×E = −∂B/∂t) and Ampère–Maxwell (∇×B = μ₀J + μ₀ε₀ ∂E/∂t) are curl equations; vorticity in fluids is curl of velocity. The <a href="https://www.youtube.com/watch?v=rB83DpBJQsE" target="_blank" rel="noopener">Divergence and Curl — 3Blue1Brown ↗</a> video is the clearest visual treatment of both.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-09" aria-labelledby="c3-09-title">
+        <h3 id="c3-09-title">C3.09 · Line integrals &amp; conservative fields</h3>
+        <p>A line integral accumulates a field along a path: ∫<sub>C</sub> F · dr — add up the component of F pointing along your walk at every step. For force fields, this is work.</p>
+        <div class="formula">W = ∫<sub>C</sub> F · dr &nbsp;·&nbsp; conservative field ⇔ F = −∇φ (potential exists) ⇔ ∮ F · dr = 0 around every loop</div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Walking uphill with a backpack: only the part of gravity along your path does work against you. A conservative field is one where the trail doesn't matter — climb the same hill by any route and gravity repays exactly the same. That path-independence is what lets us define potential energy at all: the energy belongs to the <em>place</em>, not the journey.</p>
+        </div>
+        <p><strong>Worked example.</strong> F = (2x, 2y) is conservative: it equals ∇(x² + y²), so φ = x² + y². Along any path from (0, 0) to (1, 2): work = φ(1,2) − φ(0,0) = 5 — no integration needed, just endpoints. A friction field, by contrast, depends on the exact route: loop around and you lose energy every lap.</p>
+        <p><strong>Test for 2D conservatism:</strong> F = (P, Q) is conservative on a nice region iff ∂P/∂y = ∂Q/∂x (mixed partials agree — the local version of “zero curl”).</p>
+        <p class="check-line"><strong>Check:</strong> Is F = (−y, x) conservative? Compute ∂P/∂y and ∂Q/∂x and interpret your answer using the paddle-wheel picture.</p>
+        <div class="physics-note"><p><strong>In physics:</strong> gravitational and electrostatic forces are conservative → potential energy exists. Magnetic forces are not (they do no work but also have no scalar potential in the same sense) — knowing which is which saves entire exam questions.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-10" aria-labelledby="c3-10-title">
+        <h3 id="c3-10-title">C3.10 · Green, Stokes &amp; Gauss — the boundary is the interior</h3>
+        <p>Three theorems, one idea: an integral over a boundary equals a different integral over the interior it encloses. They are how physics converts “sum over a surface” into “property of the volume” and back.</p>
+        <div class="formula">Green (2D): ∮<sub>C</sub> (P dx + Q dy) = ∬<sub>R</sub> (∂Q/∂x − ∂P/∂y) dA = ∬ (∇×F)·k̂ dA<br>Stokes: ∮<sub>C</sub> F · dr = ∬<sub>S</sub> (∇×F) · dS &nbsp;(line integral = curl flux through the lid)<br>Gauss: ∯<sub>S</sub> F · dS = ∭<sub>V</sub> (∇·F) dV &nbsp;(surface flux = total sources inside)</div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Gauss's divergence theorem in one breath: the net amount of fluid leaving a balloon equals all the springs inside it, summed up. You never need to watch every point of the balloon's surface — count the sources. Stokes's theorem says the swirling along a closed loop equals all the little paddles' spins inside the loop. The boundary carries a complete report of the interior.</p>
+        </div>
+        <p><strong>Worked example.</strong> F = (x, y, 0), region the unit disk. Surface flux through the rim: ∬ ∇·F dA = ∬ 2 dA = 2·π·1² = 2π. Direct check: on the unit circle, F points radially outward with magnitude 1, and the normal also points outward, so ∮1 d(length)·1 = 2π. ✓ Two completely different calculations agree — that's the theorem working.</p>
+        <p><strong>How to choose.</strong> Closed surface → Gauss. Loop bounding a visible surface → Stokes. Planar region with a loop around it → Green. Field with known divergence/curl → pick the theorem that turns your integral into the easier one.</p>
+        <p class="check-line"><strong>Check:</strong> For an incompressible fluid (∇·v = 0) in a sealed tank, what does Gauss's theorem say about the net flow through the tank's walls? (Answer should be almost too obvious — that's the point.)</p>
+        <div class="physics-note"><p><strong>In physics:</strong> Gauss's law turns “calculate E everywhere” into “count the charge” for symmetric problems; Stokes underlies Faraday's law in integral form; Green's theorem appears in 2D potential flow. Watch the <a href="https://www.youtube.com/watch?v=a8dj_nYN_SE" target="_blank" rel="noopener">Gauss Divergence Theorem video ↗</a> — it builds exactly this balloon-and-springs picture.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c3-11" aria-labelledby="c3-11-title">
+        <h3 id="c3-11-title">C3.11 · Maxwell's equations — calculus in its full dress</h3>
+        <p>Everything above converges here. Maxwell's four equations, in the vector-calculus form you can now read:</p>
+        <div class="formula">∇·E = ρ/ε₀ &nbsp;&nbsp;(Gauss: charge is the source of electric field)<br>∇·B = 0 &nbsp;&nbsp;(no magnetic monopoles — magnetic field lines always close)<br>∇×E = −∂B/∂t &nbsp;&nbsp;(Faraday: changing magnetic field makes circulating electric field)<br>∇×B = μ₀J + μ₀ε₀ ∂E/∂t &nbsp;&nbsp;(Ampère–Maxwell: currents and changing E make circulating B)</div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Two divergence equations say where fields come from (charges; and… nothing — magnets have no monopoles). Two curl equations say how fields stir each other: a wobbling B makes an E that loops around it, and a wobbling E (or a current) makes a B that loops back. Chained together, these wobbles detach from their sources and travel — light.</p>
+        </div>
+        <p><strong>Worked reading.</strong> Take ∇×E = −∂B/∂t in free space with no currents: the right side is nonzero wherever B is changing, so E must curl. That curling E then changes more B… and Maxwell's stroke of genius — adding the displacement term μ₀ε₀ ∂E/∂t — made the waves self-sustaining. Solve the pair and you get a wave travelling at 1/√(μ₀ε₀) = c. Calculus derived the speed of light.</p>
+        <p class="check-line"><strong>Check:</strong> In a region with no charge (ρ = 0) and no current (J = 0), which of the four equations still have right-hand sides? What kind of solution survives — static, or travelling waves?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> these four lines contain circuits, light, radio, magnets, and the operating principle of every antenna above Ulaanbaatar. Full videos: <a href="https://www.youtube.com/watch?v=aCq54_0C4c8" target="_blank" rel="noopener">Best Explanation of Maxwell's Equations ↗</a> and <a href="https://www.youtube.com/watch?v=3RnFjMhgvrY" target="_blank" rel="noopener">Electric Flux and Gauss's Law ↗</a>.</p></div>
+      </section>
+
+      <section id="videos" aria-labelledby="videos-title">
+        <h2 id="videos-title">Video list — watch in this order</h2>
+        <p>Curated in the order that builds understanding: foundations → gradient → coordinates → the two operators → the big theorem → the grand finale.</p>
+        <ul class="video-list">
+          <li>
+            <a href="https://youtu.be/m_Psx7CdvDk" target="_blank" rel="noopener">Best Explanation of Gradient, Divergence and Curl ↗</a>
+            <small>Brain Station Advanced · 15 min. Start here: scalars, vectors, scalar &amp; vector fields, the del operator, then gradient, divergence and curl with worked examples.</small>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=TYLyAfFn_ME" target="_blank" rel="noopener">Best Explanation of Partial Derivatives and Gradients ↗</a>
+            <small>Matches topic C3.02–C3.03: the hillside picture, steepest ascent, and why gradient descent works in machine learning.</small>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=E4e9lhsL_w8" target="_blank" rel="noopener">Best Explanation of Jacobian and Change of Variables ↗</a>
+            <small>Matches topic C3.05: how coordinate transformations stretch space, and the determinant that keeps your integrals honest.</small>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=rB83DpBJQsE" target="_blank" rel="noopener">Divergence and Curl: The Language of Maxwell's Equations, Fluid Flow, and More ↗</a>
+            <small>3Blue1Brown · the definitive visual treatment of both operators — watch after C3.07–C3.08, before the theorems.</small>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=3RnFjMhgvrY" target="_blank" rel="noopener">Super Simple Explanation of Electric Flux and Gauss's Law ↗</a>
+            <small>The physics application of divergence: counting field lines leaving a surface, and why symmetry makes hard integrals easy.</small>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=a8dj_nYN_SE" target="_blank" rel="noopener">Super Simple Explanation of Gauss Divergence Theorem ↗</a>
+            <small>Matches topic C3.10: the balloon-and-springs picture — surface flux equals the sources hidden inside.</small>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/watch?v=aCq54_0C4c8" target="_blank" rel="noopener">Best Explanation of Maxwell's Equations ↗</a>
+            <small>The finale: all four equations read in vector-calculus language — how changing fields make light.</small>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="next-title">
+        <h2 id="next-title">Where to go next</h2>
+        <div class="topic">
+          <h3>Back to physics</h3>
+          <p>The <a href="../handouts/02.06.html">IPhO Electrostatics</a> and <a href="../handouts/04.02.html">Vectors handouts</a> use this machinery constantly; the <a href="../handouts/01.02.html">IOAA Electromagnetic Theory &amp; Quantum Physics</a> sheet connects it to astronomy.</p>
+        </div>
+        <div class="topic">
+          <h3>Read a real paper</h3>
+          <p>Flux, fields and vector notation appear in the gravitational-wave and black-hole papers on our <a href="../resources/">Resources</a> page — bring one to the club's paper-reading night and translate a line of it together.</p>
+        </div>
+        <div class="topic">
+          <h3>Keep the chain going</h3>
+          <p>Return to the <a href="./">Math Fundamentals</a> hub for the other branches — geometry/topology for relativity, probability/statistics for data analysis, discrete math for algorithms.</p>
+        </div>
+      </section>
+
+      <p class="teaching-contact">Errors, suggestions or requests for more worked examples? Write to <a href="mailto:physicsandastronomy24@gmail.com">physicsandastronomy24@gmail.com</a>.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <span>MAIS Physics &amp; Astronomy Club (PAC)</span>
+    <span>Mongol Aspiration International School · Ulaanbaatar, Mongolia</span>
+  </footer>
+</body>
+</html>

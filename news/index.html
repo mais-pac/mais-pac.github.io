@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Recent astronomy, spaceflight and SpaceX news for the MAIS Physics &amp; Astronomy Club — JWST discoveries, Artemis II, Starship Flight 15 and how to follow the sky yourself.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://mais-pac.github.io/news/">
+  <title>News · MAIS Physics &amp; Astronomy Club</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css?v=math-foundations-1">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="../" aria-label="MAIS Physics and Astronomy Club home">MAIS <span>Physics &amp; Astronomy Club</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../about/">About</a>
+        <a href="../club/">Club</a>
+        <a href="../teaching/">Teaching</a>
+        <a href="../math/">Math</a>
+        <a href="../mechanics/">Mechanics Lab</a>
+        <a href="../explore/">Explore</a>
+        <a class="active" aria-current="page" href="./">News</a>
+        <a href="../resources/">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <aside class="profile" aria-label="Club information">
+      <img class="club-logo" src="../assets/club-logo.png" alt="MAIS Physics and Astronomy Club crest: a glowing black hole against a star-filled sky" width="403" height="487">
+      <h1>MAIS Physics &amp;<br>Astronomy Club</h1>
+      <p class="school">Mongol Aspiration<br>International School</p>
+      <p class="location">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+        </svg>
+        Ulaanbaatar, Mongolia
+      </p>
+      <div class="profile-details">
+        <h2>Our club</h2>
+        <p>Founded 14 November 2024</p>
+        <p>Founder: Galbadrakh Ulziibold</p>
+        <p>Physics · Astronomy · Curiosity</p>
+      </div>
+    </aside>
+
+    <main id="main-content" class="teaching-main">
+      <h2 class="page-title">Sky &amp; Space News</h2>
+      <p class="lead">What is happening above us and around the industry — collected for club discussions. Last updated 2 November 2026. Every item links to its source so you can verify, read deeper, and form your own opinion.</p>
+
+      <section aria-labelledby="astro-title">
+        <h2 id="astro-title">Astronomy &amp; space science</h2>
+        <ul class="news-list">
+          <li>
+            <span class="news-date">27 October 2026</span>
+            <h4>Webb finds a feeding black hole when the universe was 470 million years old</h4>
+            <p>A faint red speck named MoM-BL-z10 hides a black hole of roughly 2–36 million suns, seen just 3% of the way back to the Big Bang. The team dug it out of <em>public</em> Webb archive data by spotting hydrogen gas smeared to 3,480 km/s — a merry-go-round too fast for anything but a black hole. Remarkably, the mass estimates disagree by a factor of ~17, and the team published both rather than picking a favourite — a nice lesson in honest error bars.</p>
+            <p class="news-src">Source: <a href="https://dailygalaxy.com/2026/10/jwst-feeding-black-hole-36-million-solar-masses/" target="_blank" rel="noopener">Daily Galaxy ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">25 October 2026</span>
+            <h4>Three active black holes in a single galaxy, 12.5 billion light-years away</h4>
+            <p>Galaxy J0148-4214 contains not one but three feeding supermassive black holes — two only 620 light-years apart, destined to merge, plus a third 5,500 light-years out. Detected by the Max Planck team using Webb's integral-field spectroscopy, the find suggests early galaxies may grow their monsters by merging them together — a fast track to the giants we see today.</p>
+            <p class="news-src">Source: <a href="https://www.sciencedaily.com/releases/2026/10/261024222000.htm" target="_blank" rel="noopener">ScienceDaily / MPE ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">21 October 2026</span>
+            <h4>Webb detects heavy metals surrounding the Milky Way's black hole</h4>
+            <p>Sagittarius A* is eating less than expected — and JWST just found a trove of supernova-forged metals in gas clouds near it, matching the composition of nearby stars. Why our galactic centre is so picky about its meals remains an open mystery; the metals may even relate to how Earth got its share of heavy elements.</p>
+            <p class="news-src">Source: <a href="https://www.livescience.com/space/astronomy/james-webb-telescope-discovers-surprising-trove-of-metals-around-the-milky-ways-supermassive-black-hole" target="_blank" rel="noopener">Live Science ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">16 October 2026</span>
+            <h4>The atmosphere of WASP-17b is not round — it's being stretched</h4>
+            <p>A new “transmission strings” technique (Bristol + Cornell, published in <em>Nature Astronomy</em>) uses JWST to map the true, lopsided shape of a hot Jupiter's atmosphere 1,300 light-years away: equatorial jets shovel heat from the permanent dayside to the nightside, inflating one limb. First step toward weather maps of alien worlds.</p>
+            <p class="news-src">Source: <a href="https://www.bristol.ac.uk/news/2026/october/trailblazing-technique-uncovers-real-shape-of-scorching-hot-exoplanet-atmosphere.html" target="_blank" rel="noopener">University of Bristol ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">12 August 2026</span>
+            <h4>A brand-new type of object: the “black hole star”</h4>
+            <p>Webb's bright red dot MoM-BH*−1, seen 660 million years after the Big Bang, outshines its whole galaxy yet produces 100 billion times more energy than any star could. The MIT-led team argues it is a hybrid: a ~100,000-solar-mass black hole inside a star-sized cocoon of hydrogen — possibly the answer to the mysterious “little red dots” filling Webb's deep images.</p>
+            <p class="news-src">Source: <a href="https://news.mit.edu/2026/astronomers-discover-brand-new-type-astrophysical-object-black-hole-star-0812" target="_blank" rel="noopener">MIT News ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">8–10 October 2026</span>
+            <h4>Hidden phase of neutron star collisions caught in X-rays; a star caught mid-feast</h4>
+            <p>The Einstein Probe revealed nearly 10 minutes of soft X-ray afterglow after a short gamma-ray burst — a phase of neutron star mergers earlier missions likely missed. Meanwhile MIT astronomers watched a small star slowly devouring a brown dwarf 300 light-years away, a feast that could last billions of years.</p>
+            <p class="news-src">Sources: <a href="https://www.sciencedaily.com/news/space_time/extrasolar_planets/" target="_blank" rel="noopener">ScienceDaily ↗</a></p>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="missions-title">
+        <h2 id="missions-title">Missions &amp; rockets</h2>
+        <ul class="news-list">
+          <li>
+            <span class="news-date">1–11 April 2026 · recap</span>
+            <h4>Artemis II: humans flew around the Moon — and came home safe</h4>
+            <p>NASA's Artemis II carried astronauts Reid Wiseman, Victor Glover, Christina Koch and Jeremy Hansen on a free-return loop behind the lunar far side — the first crewed flight beyond low Earth orbit since Apollo 17 in 1972. On 6 April they passed 252,706 miles from Earth (breaking Apollo 13's record), closest approach 4,070 miles above the Moon, with an “Earthset” and “Earthrise” from Orion's window. Splashdown in the Pacific came on 11 April after 9 days. Next: Artemis III's Starship lander test in Earth orbit (late 2027), then the first crewed landing planned for early 2028. NASA has since released Artemis II lunar science data and imagery from the flyby.</p>
+            <p class="news-src">Sources: <a href="https://www.nasa.gov/blogs/missions/2026/04/06/artemis-ii-flight-day-6-crew-ready-for-lunar-flyby/" target="_blank" rel="noopener">NASA blog ↗</a> · <a href="https://www.sciencedaily.com/releases/2026/04/260402004721.htm" target="_blank" rel="noopener">ScienceDaily ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">28 September 2026</span>
+            <h4>Starship Flight 14: first Starship to reach orbit with a payload</h4>
+            <p>The largest rocket ever built reached orbit and deployed 26 Starlink V3 satellites — Flight 14's milestone, despite one upper-stage Raptor engine shutting down early during ascent. The setback became Flight 15's homework.</p>
+            <p class="news-src">Source: <a href="https://en.wikipedia.org/wiki/List_of_Starship_launches" target="_blank" rel="noopener">List of Starship launches ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">30 October 2026</span>
+            <h4>Falcon 9 flies its 700th mission</h4>
+            <p>Starlink 15-18 (27 satellites, Vandenberg) marked Falcon 9's 700th launch; booster B1093 landed after its 18th flight. Reusable boosters went from experiment to routine — rivals are still catching up — even as SpaceX pivots its future to Starship. Note the timing: SpaceX has said Falcon 9 retires once Starship flies weekly.</p>
+            <p class="news-src">Source: <a href="https://www.technology.org/2026/11/02/spacex-700th-falcon-9-launch-starlink-15-18-b1093/" target="_blank" rel="noopener">Technology.org ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">November 2026 · upcoming</span>
+            <h4>The month's launch calendar</h4>
+            <p>USSF-432 from Vandenberg (2 Nov), Starlink 15-21 (5–6 Nov), a second Vandenberg defence mission (~9–10 Nov), Cygnus NG-25 cargo to the ISS (~29 Nov, tentative), plus OneWeb and NROL-195 slots — and the big unknown: Starship Flight 15 (below). As always, dates move: check the trackers before setting an alarm.</p>
+            <p class="news-src">Source: <a href="https://en.as.com/latest_news/upcoming-spacex-launches-in-november-2026-dates-times-and-how-to-watch-from-home-f202611-n/" target="_blank" rel="noopener">AS USA launch schedule ↗</a></p>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="musk-title">
+        <h2 id="musk-title">Elon Musk &amp; SpaceX</h2>
+        <ul class="news-list">
+          <li>
+            <span class="news-date">Target: November 2026 · Flight 15</span>
+            <h4>Starship Flight 15 will try to catch BOTH rocket stages at once</h4>
+            <p>The plan: return the Super Heavy booster to the tower arms (“chopsticks”) — as done three times before — <em>and</em> catch the Starship upper stage itself after re-entry, something never achieved. Booster 22 passed a full 33-engine static fire on 25 October; Ship 42 fired six engines on 27 October. Musk puts first-try odds at 50–60% and calls a full recovery “a profound technology milestone in the history of civilization and consciousness.” No official date yet — windows from ~8–12 November circulate pending FAA approval. Success would unlock rapid reusability: up to twice-weekly flights targeted for 2027, and the Artemis III lander path.</p>
+            <p class="news-src">Sources: <a href="https://www.space.com/space-exploration/launches-spacecraft/spacex-will-attempt-1st-ever-double-starship-rocket-catch-on-next-test-launch-a-profound-technology-milestone-elon-musk-says" target="_blank" rel="noopener">Space.com ↗</a> · <a href="https://news.ssbcrack.com/spacex-targets-november-2026-for-15th-starship-flight-test-with-major-milestone-plans/" target="_blank" rel="noopener">SSBCrack ↗</a> · <a href="https://interestingengineering.com/space/spacex-starship-flight-15-launch-date-objectives" target="_blank" rel="noopener">Interesting Engineering ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">1 November 2026</span>
+            <h4>Musk: Grok Bot usage limits exist because costs are “unsustainably high”</h4>
+            <p>After users complained their weekly AI-agent allowances ran out early, Musk answered on X: serving Grok Bot costs are “unsustainably high relative to revenue,” and trimming allowances is “just being sensible.” SpaceX reports 800,000 paid weekly users and calls it the fastest-growing product in the company's history — a live case study in compute economics worth debating at club.</p>
+            <p class="news-src">Source: <a href="https://www.businessinsider.com/grok-bot-usage-limits-costs-unsustainably-high-elon-musk-agents-2026-11" target="_blank" rel="noopener">Business Insider ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">30 October – 1 November 2026</span>
+            <h4>“Terrestrial compute will be peanuts compared to orbital compute”</h4>
+            <p>Musk is pushing a plan to move AI data centres to space: clusters of solar-powered “Starmind” satellites (plans mention up to a million AI satellites in groups of ~10), with orbital compute deployed per month exceeding Earth-based capacity around end-2028, he claims. Analysts debate a ~$470B five-quarter capex figure; SpaceX recently closed a $40B debt raise for GPUs. Whether or not the timeline holds, the engineering questions — thermal control, radiation, launch cost per kilowatt — are excellent club-research material.</p>
+            <p class="news-src">Source: <a href="https://www.teslarati.com/elon-musk-calls-earths-data-centers-peanuts-next-to-what-spacex-is-planning-in-orbit/" target="_blank" rel="noopener">Teslarati ↗</a></p>
+          </li>
+          <li>
+            <span class="news-date">Background · updated 1 November 2026</span>
+            <h4>Artemis, politics and the $2.89B lander</h4>
+            <p>With US midterms on 3 November, commentary warns that congressional investigations into Musk could ripple into NASA's Artemis program — SpaceX's Starship HLS contract is worth $2.89B (one uncrewed demo, one crewed landing), part of ~$20B in cumulative NASA awards. Artemis enjoys bipartisan support and the next crewed landing window is contested with China. Worth watching as a case study in how science policy and politics share one budget.</p>
+            <p class="news-src">Source: <a href="https://shattered.io/musk-lawfare-artemis-program-starship-hls-2-89b-midterms-2026/" target="_blank" rel="noopener">Shattered / The Hill coverage ↗</a></p>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="follow-title">
+        <h2 id="follow-title">Follow the sky yourself</h2>
+        <p>Club rule: verify before you repeat. These are the sources we check weekly — then we bring the interesting stories to meetings.</p>
+        <ul class="guide-steps">
+          <li>
+            <strong>Primary sources first</strong>
+            <p><a href="https://www.nasa.gov/news/" target="_blank" rel="noopener">NASA News ↗</a>, <a href="https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration" target="_blank" rel="noopener">ESA ↗</a>, and mission blogs — press releases before headlines. When a claim matters, find who actually did the work.</p>
+          </li>
+          <li>
+            <strong>Science news with an editorial filter</strong>
+            <p><a href="https://www.sciencedaily.com/news/space_time/" target="_blank" rel="noopener">ScienceDaily Space &amp; Time ↗</a>, <a href="https://www.nasa.gov/" target="_blank" rel="noopener">NASA ↗</a>, <a href="https://www.space.com/" target="_blank" rel="noopener">Space.com ↗</a> — good for discovery stories; always click through to the paper when a number surprises you.</p>
+          </li>
+          <li>
+            <strong>Rocket &amp; industry coverage</strong>
+            <p><a href="https://spacenews.com/" target="_blank" rel="noopener">SpaceNews ↗</a> for launches, contracts and policy; launch trackers like <a href="https://nextspaceflight.com/" target="_blank" rel="noopener">Next Spaceflight ↗</a> for dates (all dates tentative until announced!).</p>
+          </li>
+          <li>
+            <strong>The papers themselves</strong>
+            <p>New astronomy results appear first on <a href="https://arxiv.org/list/astro-ph/new" target="_blank" rel="noopener">arXiv astro-ph ↗</a>. Use our <a href="../resources/">Resources</a> guide to read one properly — abstract, figures, conclusion, in that order.</p>
+          </li>
+          <li>
+            <strong>Tonight's sky</strong>
+            <p><a href="https://stellarium-web.org/" target="_blank" rel="noopener">Stellarium Web ↗</a> to see what's actually above Ulaanbaatar right now — news is better when you can point a telescope at the object.</p>
+          </li>
+        </ul>
+        <div class="physics-note"><p><strong>Discussion starter:</strong> pick one story from this page per meeting. Each member states (a) what was observed, (b) how we know, (c) what it does <em>not</em> prove. That three-line format is the seed of the paper-reading skill on the <a href="../resources/">Resources</a> page.</p></div>
+      </section>
+
+      <p class="teaching-contact">Spotted something big we missed? Send the link to <a href="mailto:physicsandastronomy24@gmail.com">physicsandastronomy24@gmail.com</a> and we'll add it with sources.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <span>MAIS Physics &amp; Astronomy Club (PAC)</span>
+    <span>Mongol Aspiration International School · Ulaanbaatar, Mongolia</span>
+  </footer>
+</body>
+</html>

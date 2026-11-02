@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculus II foundation for the MAIS Physics &amp; Astronomy Club: definite integrals, techniques of integration, applications, sequences and series, Taylor series, and first differential equations — explained simply with worked examples.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://mais-pac.github.io/math/calculus-2.html">
+  <title>Calculus II · MAIS Physics &amp; Astronomy Club</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css?v=math-foundations-1">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="../" aria-label="MAIS Physics and Astronomy Club home">MAIS <span>Physics &amp; Astronomy Club</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../about/">About</a>
+        <a href="../club/">Club</a>
+        <a href="../teaching/">Teaching</a>
+        <a class="active" aria-current="page" href="./">Math</a>
+        <a href="../mechanics/">Mechanics Lab</a>
+        <a href="../explore/">Explore</a>
+        <a href="../news/">News</a>
+        <a href="../resources/">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <aside class="profile" aria-label="Club information">
+      <img class="club-logo" src="../assets/club-logo.png" alt="MAIS Physics and Astronomy Club crest: a glowing black hole against a star-filled sky" width="403" height="487">
+      <h1>MAIS Physics &amp;<br>Astronomy Club</h1>
+      <p class="school">Mongol Aspiration<br>International School</p>
+      <p class="location">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+        </svg>
+        Ulaanbaatar, Mongolia
+      </p>
+      <div class="profile-details">
+        <h2>Our club</h2>
+        <p>Founded 14 November 2024</p>
+        <p>Founder: Galbadrakh Ulziibold</p>
+        <p>Physics · Astronomy · Curiosity</p>
+      </div>
+    </aside>
+
+    <main id="main-content" class="teaching-main">
+      <h2 class="page-title">Calculus II — Integration &amp; Series</h2>
+      <p class="lead">The mathematics of accumulation: how to add up infinitely many infinitely thin pieces, and how to represent tricky functions as infinite polynomials. This is the toolbox behind work, energy, probability, and every approximation physics ever makes.</p>
+
+      <section id="course-map" aria-labelledby="map-title">
+        <h2 id="map-title">Course map</h2>
+        <p class="curriculum-note">Eight topics. Techniques first, then applications, then the infinite machinery — series and differential equations — that everything else leans on.</p>
+        <section class="curriculum-group" aria-label="Calculus II topics">
+          <ul class="curriculum-grid">
+            <li class="curriculum-card"><span class="topic-code">C2.01</span><div><h4>Antiderivatives</h4><div class="pdf-actions"><a href="#c2-01">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C2.02</span><div><h4>Definite integrals &amp; Riemann sums</h4><div class="pdf-actions"><a href="#c2-02">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C2.03</span><div><h4>Fundamental Theorem of Calculus</h4><div class="pdf-actions"><a href="#c2-03">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C2.04</span><div><h4>Techniques of integration</h4><div class="pdf-actions"><a href="#c2-04">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C2.05</span><div><h4>Applications: work, volumes, centroids</h4><div class="pdf-actions"><a href="#c2-05">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C2.06</span><div><h4>Sequences &amp; infinite series</h4><div class="pdf-actions"><a href="#c2-06">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C2.07</span><div><h4>Taylor &amp; Maclaurin series</h4><div class="pdf-actions"><a href="#c2-07">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C2.08</span><div><h4>First differential equations</h4><div class="pdf-actions"><a href="#c2-08">Lecture</a></div></div></li>
+          </ul>
+        </section>
+      </section>
+
+      <section class="teaching-section" id="c2-01" aria-labelledby="c2-01-title">
+        <h3 id="c2-01-title">C2.01 · Antiderivatives — running the film backwards</h3>
+        <p>An antiderivative of f is any function F with F′ = f. Because constants vanish when differentiating, antiderivatives come in families: F(x) + C, where C is the constant of integration that only extra information (an initial condition) can pin down.</p>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Differentiation is a shredder: it shreds constants and loses information. Antiderivatives are the attempt to reassemble the document — and like reassembling shredded paper, you always get a family of answers until someone tells you one sure fact (“at t = 0, the object was at the origin”), which fixes C.</p>
+        </div>
+        <div class="formula">d/dx x<sup>n+1</sup>/(n+1) = xⁿ (n ≠ −1) &nbsp;·&nbsp; ∫ 1/x dx = ln|x| + C &nbsp;·&nbsp; ∫ e<sup>kx</sup> dx = e<sup>kx</sup>/k + C</div>
+        <p><strong>Worked example.</strong> A particle has acceleration a(t) = 6t m/s² and starts from rest. v(t) = ∫a dt = 3t² + C₁. “From rest” means v(0) = 0 → C₁ = 0. Then x(t) = ∫v dt = t³ + C₂, and if x(0) = 0 then C₂ = 0. So x(t) = t³ — three lines of calculus instead of memorising a kinematics formula.</p>
+        <p class="check-line"><strong>Check:</strong> Differentiate your answer for x(t) twice. Do you recover a(t) = 6t? (Round-tripping is the universal antiderivative test.)</p>
+        <div class="physics-note"><p><strong>In physics:</strong> this is exactly how the kinematics equations are born: integrate a to get v, integrate v to get x, and initial conditions choose the constants. Same dance for fields from charge distributions and for velocities from forces.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c2-02" aria-labelledby="c2-02-title">
+        <h3 id="c2-02-title">C2.02 · Definite integrals &amp; Riemann sums</h3>
+        <p>A definite integral ∫<sub>a</sub><sup>b</sup> f(x) dx is the signed area between the graph and the x-axis from a to b, built the honest way: slice into n strips, add their areas, let n → ∞.</p>
+        <div class="formula">∫<sub>a</sub><sup>b</sup> f(x) dx = lim<sub>n→∞</sub> Σ<sub>i=1…n</sub> f(xᵢ*) Δx<span class="hint">strip width Δx → 0; rectangles become exact</span></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>A Riemann sum is pixelation: draw the curve as tall thin rectangles and you get a blocky but close answer. Shrink the pixels and the picture becomes the truth. Integration is “infinite resolution screenshot” of the area under a curve.</p>
+        </div>
+        <p><strong>Properties worth keeping.</strong> ∫<sub>a</sub><sup>b</sup> = −∫<sub>b</sub><sup>a</sup> (flip the bounds, flip the sign); ∫ over adjacent intervals adds up; constants factor out; and if f ≥ 0 on [a, b], the integral is genuinely an area — but if f dips below the axis, that region counts as negative.</p>
+        <p><strong>Worked example.</strong> ∫<sub>0</sub><sup>2</sup> x² dx using the formula Σ i² = n(n+1)(2n+1)/6: each strip has width 2/n and height (2i/n)², so the sum is (8/n³)·n(n+1)(2n+1)/6 → 8·2/6 = 8/3 as n → ∞. Matches the antiderivative answer 2³/3 = 8/3. ✓</p>
+        <p class="check-line"><strong>Check:</strong> Without computing, say whether ∫<sub>−1</sub><sup>1</sup> x³ dx is positive, negative or zero — then justify with symmetry.</p>
+        <div class="physics-note"><p><strong>In physics:</strong> work is force integrated over path, probability is the area under a distribution curve, and flux is a field integrated over a surface — the same “slice and add” logic at higher dimensions in <a href="calculus-3.html">Calculus III</a>.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c2-03" aria-labelledby="c2-03-title">
+        <h3 id="c2-03-title">C2.03 · Fundamental Theorem of Calculus</h3>
+        <p>The theorem that unifies the course: differentiation and integration are inverse operations.</p>
+        <div class="formula">If F′ = f, then ∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) − F(a)<span class="hint">and d/dx ∫<sub>a</sub><sup>x</sup> f(t) dt = f(x) — the two halves are mirrors</span></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>One half says: to find the exact area, you only need an antiderivative — the infinite sum collapses to two evaluations. The other half says: if you fill a bathtub at a rate f, the water level's rate of change is exactly f. Accumulation and rate are undo-buttons for each other.</p>
+        </div>
+        <p><strong>Worked example.</strong> ∫<sub>0</sub><sup>π</sup> sin x dx = [−cos x]<sub>0</sub><sup>π</sup> = −cos π − (−cos 0) = 1 + 1 = 2. Geometrically: the positive hump of one sine wave from 0 to π has area exactly 2 — a fact worth remembering as a sanity anchor.</p>
+        <p class="check-line"><strong>Check:</strong> Explain in one sentence why d/dx ∫<sub>0</sub><sup>x</sup> e<sup>−t²</sup> dt = e<sup>−x²</sup>, even though ∫ e<sup>−t²</sup> dt has no closed-form antiderivative.</p>
+        <div class="physics-note"><p><strong>In physics:</strong> Faraday's law, the continuity equation, and “change = rate × time in the limit” all live on this theorem. When a formula sheet writes d/dt of an integral over a moving region, you are seeing the FTC's deeper cousins from Calculus III.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c2-04" aria-labelledby="c2-04-title">
+        <h3 id="c2-04-title">C2.04 · Techniques of integration</h3>
+        <p>Integration is a puzzle, not a formula. In order of how often you will reach for them:</p>
+        <ul>
+          <li><strong>Substitution (u-sub).</strong> Spot a function-derivative pair. ∫ 2x·e<sup>x²</sup> dx: let u = x², du = 2x dx → ∫ e<sup>u</sup> du = e<sup>x²</sup> + C. This is the chain rule run backwards.</li>
+          <li><strong>Integration by parts.</strong> The product rule backwards: ∫ u dv = uv − ∫ v du. Use it for products of unlike families — x·e<sup>x</sup>, x²·sin x, ln x. Choose u to be the part that gets simpler when differentiated.</li>
+          <li><strong>Partial fractions.</strong> Split a rational function into simple pieces. ∫ 1/(x² − 1) dx → decompose into A/(x−1) + B/(x+1), integrate each to logarithms.</li>
+          <li><strong>Trig integrals &amp; substitutions.</strong> Identities for powers of sin/cos; the substitution x = tan θ or x = sec θ when you see 1 + x²; x = sin θ for √(1 − x²).</li>
+        </ul>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Ask of every integral: “Is one factor the derivative of another?” → substitution. “Is it a product of different species?” → parts. “Is it a fraction of polynomials?” → partial fractions. “Does it contain √(a² − x²) or 1 + x²?” → trig substitution. A triage, not a brute force.</p>
+        </div>
+        <p><strong>Worked example (by parts).</strong> ∫ x·e<sup>x</sup> dx: take u = x (derivative simplifies), dv = e<sup>x</sup> dx. Then = x·e<sup>x</sup> − ∫ e<sup>x</sup> dx = x·e<sup>x</sup> − e<sup>x</sup> + C = e<sup>x</sup>(x − 1) + C. Check: differentiate back — product rule returns x·e<sup>x</sup>. ✓</p>
+        <p class="check-line"><strong>Check:</strong> Why does the choice u = e<sup>x</sup>, dv = x dx in ∫ x·e<sup>x</sup> dx make the new integral harder? What does that tell you about choosing u?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> by parts powers the Fourier integrals behind signal analysis; substitution handles Gaussian integrals in statistics and quantum mechanics; partial fractions show up in circuit analysis and control theory.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c2-05" aria-labelledby="c2-05-title">
+        <h3 id="c2-05-title">C2.05 · Applications — work, volumes, centroids</h3>
+        <ul>
+          <li><strong>Work.</strong> W = ∫ F dx — area under the force–distance curve. Stretching a spring: F = kx gives W = ½kx², the stored energy. (Derive it once and you never forget it.)</li>
+          <li><strong>Volumes.</strong> Disk/washer method: slice perpendicular to the axis, area of each slice π·(radius)², integrate. Shell method: slice parallel, integrate cylindrical shells — often easier for rotation about the y-axis.</li>
+          <li><strong>Fluid force.</strong> Pressure grows with depth (P = ρgh), so force on a dam is ∫ pressure × strip width over the submerged depth — triangles of pressure, not one number.</li>
+          <li><strong>Centroid &amp; centre of mass.</strong> x̄ = ∫ x dm / ∫ dm — the “balance point” integral. For a wire of variable density, you are weighting each position by its mass share.</li>
+          <li><strong>Arc length &amp; probability.</strong> L = ∫ √(1 + (f′)²) dx measures curve length; ∫<sub>−∞</sub><sup>∞</sup> p(x) dx = 1 is the normalisation that makes a distribution a probability.</li>
+        </ul>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>The recipe for every application is the same three beats: (1) slice the quantity into thin pieces you already understand, (2) write the piece's size, (3) integrate. Volume, work, force, mass — only the slice changes shape.</p>
+        </div>
+        <p><strong>Worked example.</strong> A tank is a cylinder radius 2 m, filled with water to depth 4 m. Force on the flat bottom = pressure at bottom × area = (ρg·4)·(π·2²) = 1000·9.8·4·4π ≈ 490 kN. (For a wall, the pressure varies with depth and you must integrate — different slice, same recipe.)</p>
+        <p class="check-line"><strong>Check:</strong> A spring follows F = 6x N. How much work stretches it from x = 0 to x = 0.1 m? Sketch the triangle under the F–x line and confirm with ∫ 6x dx.</p>
+        <div class="physics-note"><p><strong>In physics:</strong> gravitational potential energy, capacitor energy ½CV², moment of inertia I = ∫ r² dm (the rotating-mass analogue of centre of mass), and cosmological distances from expansion rates are all application integrals.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c2-06" aria-labelledby="c2-06-title">
+        <h3 id="c2-06-title">C2.06 · Sequences &amp; infinite series</h3>
+        <p>A series Σ aₙ adds infinitely many terms. The central question: does the running total settle to a finite limit (converge), or run away? The geometric series is the prototype:</p>
+        <div class="formula">Σ<sub>n=0…∞</sub> rⁿ = 1 + r + r² + … = 1/(1 − r) &nbsp;&nbsp;for |r| &lt; 1</div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Zeno's paradox: run half the distance, then half the remaining half — infinitely many steps, yet you arrive, because ½ + ¼ + ⅛ + … = 1. Infinite additions can be finite when the terms shrink fast enough. Divergence is the opposite: terms that don't shrink (harmonic series) or don't shrink fast enough carry you to infinity.</p>
+        </div>
+        <p><strong>Convergence tests, in order of use.</strong> (1) Divergence test: if aₙ ↛ 0, stop — it diverges. (2) Geometric/p-series recognition (Σ1/nᵖ converges iff p &gt; 1). (3) Integral test. (4) Comparison / limit comparison. (5) Ratio test (factorials, exponentials). (6) Alternating series test for (−1)ⁿ terms. Each test is a quick health check before committing to a sum.</p>
+        <p><strong>Worked example.</strong> Σ 1/n² from n = 1 to ∞: p-series with p = 2 &gt; 1 → converges (the famous answer is π²/6 ≈ 1.645 — Euler's surprise). Σ 1/n (harmonic): diverges, even though terms → 0. Slow shrink is not enough.</p>
+        <p class="check-line"><strong>Check:</strong> The ratio test on Σ n!/10ⁿ gives ratio≈ (n+1)/10 → ∞. What does that say about how explosively this series grows?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> perturbation expansions in quantum electrodynamics are series in the fine-structure constant; lattice sums in crystal physics; and “small parameter” expansions everywhere. Convergence decides whether your approximation is a tool or a trap.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c2-07" aria-labelledby="c2-07-title">
+        <h3 id="c2-07-title">C2.07 · Taylor &amp; Maclaurin series</h3>
+        <p>Any smooth function can be rebuilt near a point from its value and all its derivatives — an infinite polynomial. At a = 0 it is called Maclaurin:</p>
+        <div class="formula">f(x) = f(0) + f′(0)x + f″(0)x²/2! + f‴(0)x³/3! + …<span class="hint">e<sup>x</sup> = 1 + x + x²/2! + x³/3! + … · sin x = x − x³/3! + x⁵/5! − … · cos x = 1 − x²/2! + x⁴/4! − …</span></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>A Taylor series is a function's resume: its value, slope, bend, and bend-of-the-bend at one point — combined, they predict the function's behaviour in a neighbourhood. Keep more terms → wider, more accurate prediction. The first term is a tangent-line guess; the second adds curvature; each term corrects the previous one's overconfidence.</p>
+        </div>
+        <p><strong>Worked example.</strong> For small x, e<sup>x</sup> ≈ 1 + x. Check at x = 0.1: true e⁰·¹ ≈ 1.10517, approximation 1.1 — good to 0.5%. Add x²/2 = 0.005: 1.105 — good to 0.02%. Physicists routinely stop at the first non-zero correction: that is exactly how cos θ ≈ 1 − θ²/2 and sin θ ≈ θ (small-angle) are born, and why the pendulum's period looks independent of amplitude.</p>
+        <p><strong>Why physics loves this.</strong> Special relativity: γ = 1/√(1 − v²/c²) ≈ 1 + v²/2c² + … — the first correction is Newtonian kinetic energy in disguise. Every “neglect higher-order terms” in a lab report is a Taylor series with an honesty estimate attached.</p>
+        <p class="check-line"><strong>Check:</strong> Write the first three non-zero terms of the Maclaurin series for ln(1 + x). For which x does the geometric-series reasoning behind it remain valid?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> linearisation of oscillators, the Einstein field equations solved perturbatively, black-body expansions, and every numerical method on your calculator (sin, cos, ln) — all Taylor series. See the <a href="../handouts/04.04.html">IPhO Approximation &amp; Taylor Series handout</a> for physics problems.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c2-08" aria-labelledby="c2-08-title">
+        <h3 id="c2-08-title">C2.08 · First differential equations</h3>
+        <p>A differential equation constrains a function by its own derivatives — “I know how fast you're changing, find me.” The simplest solvable class: separable equations, dy/dx = g(x)·h(y).</p>
+        <div class="formula">dy/dx = g(x)h(y) → dy/h(y) = g(x) dx → ∫ dy/h(y) = ∫ g(x) dx + C</div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Separation of variables is algebra with an integral on each side: move every y-term to one side, every x-term to the other, and integrate twice. It works because derivatives of composites (chain rule) let you peel the variables apart — the inverse of the chain rule you met in Calculus I.</p>
+        </div>
+        <p><strong>Worked example (Newton's cooling / radioactive decay pattern).</strong> dN/dt = −kN. Separate: dN/N = −k dt. Integrate: ln|N| = −kt + C → N(t) = N₀e<sup>−kt</sup>. The differential equation itself explained why exponential decay appears everywhere: rate proportional to amount.</p>
+        <p><strong>Second example (logistic growth).</strong> dP/dt = rP(1 − P/K): growth proportional to P, throttled as P → K. Separate with partial fractions and you get the S-curve every population, epidemic and adoption chart obeys.</p>
+        <p class="check-line"><strong>Check:</strong> An RC circuit has dV/dt = −V/RC for the capacitor's discharge. Solve for V(t) and state the time constant's meaning — how long until V drops to about 37% of its start?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> Newton's second law is a differential equation (F = ma = m d²x/dt²). Heat flow, wave motion, Schrödinger's equation, orbital mechanics — physics is written in differential equations, and Calculus II is where you learn to read them.</p></div>
+      </section>
+
+      <section aria-labelledby="next-title">
+        <h2 id="next-title">Where to go next</h2>
+        <div class="topic">
+          <h3>Continue the pathway</h3>
+          <p><a href="calculus-3.html">Calculus III — Multivariable &amp; Vector Calculus</a> takes every idea here into two and three dimensions: gradients, divergence, curl, and the theorems behind Gauss's law and fluid flow — with a curated video list.</p>
+        </div>
+        <div class="topic">
+          <h3>See it in the club's physics</h3>
+          <p>The <a href="../handouts/04.04.html">IPhO Taylor series handout</a> and the <a href="../handouts/02.04.html">IPhO Celestial Mechanics</a> sheet use series and integrals constantly; the <a href="../mechanics/">Mechanics Lab</a> lets you feel potential wells that these integrals describe.</p>
+        </div>
+        <div class="topic">
+          <h3>Practice with friends</h3>
+          <p>Pick a real decay curve (a warm cup of tea, a charge draining) and fit it with N₀e<sup>−kt</sup> together — the club's paper-reading and data nights on the <a href="../club/">Club</a> page are built for exactly this.</p>
+        </div>
+      </section>
+
+      <p class="teaching-contact">Errors, suggestions or requests for more worked examples? Write to <a href="mailto:physicsandastronomy24@gmail.com">physicsandastronomy24@gmail.com</a>.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <span>MAIS Physics &amp; Astronomy Club (PAC)</span>
+    <span>Mongol Aspiration International School · Ulaanbaatar, Mongolia</span>
+  </footer>
+</body>
+</html>
