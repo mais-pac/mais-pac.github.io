@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Calculus I foundation for the MAIS Physics &amp; Astronomy Club: limits, continuity, derivatives, rules of differentiation, optimisation, growth and decay — explained simply, with formulas, worked examples and physics connections.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://mais-pac.github.io/math/calculus-1.html">
+  <title>Calculus I · MAIS Physics &amp; Astronomy Club</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css?v=math-foundations-1">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="../" aria-label="MAIS Physics and Astronomy Club home">MAIS <span>Physics &amp; Astronomy Club</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../about/">About</a>
+        <a href="../club/">Club</a>
+        <a href="../teaching/">Teaching</a>
+        <a class="active" aria-current="page" href="./">Math</a>
+        <a href="../mechanics/">Mechanics Lab</a>
+        <a href="../explore/">Explore</a>
+        <a href="../news/">News</a>
+        <a href="../resources/">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <aside class="profile" aria-label="Club information">
+      <img class="club-logo" src="../assets/club-logo.png" alt="MAIS Physics and Astronomy Club crest: a glowing black hole against a star-filled sky" width="403" height="487">
+      <h1>MAIS Physics &amp;<br>Astronomy Club</h1>
+      <p class="school">Mongol Aspiration<br>International School</p>
+      <p class="location">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+        </svg>
+        Ulaanbaatar, Mongolia
+      </p>
+      <div class="profile-details">
+        <h2>Our club</h2>
+        <p>Founded 14 November 2024</p>
+        <p>Founder: Galbadrakh Ulziibold</p>
+        <p>Physics · Astronomy · Curiosity</p>
+      </div>
+    </aside>
+
+    <main id="main-content" class="teaching-main">
+      <h2 class="page-title">Calculus I — Limits &amp; Derivatives</h2>
+      <p class="lead">The mathematics of instantaneous change. If you can read a speedometer, you already understand the idea of a derivative — this page makes that idea precise, then builds the rules you will use for the rest of physics.</p>
+
+      <section id="course-map" aria-labelledby="map-title">
+        <h2 id="map-title">Course map</h2>
+        <p class="curriculum-note">Seven topics, in order. Each lecture below ends with a self-check line — if you can answer it without looking back, move on.</p>
+        <section class="curriculum-group" aria-label="Calculus I topics">
+          <ul class="curriculum-grid">
+            <li class="curriculum-card"><span class="topic-code">C1.01</span><div><h4>Limits — approaching a value</h4><div class="pdf-actions"><a href="#c1-01">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C1.02</span><div><h4>Continuity — no jumps, no holes</h4><div class="pdf-actions"><a href="#c1-02">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C1.03</span><div><h4>The derivative — slope at a point</h4><div class="pdf-actions"><a href="#c1-03">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C1.04</span><div><h4>Rules of differentiation</h4><div class="pdf-actions"><a href="#c1-04">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C1.05</span><div><h4>Exponentials, logs &amp; growth</h4><div class="pdf-actions"><a href="#c1-05">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C1.06</span><div><h4>Applications: rates, optimisation, curves</h4><div class="pdf-actions"><a href="#c1-06">Lecture</a></div></div></li>
+            <li class="curriculum-card"><span class="topic-code">C1.07</span><div><h4>Preview of integration</h4><div class="pdf-actions"><a href="#c1-07">Lecture</a></div></div></li>
+          </ul>
+        </section>
+      </section>
+
+      <section class="teaching-section" id="c1-01" aria-labelledby="c1-01-title">
+        <h3 id="c1-01-title">C1.01 · Limits — what a function is trying to say</h3>
+        <p>A limit asks: as the input gets closer and closer to some value, what does the output approach? The function does not even need to be defined there — the limit cares about the journey, not the destination sign.</p>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Imagine walking toward a door. A limit is your prediction of where you will end up, based on your path — even if the door itself is missing. You can know you are heading to “5” without ever being allowed to stand on 5.</p>
+        </div>
+        <div class="formula">lim<sub>x→a</sub> f(x) = L<span class="hint">“as x approaches a, f(x) approaches L”</span></div>
+        <p><strong>The essential cases.</strong> A limit exists when every path to <em>a</em> gives the same answer. Left-hand and right-hand limits must match: lim<sub>x→a⁻</sub> f(x) = lim<sub>x→a⁺</sub> f(x). The famous trap is 0/0 — that is not an answer, it is a question. It means “both numerator and denominator vanish here; simplify, then ask again.”</p>
+        <p><strong>Worked example.</strong> Find lim<sub>x→2</sub> (x² − 4)/(x − 2). Direct substitution gives 0/0. Factor: (x−2)(x+2)/(x−2) = x+2 for x ≠ 2. Now the limit is 2 + 2 = <strong>4</strong>. The function is undefined at exactly x = 2, but the limit is 4 — journey, not destination.</p>
+        <p><strong>Toolbox.</strong> Limits obey algebraic laws: the limit of a sum is the sum of the limits, of a product the product, of a quotient the quotient (when the bottom limit is not zero). The squeeze theorem is the club favourite: if g(x) ≤ f(x) ≤ h(x) and both g and h approach L, then f is squeezed to L too.</p>
+        <p class="check-line"><strong>Check:</strong> Why does lim<sub>x→0</sub> sin(x)/x = 1 make sense geometrically (hint: compare the areas of a triangle, a sector and a quarter-circle)?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> limits are what let you say “the velocity at this exact instant” — you will formalise that in C1.03. Watch for limits whenever a formula politely refuses to divide by zero: electric field of a point charge at the source, density of an object of zero volume, and other “0/0” ghosts in disguise.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c1-02" aria-labelledby="c1-02-title">
+        <h3 id="c1-02-title">C1.02 · Continuity — no jumps, no holes</h3>
+        <p>A function is continuous at a point when three things agree: the function is defined there, the limit exists there, and the limit equals the value. Draw it with your finger without lifting: that is continuity.</p>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Discontinuities come in flavours: a removable hole (the point is missing or misplaced), a jump (the graph teleports to a new height), and an asymptote (the graph escapes to infinity). Continuous functions are the well-behaved citizens that make calculus possible.</p>
+        </div>
+        <p><strong>The payoff — the Intermediate Value Theorem.</strong> If a continuous function takes the values 2 and 5, it must pass through every value in between: 3.4, π, 4.999… No jumping allowed. Physically: if you read 20 °C at dawn and 30 °C at noon, the temperature was 25 °C at some moment — guaranteed, no thermometer needed for the proof.</p>
+        <p><strong>Worked example.</strong> Show that x³ + x − 1 = 0 has a solution between 0 and 1. Let f(x) = x³ + x − 1. Then f(0) = −1 and f(1) = +1. f is a polynomial, hence continuous everywhere. By IVT, f must equal zero somewhere in (0, 1). Done — without ever finding the number.</p>
+        <p class="check-line"><strong>Check:</strong> A student claims f(x) = 1/x is discontinuous “at zero.” Precisely what is missing — a hole, a jump, or an asymptote — and does the IVT apply across x = 0?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> conservation laws are continuity statements in disguise: energy cannot jump from 7 J to 9 J without passing through 8 J. General relativity and fluid mechanics even build whole equations (continuity equations) from the idea that what flows in must flow out.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c1-03" aria-labelledby="c1-03-title">
+        <h3 id="c1-03-title">C1.03 · The derivative — slope at a point</h3>
+        <p>The derivative is the instantaneous rate of change of a function. Geometrically it is the slope of the tangent line; physically it is the speedometer reading of whatever quantity you are tracking.</p>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Start with average speed: distance divided by time over a long trip. Now shrink the trip shorter and shorter — from an hour, to a minute, to a second, to an instant. The average speed settles onto a single number. That number is the derivative.</p>
+        </div>
+        <div class="formula">f′(x) = lim<sub>h→0</sub> [ f(x + h) − f(x) ] / h<span class="hint">slope of the tangent = limit of the slopes of secants</span></div>
+        <p><strong>Units rule (never forget it).</strong> The derivative's units are the output units divided by the input units. Position (m) differentiated gives velocity (m/s); velocity gives acceleration (m/s²); money over time is a rate of spending. If your units are wrong, your derivative is wrong.</p>
+        <p><strong>Worked example.</strong> f(x) = x². Then f′(x) = lim<sub>h→0</sub> [(x+h)² − x²]/h = lim<sub>h→0</sub> [2xh + h²]/h = lim<sub>h→0</sub> (2x + h) = 2x. So the slope of y = x² at x = 3 is 6 — the tangent line at (3, 9) is y = 6x − 9.</p>
+        <p><strong>Notation you will meet.</strong> f′(x), dy/dx (Leibniz), and ẋ (Newton's dot, for time-derivatives — the notation of mechanics). They all mean the same instant: “how fast is this changing, right now?”</p>
+        <p class="check-line"><strong>Check:</strong> If a rocket's height is h(t) = 4.9t² metres (t in seconds), what are the units of h′(t), and what is h′(2)? Interpret both in one sentence.</p>
+        <div class="physics-note"><p><strong>In physics:</strong> velocity is dx/dt, acceleration is dv/dt, current is dQ/dt, and EMF is −dΦ/dt (Faraday's law). Every “rate” in your formula sheet is a derivative wearing a different label.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c1-04" aria-labelledby="c1-04-title">
+        <h3 id="c1-04-title">C1.04 · Rules of differentiation</h3>
+        <p>Nobody differentiates from the definition after week two. These rules turn differentiation into bookkeeping:</p>
+        <div class="formula">Power: d/dx [xⁿ] = n·xⁿ⁻¹ &nbsp;·&nbsp; Sum: (f + g)′ = f′ + g′<br>Product: (fg)′ = f′g + fg′ &nbsp;·&nbsp; Quotient: (f/g)′ = (f′g − fg′) / g²</div>
+        <div class="formula">Chain rule: d/dx f(g(x)) = f′(g(x)) · g′(x)<span class="hint">“differentiate the outside, keep the inside, multiply by the inside's derivative”</span></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>The chain rule is the rule physics cannot live without, because nature composes functions: position depends on time, time-dependent angle depends on time, energy depends on position which depends on time. When one process nests inside another, you multiply the rates.</p>
+        </div>
+        <p><strong>Worked example.</strong> Differentiate y = (3x² + 1)⁵. Outside: 5(·)⁴. Inside: 6x. Result: y′ = 5(3x² + 1)⁴ · 6x = 30x(3x² + 1)⁴. Check by testing a value: at x = 0, y′ = 0 — sensible, since the inner function has zero slope there.</p>
+        <p class="check-line"><strong>Check:</strong> A pendulum's angle obeys θ(t) = θ₀ cos(ωt). Write dθ/dt using the chain rule — which factor carries the “how fast the phase changes” information?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> the chain rule is why angular velocity ω sneaks into every rotating system: d/dt of any function of angle brings a factor of ω = dθ/dt. It is also the mathematical heart of “rate of change depends on state” — feedback.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c1-05" aria-labelledby="c1-05-title">
+        <h3 id="c1-05-title">C1.05 · Exponentials, logarithms &amp; growth</h3>
+        <p>e<sup>x</sup> is the unique function equal to its own derivative — growth proportional to current size. Its partner, ln(x), undoes it and turns multiplication into addition.</p>
+        <div class="formula">d/dx e<sup>x</sup> = e<sup>x</sup> &nbsp;·&nbsp; d/dx ln(x) = 1/x &nbsp;·&nbsp; d/dx e<sup>kx</sup> = k·e<sup>kx</sup></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Interest you earn on your money behaves like e<sup>x</sup>: the more you have, the faster it grows, and that feedback loop is exactly what e encodes. Radioactive decay is the same story with a minus sign — shrinking in proportion to how much is left.</p>
+        </div>
+        <p><strong>Worked example.</strong> A sample has half-life T. After time t, N(t) = N₀ · 2<sup>−t/T</sup> = N₀ · e<sup>−(ln 2/T)·t</sup>. Differentiate: N′(t) = −(ln 2/T) · N(t) — the decay rate is proportional to the amount present, exactly as observed. The constant k = ln 2/T ≈ 0.693/T is what you plug into every half-life problem.</p>
+        <p><strong>Log rules that matter:</strong> ln(ab) = ln a + ln b, ln(aⁿ) = n ln a, and e<sup>ln x</sup> = x. In astronomy, magnitudes are logarithms of fluxes — 5 magnitudes = factor 100 in brightness — so comfort with logs is comfort with the night sky's ruler.</p>
+        <p class="check-line"><strong>Check:</strong> If a population doubles every 3 hours, write N(t) in the form N₀e<sup>kt</sup> and find k. What is the instantaneous growth rate when N = 1,000?</p>
+        <div class="physics-note"><p><strong>In physics:</strong> radioactive dating, RC circuits (capacitor charging), atmospheric pressure with altitude, the Boltzmann factor in thermodynamics, and the luminosity distance–redshift relation at small z are all exponentials or logarithms in disguise.</p></div>
+      </section>
+
+      <section class="teaching-section" id="c1-06" aria-labelledby="c1-06-title">
+        <h3 id="c1-06-title">C1.06 · Applications: rates, optimisation, curves</h3>
+        <p>Derivatives earn their keep when you use them:</p>
+        <ul>
+          <li><strong>Related rates.</strong> Two quantities are linked by an equation; differentiate both sides with respect to time, then substitute the known values. Water filling a conical tank: connect r and h by similar triangles first, then differentiate — never substitute numbers before differentiating.</li>
+          <li><strong>Optimisation.</strong> Write the quantity to maximise as one function, use a constraint to reduce it to one variable, set f′ = 0, and check it is a maximum (f″ &lt; 0, or test values either side). The universe loves minima too: light takes the path of least time, and nature often minimises energy.</li>
+          <li><strong>Curve sketching.</strong> f′ tells you where the function rises and falls; f″ tells you which way it bends (concavity). Together they replace pages of plotting: find f′ = 0 for turning points, f″ = 0 for inflection points, then draw.</li>
+        </ul>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>Think of f′ as the “mood” of the function: positive means rising, negative means falling, zero means flat (a candidate for a peak or a valley). f″ is how quickly that mood changes — the function's second thoughts.</p>
+        </div>
+        <p><strong>Worked example (optimisation).</strong> Of all rectangles with perimeter 40 cm, which has the largest area? Area A = xy, constraint 2x + 2y = 40 → y = 20 − x. So A(x) = x(20 − x) = 20x − x². A′(x) = 20 − 2x = 0 → x = 10, and A″ = −2 &lt; 0, so it is a maximum. The answer: the square, 10 × 10 cm, area 100 cm².</p>
+        <p class="check-line"><strong>Check:</strong> A rocket's height is h(t) = −4.9t² + 60t. At what time is it highest, and how high? Confirm with f″ rather than a picture.</p>
+        <div class="physics-note"><p><strong>In physics:</strong> maximum range at 45°, minimum energy orbits, equilibrium positions where potential energy is stationary (dV/dx = 0), and least-squares fitting of data all start with “set the derivative to zero.”</p></div>
+      </section>
+
+      <section class="teaching-section" id="c1-07" aria-labelledby="c1-07-title">
+        <h3 id="c1-07-title">C1.07 · Preview of integration</h3>
+        <p>Derivatives ask “how fast is it changing?” Integration asks the reverse: “given the rate, how much has accumulated?” The area under a rate curve is the total change — this is the Fundamental Theorem of Calculus, the bridge you will cross fully in <a href="calculus-2.html">Calculus II</a>.</p>
+        <div class="formula">∫<sub>a</sub><sup>b</sup> f(x) dx = F(b) − F(a), where F′ = f<span class="hint">total change = antiderivative at the end − antiderivative at the start</span></div>
+        <div class="simple-box">
+          <h3>Super-simple explanation</h3>
+          <p>If a speedometer reads constant 60 km/h for 2 hours, the trip is 60 × 2 = 120 km — area under the speed line. Integration is that same area calculation when the speed wiggles: slice the graph into thin strips, add them up, let the strips go to zero width.</p>
+        </div>
+        <p><strong>Worked example.</strong> v(t) = 3t² m/s. An antiderivative is t³ (since d/dt t³ = 3t²). Distance from t = 0 to t = 2 is 2³ − 0³ = 8 m. Notice: calculus let us integrate a varying velocity without ever memorising a “formula for distance.”</p>
+        <p class="check-line"><strong>Check:</strong> Which grows faster as t → ∞: t¹⁰ or e<sup>t</sup>? (Differentiate their ratio — or remember that exponentials beat every power.)</p>
+        <div class="physics-note"><p><strong>In physics:</strong> integrate acceleration → velocity → position; integrate power → energy; integrate force over distance → work. Every accumulation in the formula sheet is an integral waiting to happen.</p></div>
+      </section>
+
+      <section aria-labelledby="next-title">
+        <h2 id="next-title">Where to go next</h2>
+        <div class="topic">
+          <h3>Continue the pathway</h3>
+          <p>Move to <a href="calculus-2.html">Calculus II — Integration &amp; Series</a> for the techniques that make integration do real work, or jump to <a href="calculus-3.html">Calculus III</a> when you need partial derivatives for fields and potentials.</p>
+        </div>
+        <div class="topic">
+          <h3>See it in the club's physics</h3>
+          <p>The <a href="../handouts/04.03.html">IPhO Calculus handout</a> applies these ideas to physics problems, and the <a href="../mechanics/">Mechanics Lab</a> lets you watch velocity as the slope of a position graph, live.</p>
+        </div>
+        <div class="topic">
+          <h3>Practice with friends</h3>
+          <p>Bring a whiteboard to a club session: one person states a physics situation (“water drains through a hole”), the group writes the related-rate equation together. See the <a href="../club/">Club</a> page for how paper-reading and problem nights run.</p>
+        </div>
+      </section>
+
+      <p class="teaching-contact">Errors, suggestions or requests for more worked examples? Write to <a href="mailto:physicsandastronomy24@gmail.com">physicsandastronomy24@gmail.com</a>.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <span>MAIS Physics &amp; Astronomy Club (PAC)</span>
+    <span>Mongol Aspiration International School · Ulaanbaatar, Mongolia</span>
+  </footer>
+</body>
+</html>
