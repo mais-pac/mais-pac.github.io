@@ -22,7 +22,14 @@ codes = [f'01.0{i}' for i in range(1, 6)] + ['06.01'] + [
     '07.01', '07.02', '08.01', '08.02', '08.03', '08.04', '08.05',
     '09.01', '09.02', '09.03', '09.04', '10.01', '10.02', '10.03', '10.04']
 legacy = ['A1', 'A2', 'A3', 'P1', 'P2', 'P3']
-all_codes = codes + legacy
+import sys
+sys.path.insert(0, str(ROOT / 'scripts'))
+try:
+    from ipho_topics import TOPICS
+    ipho = [t['code'] for t in TOPICS]
+except Exception:  # pragma: no cover
+    ipho = []
+all_codes = codes + legacy + ipho
 
 for code in all_codes:
     for suffix in ('', '-solutions'):
@@ -66,7 +73,12 @@ for code in all_codes:
                 tsoup = BeautifulSoup(target.read_text(), 'html.parser')
                 if not tsoup.find(id=parsed.fragment):
                     issue(p.name, f'broken cross-file anchor {href}')
-        if code in codes:
+        if code in ipho:
+            expected = 10
+            n = len(soup.select('.solution' if suffix else '.problem'))
+            if n != expected:
+                issue(p.name, f'expected {expected} {"solutions" if suffix else "problems"}, found {n}')
+        elif code in codes:
             expected = 30 if code == '06.01' else (15 if code.startswith('01.') else 10)
             if suffix == '':
                 n = len(soup.select('.problem'))
