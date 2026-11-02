@@ -27,6 +27,15 @@ ACCENTS = {
     "P3": ("#2457c5", "#1e3a8a"),
 }
 
+# The IPhO curriculum handouts are self-styled (inline CSS, no ../style.css
+# link) and carry their code as "ipho-<code>.html"; give them their own accents.
+IPHO_ACCENTS = [
+    ("#2457c5", "#1e3a8a"),
+    ("#0c8275", "#115e59"),
+    ("#7540b8", "#4c1d95"),
+    ("#b45309", "#78350f"),
+]
+
 BASE_CSS = r"""
 @page { size: A4; margin: 52pt 48pt 48pt; }
 @font-face { font-family: ClubSans; src: url("pdf/fonts/DejaVuSans.ttf"); }
@@ -97,16 +106,27 @@ def _flatten_fractions(root) -> None:
         node.getparent().replace(node, replacement)
 
 
-def pdf_html(source: Path, accent: str, dark: str) -> str:
+def pdf_html(source: Path, accent: str, dark: str, ipho: bool = False) -> str:
     text = source.read_text(encoding="utf-8")
     css = BASE_CSS.replace("DARKACCENT", dark).replace("ACCENT", accent)
     root = lxml_html.fromstring(text)
     stylesheets = root.xpath("//link[@rel='stylesheet' and starts-with(@href, '../style.css')]")
-    if not stylesheets:
+    if stylesheets:
+        style = lxml_html.Element("style")
+        style.text = css
+        stylesheets[0].getparent().replace(stylesheets[0], style)
+    elif not ipho:
         raise RuntimeError(f"Could not find site stylesheet link in {source}")
-    style = lxml_html.Element("style")
-    style.text = css
-    stylesheets[0].getparent().replace(stylesheets[0], style)
+    else:
+        # The IPhO sheets inline their own stylesheet; add only the print rules.
+        head = root.find("head")
+        style = lxml_html.Element("style")
+        style.text = css
+        if head is not None:
+            head.append(style)
+        # Scripts and interactive controls cannot appear in the PDF.
+        for node in root.xpath("//script | //button | //input | //select | //output"):
+            node.getparent().remove(node)
     body = root.find("body")
     if body is not None:
         body.set("class", "pdf-export")
@@ -148,14 +168,20 @@ def main() -> None:
             continue
         stem = source.stem
         code = stem.removesuffix("-solutions")
-        if code not in ACCENTS:
+        ipho = code.startswith("ipho-")
+        if ipho:
+            number = code.removeprefix("ipho-")
+            group = int(number.split(".")[0]) if "." in number else 0
+            accent, dark = IPHO_ACCENTS[(group - 1) % len(IPHO_ACCENTS)]
+        elif code in ACCENTS:
+            accent, dark = ACCENTS[code]
+        else:
             continue
-        accent, dark = ACCENTS[code]
         kind = "Solutions" if stem.endswith("-solutions") else "Handout"
         output = OUTPUT / f"{stem}.pdf"
         rendered = BytesIO()
         result = pisa.CreatePDF(
-            pdf_html(source, accent, dark),
+            pdf_html(source, accent, dark, ipho),
             dest=rendered,
             path=str(source),
             encoding="utf-8",
@@ -164,6 +190,8 @@ def main() -> None:
         if result.err:
             raise RuntimeError(f"Could not render {source.name}: {result.err}")
         pdf_bytes = add_masthead(rendered.getvalue(), code, accent, kind)
+        if ipho:
+            pass
         output.write_bytes(pdf_bytes)
         built += 1
         print(f"Built {output.relative_to(ROOT)} ({len(pdf_bytes):,} bytes)")
