@@ -1,0 +1,49 @@
+name: Refresh News page daily
+
+# Rebuilds news/index.html from live feeds (NASA APOD + Spaceflight News API)
+# every day, with no manual editing. See scripts/build_news.py for the logic
+# and scripts/news_data.py for the fallback content used if a feed is down.
+
+on:
+  schedule:
+    # 23:00 UTC = 07:00 Ulaanbaatar time (UTC+8) — refresh before the club's day starts.
+    - cron: "0 23 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-news
+  cancel-in-progress: false
+
+jobs:
+  rebuild-news:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild news/index.html from live feeds
+        env:
+          NASA_API_KEY: ${{ secrets.NASA_API_KEY }}
+        run: python scripts/build_news.py
+
+      - name: Commit and push if the page changed
+        run: |
+          if git diff --quiet -- news/index.html; then
+            echo "No content changes today — nothing to commit."
+            exit 0
+          fi
+          git config user.name "mais-pac-news-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add news/index.html
+          git commit -m "Auto-refresh News page [skip ci]"
+          git push
