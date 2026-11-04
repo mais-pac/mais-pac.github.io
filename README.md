@@ -15,6 +15,10 @@ teaching/index.html         Curriculum, lecture PDFs, problem sets, and handouts
 handouts/                   Six legacy handouts, Cosmology 06.01, and Basic Astrophysics 01.01–01.05
 handouts/pdf/               Downloadable PDFs of the handouts and solutions
 mechanics/index.html        Self-contained Mechanics Playground (13 interactive simulations)
+news/index.html              Sky & Space News — auto-rebuilt daily, see "News page" section below
+scripts/build_news.py        Rebuild news/index.html from live NASA APOD + Spaceflight News API feeds
+scripts/news_data.py         Hook-sentence pools, reference-link map, and offline fallback content
+.github/workflows/daily-news.yml  Daily cron that runs build_news.py and commits changes
 scripts/build_mechanics.py  Build the Mechanics Playground page
 scripts/build_basic.py      Build the five HTML-first Basic Astrophysics handouts
 scripts/build_syllabus.py   Build the official-style IOAA syllabus PDF
@@ -25,6 +29,35 @@ scripts/question_sets.py   Original practice exercises for Coordinates and Times
 style.css                   Site layout and colorful print/handout styles
 assets/club-logo.png        Club crest
 ```
+
+## News page (auto-refreshing)
+
+`news/index.html` rebuilds itself every day — nobody edits it by hand:
+
+- `.github/workflows/daily-news.yml` runs `scripts/build_news.py` on a daily
+  cron (07:00 Ulaanbaatar time) and commits the result only if the content
+  changed.
+- The **"Today's Cosmic Wonder"** feature pulls NASA's Astronomy Picture of
+  the Day and rewrites it into one short, plain-English paragraph with a
+  hook opener/closer, so anyone can read the main point in a few seconds.
+- The **Astronomy**, **Missions & rockets**, and **Elon Musk & SpaceX**
+  lists are pulled from the free [Spaceflight News API](https://api.spaceflightnewsapi.net/v4/docs/)
+  and sorted into those buckets by keyword.
+- Every headline gets a "Read more" link to the original article **and** a
+  second "Reference" link to a primary/agency source (NASA, ESA, SpaceX,
+  arXiv, Wikipedia…) for deeper reading.
+- If either API is unreachable (outage, rate limit, offline build), the
+  script falls back to a hand-checked, real, sourced dataset in
+  `scripts/news_data.py` so the page is never broken or blank.
+
+Run it yourself:
+
+```bash
+npm run build:news            # or: python scripts/build_news.py
+```
+
+Optional: set `NASA_API_KEY` (repo secret or env var) to use your own NASA
+API key instead of the shared `DEMO_KEY` for a higher rate limit.
 
 ## Local preview
 

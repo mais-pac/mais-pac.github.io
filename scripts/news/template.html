@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Astronomy, spaceflight and SpaceX news for the MAIS Physics &amp; Astronomy Club — refreshed automatically every day, with a daily plain-language cosmic highlight, further reading and primary references.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://mais-pac.github.io/news/">
+  <title>News · MAIS Physics &amp; Astronomy Club</title>
+  <link rel="icon" type="image/png" href="../assets/club-logo.png">
+  <link rel="stylesheet" href="../style.css?v=news-auto-1">
+<script data-pac-sticky>/* Keep anchored content clear of the persistent navigation, including wrapped mobile links. */
+(() => {
+  const start = () => {
+    const bar = document.querySelector('.site-header, .handout-bar');
+    if (!bar) return;
+    const update = () => {
+      const height = Math.ceil(bar.getBoundingClientRect().height);
+      document.documentElement.style.setProperty('--header-offset', height + 'px');
+    };
+    update();
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(bar);
+    else window.addEventListener('resize', update);
+    window.addEventListener('load', update, { once: true });
+    if (document.fonts) document.fonts.ready.then(update);
+  };
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
+  else start();
+})();
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="../" aria-label="MAIS Physics and Astronomy Club home">MAIS <span>Physics &amp; Astronomy Club</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../">Home</a>
+        <a href="../about/">About</a>
+        <a href="../club/">Club</a>
+        <a href="../teaching/">Teaching</a>
+        <a href="../math/">Math</a>
+        <a href="../mechanics/">Mechanics Lab</a>
+        <a href="../explore/">Explore</a>
+        <a class="nav-news active" aria-current="page" href="./">News <span class="nav-live-dot" aria-hidden="true"></span></a>
+        <a href="../resources/">Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-layout">
+    <aside class="profile" aria-label="Club information">
+      <img class="club-logo" src="../assets/club-logo.png" alt="MAIS Physics and Astronomy Club crest: a glowing black hole against a star-filled sky" width="403" height="487">
+      <h1>MAIS Physics &amp;<br>Astronomy Club</h1>
+      <p class="school">Mongol Aspiration<br>International School</p>
+      <p class="location">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+          <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/>
+          <circle cx="12" cy="10" r="2.5"/>
+        </svg>
+        Ulaanbaatar, Mongolia
+      </p>
+      <div class="profile-details">
+        <h2>Our club</h2>
+        <p>Founded 14 November 2024</p>
+        <p>Founder: Galbadrakh Ulziibold</p>
+        <p>Physics · Astronomy · Curiosity</p>
+      </div>
+    </aside>
+
+    <main id="main-content" class="teaching-main">
+      <h2 class="page-title">Sky &amp; Space News</h2>
+      <p class="auto-refresh-badge"><span class="nav-live-dot" aria-hidden="true"></span> Refreshes automatically every day — no manual editing</p>
+      <p class="lead">What is happening above us and around the industry — pulled in automatically from NASA and the Spaceflight News API, then organised for club discussions. Last refreshed {{LAST_UPDATED}}. Every item links to its source, plus a second reference so you can read deeper and form your own opinion.</p>
+
+      <section aria-labelledby="wonder-title">
+        <h2 id="wonder-title" class="sr-only-heading">Today's Cosmic Wonder</h2>
+        <article class="cosmic-wonder {{HERO_CARD_MODIFIER}}">
+          <div class="cw-text">
+            <span class="cw-eyebrow"><span class="nav-live-dot" aria-hidden="true"></span> Today's Cosmic Wonder</span>
+            <h3>{{HERO_TITLE}}</h3>
+            <span class="cw-date">{{HERO_DATE}} · explained in plain English</span>
+            <p class="cw-paragraph">{{HERO_PARAGRAPH}}</p>
+            <p class="cw-links">
+              <a href="{{HERO_FURTHER_URL}}" target="_blank" rel="noopener">Further reading: {{HERO_FURTHER_LABEL}} ↗</a>
+              <a href="{{HERO_REFERENCE_URL}}" target="_blank" rel="noopener">Reference: {{HERO_REFERENCE_LABEL}} ↗</a>
+            </p>
+          </div>
+          {{HERO_FIGURE}}
+        </article>
+      </section>
+
+      <section aria-labelledby="astro-title">
+        <h2 id="astro-title">Astronomy &amp; space science</h2>
+        <ul class="news-list">
+{{ASTRO_ITEMS}}
+        </ul>
+      </section>
+
+      <section aria-labelledby="missions-title">
+        <h2 id="missions-title">Missions &amp; rockets</h2>
+        <ul class="news-list">
+{{MISSION_ITEMS}}
+        </ul>
+      </section>
+
+      <section aria-labelledby="musk-title">
+        <h2 id="musk-title">Elon Musk &amp; SpaceX</h2>
+        <ul class="news-list">
+{{MUSK_ITEMS}}
+        </ul>
+      </section>
+
+      <section aria-labelledby="follow-title">
+        <h2 id="follow-title">Follow the sky yourself</h2>
+        <p>Club rule: verify before you repeat. These are the sources we check weekly — then we bring the interesting stories to meetings.</p>
+        <ul class="guide-steps">
+          <li>
+            <strong>Primary sources first</strong>
+            <p><a href="https://www.nasa.gov/news/" target="_blank" rel="noopener">NASA News ↗</a>, <a href="https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration" target="_blank" rel="noopener">ESA ↗</a>, and mission blogs — press releases before headlines. When a claim matters, find who actually did the work.</p>
+          </li>
+          <li>
+            <strong>Science news with an editorial filter</strong>
+            <p><a href="https://www.sciencedaily.com/news/space_time/" target="_blank" rel="noopener">ScienceDaily Space &amp; Time ↗</a>, <a href="https://www.nasa.gov/" target="_blank" rel="noopener">NASA ↗</a>, <a href="https://www.space.com/" target="_blank" rel="noopener">Space.com ↗</a> — good for discovery stories; always click through to the paper when a number surprises you.</p>
+          </li>
+          <li>
+            <strong>Rocket &amp; industry coverage</strong>
+            <p><a href="https://spacenews.com/" target="_blank" rel="noopener">SpaceNews ↗</a> for launches, contracts and policy; launch trackers like <a href="https://nextspaceflight.com/" target="_blank" rel="noopener">Next Spaceflight ↗</a> for dates (all dates tentative until announced!).</p>
+          </li>
+          <li>
+            <strong>The papers themselves</strong>
+            <p>New astronomy results appear first on <a href="https://arxiv.org/list/astro-ph/new" target="_blank" rel="noopener">arXiv astro-ph ↗</a>. Use our <a href="../resources/">Resources</a> guide to read one properly — abstract, figures, conclusion, in that order.</p>
+          </li>
+          <li>
+            <strong>Tonight's sky</strong>
+            <p><a href="https://stellarium-web.org/" target="_blank" rel="noopener">Stellarium Web ↗</a> to see what's actually above Ulaanbaatar right now — news is better when you can point a telescope at the object.</p>
+          </li>
+        </ul>
+        <div class="physics-note"><p><strong>Discussion starter:</strong> pick one story from this page per meeting. Each member states (a) what was observed, (b) how we know, (c) what it does <em>not</em> prove. That three-line format is the seed of the paper-reading skill on the <a href="../resources/">Resources</a> page.</p></div>
+      </section>
+
+      <p class="teaching-contact">This page rebuilds itself every day straight from NASA's Astronomy Picture of the Day and the Spaceflight News API — see <a href="https://github.com/mais-pac/mais-pac.github.io/blob/main/scripts/build_news.py" target="_blank" rel="noopener">scripts/build_news.py ↗</a>. Spotted something big the feeds missed? Send the link to <a href="mailto:physicsandastronomy24@gmail.com">physicsandastronomy24@gmail.com</a>.</p>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <span>MAIS Physics &amp; Astronomy Club (PAC)</span>
+    <span>Mongol Aspiration International School · Ulaanbaatar, Mongolia</span>
+  </footer>
+</body>
+</html>
